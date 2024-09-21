@@ -336,10 +336,9 @@ SELECT students.name AS student_name, courses.title AS course_title
 	INNER JOIN courses ON courses.id = students_courses.course_id
 	ORDER BY students.id;
 
-SELECT students.name AS student_name, COUNT(courses.id) AS num_courses
+SELECT students.name AS student_name, COUNT(students_courses.course_id) AS num_courses
 	FROM students 
-	INNER JOIN students_courses ON students.id = students_courses.student_id
-	INNER JOIN courses ON courses.id = students_courses.course_id
+	LEFT JOIN students_courses ON students.id = students_courses.student_id
 	GROUP BY students.id
 	ORDER BY students.id;
 
@@ -353,10 +352,9 @@ SELECT teachers.name AS teacher_name, courses.title AS course_title
 WITH 
 	temp_table AS
 	(
-		SELECT courses.title AS course_title, COUNT(students.id) AS num_students, ROUND(AVG(students_courses.rating), 1) AS course_rating
+		SELECT courses.title AS course_title, COUNT(students_courses.student_id) AS num_students, ROUND(AVG(students_courses.rating), 1) AS course_rating
 			FROM courses 
-			INNER JOIN students_courses ON courses.id = students_courses.course_id
-			INNER JOIN students ON students.id = students_courses.student_id
+			LEFT JOIN students_courses ON courses.id = students_courses.course_id
 			GROUP BY courses.id
 			ORDER BY courses.id
 	)
@@ -375,10 +373,9 @@ SELECT courses.title AS course_title, chapters.title AS chapter_title, lessons.t
 WITH 
 	temp_table AS
 	(
-		SELECT courses.teacher_id AS teacher_id, courses.title AS course_title, COUNT(students.id) AS num_students
+		SELECT courses.teacher_id AS teacher_id, courses.title AS course_title, COUNT(students_courses.student_id) AS num_students
 			FROM courses
 			LEFT JOIN students_courses ON courses.id = students_courses.course_id
-			LEFT JOIN students ON students.id = students_courses.student_id
 			GROUP BY courses.id
 			ORDER BY courses.id
 	)
@@ -388,12 +385,11 @@ SELECT temp_table.course_title, teachers.name AS teacher_name, temp_table.num_st
 	WHERE teachers.name IS NULL OR temp_table.num_students = 0;
 
 -- Q6
-SELECT courses.title AS course_title, COUNT(DISTINCT chapters.id) AS num_chapters, COUNT(DISTINCT lessons.id) AS num_lessons, COUNT(DISTINCT students.id) AS num_students
+SELECT courses.title AS course_title, COUNT(DISTINCT chapters.id) AS num_chapters, COUNT(DISTINCT lessons.id) AS num_lessons, COUNT(DISTINCT students_courses.student_id) AS num_students
 	FROM courses
 	INNER JOIN chapters ON courses.id = chapters.course_id
 	INNER JOIN lessons ON chapters.id = lessons.chapter_id
 	LEFT JOIN students_courses ON courses.id = students_courses.course_id
-	LEFT JOIN students ON students.id = students_courses.student_id
 	GROUP BY courses.id
 	ORDER BY courses.id;
 
@@ -408,22 +404,21 @@ SELECT courses.title AS course_title, chapters.title AS chapter_title, COUNT(les
 -- Q8 & Q9
 SELECT students.name AS student_name, courses.title AS course_title, chapters.title AS chapter_title, lessons.title AS lesson_title
 	FROM students
-	INNER JOIN students_courses ON students.id = students_courses.student_id
-	INNER JOIN courses ON courses.id = students_courses.course_id
-	INNER JOIN chapters ON courses.id = chapters.course_id
-	INNER JOIN lessons ON chapters.id = lessons.chapter_id
+	LEFT JOIN students_courses ON students.id = students_courses.student_id
+	LEFT JOIN courses ON courses.id = students_courses.course_id
+	LEFT JOIN chapters ON courses.id = chapters.course_id
+	LEFT JOIN lessons ON chapters.id = lessons.chapter_id
 	ORDER BY students.id;
 
 -- Create a students_lessons table
 CREATE TABLE students_lessons AS
 	SELECT students.id AS student_id, lessons.id AS lesson_id
 		FROM students
-		INNER JOIN students_courses ON students.id = students_courses.student_id
-		INNER JOIN courses ON courses.id = students_courses.course_id
-		INNER JOIN chapters ON courses.id = chapters.course_id
-		INNER JOIN lessons ON chapters.id = lessons.chapter_id
-		ORDER BY students.id, lessons.id;
-		
+		LEFT JOIN students_courses ON students.id = students_courses.student_id
+		LEFT JOIN chapters ON students_courses.course_id = chapters.course_id
+		LEFT JOIN lessons ON chapters.id = lessons.chapter_id
+		ORDER BY students.id;
+
 ALTER TABLE students_lessons 
 	ADD FOREIGN KEY(student_id) references students(id),
 	ADD FOREIGN KEY(lesson_id) references lessons(id),
@@ -452,9 +447,9 @@ WITH
 	)
 SELECT courses.title AS course_title, chapters.title AS chapter_title, lessons.title AS lesson_title, num_Finish, num_Studying, num_NotYet
 	FROM courses
-	INNER JOIN chapters ON courses.id = chapters.course_id
-	INNER JOIN lessons ON chapters.id = lessons.chapter_id
-	INNER JOIN temp_table ON lessons.id = temp_table.lesson_id
+	LEFT JOIN chapters ON courses.id = chapters.course_id
+	LEFT JOIN lessons ON chapters.id = lessons.chapter_id
+	LEFT JOIN temp_table ON lessons.id = temp_table.lesson_id
 	ORDER BY courses.id, chapters.id;
 
 -- Other
