@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.example.lesson_13;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class Lesson13Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(Lesson13Application.class, args);
 		System.out.println("Hello course online project");
 	}
 
