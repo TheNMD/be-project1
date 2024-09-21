@@ -1,2 +1,5 @@
 /venv
+.mvn/wrapper
+mvnw
+mvnw.cmd
 /notes.txt
