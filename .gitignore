@@ -2,4 +2,5 @@
 .mvn/wrapper
 mvnw
 mvnw.cmd
+/test
 /notes.txt
