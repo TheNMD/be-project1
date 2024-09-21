@@ -8,7 +8,5 @@ public class Lesson13Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Lesson13Application.class, args);
-		System.out.println("Hello course online project");
 	}
-
 }
