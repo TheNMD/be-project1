@@ -1,52 +1,45 @@
 -- PostgreSQL
 
 -- Entities
-CREATE TABLE students 
-(
+CREATE TABLE students (
 	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL,
 	status VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE teachers 
-(
+CREATE TABLE teachers (
 	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL,
 	status VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE courses 
-(
+CREATE TABLE courses (
 	id BIGSERIAL PRIMARY KEY,
 	title VARCHAR(255) NOT NULL,
 	description VARCHAR(255),
 	credit INT
 );
 
-CREATE TABLE chapters 
-(
+CREATE TABLE chapters (
 	id BIGSERIAL PRIMARY KEY,
 	title VARCHAR(255) NOT NULL,
 	description VARCHAR(255)
 );
 
-CREATE TABLE lessons 
-(
+CREATE TABLE lessons (
 	id BIGSERIAL PRIMARY KEY,
 	title VARCHAR(255) NOT NULL,
 	description VARCHAR(255)
 );
 
-CREATE TABLE admin 
-(
+CREATE TABLE admin (
 	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL,
 	status VARCHAR(255) NOT NULL
 );
 
 -- Relationships
-CREATE TABLE students_courses 
-(
+CREATE TABLE students_courses (
 	student_id BIGINT,
 	FOREIGN KEY(student_id) references students(id),
 	course_id BIGINT,
@@ -351,8 +344,7 @@ SELECT teachers.name AS teacher_name, courses.title AS course_title
 
 -- Q3
 WITH 
-	temp_table AS
-	(
+	temp_table AS (
 		SELECT courses.title AS course_title, COUNT(students.id) AS num_students, ROUND(AVG(students_courses.rating), 1) AS course_rating
 			FROM courses 
 			INNER JOIN students_courses ON courses.id = students_courses.course_id
@@ -373,8 +365,7 @@ SELECT courses.title AS course_title, chapters.title AS chapter_title, lessons.t
 
 -- Q5
 WITH 
-	temp_table AS
-	(
+	temp_table AS (
 		SELECT courses.teacher_id AS teacher_id, courses.title AS course_title, COUNT(students.id) AS num_students
 			FROM courses
 			LEFT JOIN students_courses ON courses.id = students_courses.course_id
@@ -439,8 +430,7 @@ UPDATE students_lessons
 
 -- Count number of students that have finished a lessons.
 WITH
-	temp_table AS
-	(
+	temp_table AS (
 		SELECT
 			lesson_id,
 		    SUM(CASE WHEN students_lessons.status = 'Finished' THEN 1 ELSE 0 END) AS num_Finish,
