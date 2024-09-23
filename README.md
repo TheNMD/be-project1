@@ -1,4 +1,4 @@
-# SPRINGBOOT - MAVEN COMMANDS
+# SPRING BOOT - MAVEN COMMANDS
 0. Create src folder:
     - Ctrl + Shift + P
     - Spring Initializr
