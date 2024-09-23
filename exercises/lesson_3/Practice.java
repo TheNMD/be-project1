@@ -66,7 +66,7 @@ public class Practice {
         if (a <= 0 || b <= 0 || c <= 0) {
             System.out.println("NO");
         }
-        if (a + b > c && a + c  > b && b + c > a) {
+        else if (a + b > c && a + c  > b && b + c > a) {
             System.out.println("YES");
         }
         else {
