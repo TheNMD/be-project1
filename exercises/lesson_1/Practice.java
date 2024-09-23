@@ -9,10 +9,10 @@ public class Practice {
 
     public void question2() {
         System.out.println("Question 2:\n");
-        System.out.println("    J     A   V     V   A ");
-        System.out.println("    J    A A   V   V   A A ");
-        System.out.println("J   J   AAAAA   V V   AAAAA ");
-        System.out.println(" J J   A     A   V   A     A");
+        System.out.println("    J     A     V     V     A ");
+        System.out.println("    J    A A     V   V     A A ");
+        System.out.println("J   J   AAAAA     V V     AAAAA ");
+        System.out.println(" J J   A     A     V     A     A");
         System.out.println();
     }
 
