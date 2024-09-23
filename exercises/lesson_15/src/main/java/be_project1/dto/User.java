@@ -1,4 +1,4 @@
-package be_project1.lesson_15.dto.request;
+package be_project1.lesson_15.dto;
 
 public class User {
     private String username;
