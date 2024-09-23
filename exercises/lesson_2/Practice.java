@@ -88,7 +88,10 @@ public class Practice {
 
     public void question7(double a, double b, double c) {
         System.out.println("Question 6:\n");
-        if (a + b > c && a + c  > b && b + c > a) {
+        if (a <= 0 || b <= 0 || c <= 0) {
+            System.out.println("Not a triangle");
+        }
+        else if (a + b > c && a + c  > b && b + c > a) {
             double perimeter = a + b + c;
             // Heron's method
             double s = (a + b + c) / 2;
