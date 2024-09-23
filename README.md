@@ -4,13 +4,11 @@
     - Spring Initializr
     - Spring 3.3.4
     - Java 23
-    - Group ID: be_project<n>
+    - Group ID: be_project1
     - Artifact ID: lesson_<n>
     - Dependencies: Spring Web, Lombok, Postgres
 1. Edit files in src/main/java/<group_id>/<artifact_id>
 2. ./mvnw spring-boot:run
-
-
 
 # POSTGRESQL COMMANDS
 0. **Version**: psql --version
