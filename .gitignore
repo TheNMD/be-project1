@@ -1,6 +1,7 @@
-/venv
 .mvn/wrapper
 mvnw
 mvnw.cmd
+/venv
 /test
+/materials
 /notes.txt
