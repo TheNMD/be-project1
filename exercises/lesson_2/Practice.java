@@ -108,12 +108,11 @@ public class Practice {
             else {
                 System.out.println("Scalene triangle");
             }
-            System.out.println(""); 
         }
         else {
             System.out.println("Not a triangle");
-            System.out.println("");
         }
+        System.out.println("");
     }
 
     public int question8(int num, int divisor) {
