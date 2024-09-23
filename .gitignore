@@ -2,6 +2,5 @@
 mvnw
 mvnw.cmd
 /venv
-/test
 /materials
-/notes.txt
+/test
