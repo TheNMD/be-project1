@@ -134,6 +134,7 @@ public class Practice {
                 System.out.printf("x = %.2f\n", -c / b);
             }
         }
+        
         double delta = b * b - 4 * a * c ;
         if (delta < 0) {
             System.out.println("No solution");
