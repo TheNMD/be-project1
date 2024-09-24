@@ -1,11 +1,4 @@
 public class Practice {
-    // ax + b = c
-    public void question0(double a, double b, double c) {
-        System.out.println("Question 0:\n");
-        System.out.printf("x = %.2f\n", (c - b) / a);
-        System.out.println();
-    }
-
     public void question1(double inches) {
         System.out.println("Question 1:\n");
         System.out.printf("%.2f inches = %.2f cm\n", inches, inches * 2.54);
@@ -135,7 +128,7 @@ public class Practice {
         System.out.println("Question 9:\n");
         if (a == 0) {
             if (b == 0) {
-                System.out.println("No solution");
+                System.out.println("Infinite solutions");
             }
             else {
                 System.out.printf("x = %.2f\n", -c / b);
