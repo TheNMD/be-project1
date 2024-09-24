@@ -922,7 +922,7 @@ SELECT students.id, students.lastname, students.midname, students.firstname
 	FROM students
 	LEFT JOIN students_classes ON students.id = students_classes.student_id
 	LEFT JOIN classes ON classes.id = students_classes.class_id
-	WHERE (classes.title = 'Literature' AND students_classes.score >= 8) OR (classes.title = 'English' AND students_classes.score < 6)
+	WHERE (classes.title = 'Literature' AND students_classes.score >= 8) AND (classes.title = 'English' AND students_classes.score < 6)
 	GROUP BY students.id
 	ORDER BY students.id;
 
