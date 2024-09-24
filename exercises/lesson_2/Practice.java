@@ -14,10 +14,10 @@ public class Practice {
 
     public void question2(String degreeType, double degree) {
         System.out.println("Question 2:\n");
-        if (degreeType == "C") {
+        if (degreeType.equals("C")) {
             System.out.printf("%.2f C = %.2f F\n", degree, degree * 9 / 5 + 32);
         }
-        else if (degreeType == "F") {
+        else if (degreeType.equals("F")) {
             System.out.printf("%.2f F = %.2f C\n", degree, (degree - 32) * 5 / 9);
         }
         System.out.println();
@@ -133,13 +133,20 @@ public class Practice {
 
     public void question9(double a, double b, double c) {
         System.out.println("Question 9:\n");
+        if (a == 0) {
+            if (b == 0) {
+                System.out.println("No solution");
+            }
+            else {
+                System.out.printf("x = %.2f\n", -c / b);
+            }
+        }
         double delta = b * b - 4 * a * c ;
         if (delta < 0) {
             System.out.println("No solution");
         }
         else if (delta == 0) {
-            double solution = -b / (2 * a);
-            System.out.printf("x1 = x2 = %.2f\n", solution);
+            System.out.printf("x1 = x2 = %.2f\n", -b / (2 * a));
         }
         else {
             double solution1 = (-b + Math.sqrt(delta)) / (2 * a);
