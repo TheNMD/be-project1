@@ -197,7 +197,7 @@ public class Practice {
     public void question9() {
         Scanner scanner = new Scanner(System.in);
         long num;
-        long evenDenominator = 0;
+        long numEvenDenominator = 0;
 
         System.out.println("Question 9:\n");
         System.out.print("Number of tests: ");
@@ -206,13 +206,86 @@ public class Practice {
             System.out.printf("\nTest [%d]: ", i + 1);
             num = scanner.nextLong();
             for (int j = 1; j <= num; j++) {
-                evenDenominator += (num % j == 0 && j % 2 == 0 ? 1 : 0);
+                numEvenDenominator += (num % j == 0 && j % 2 == 0 ? 1 : 0);
             }
-            System.out.printf("\nResult = %d\n", evenDenominator);
+            System.out.printf("\nResult = %d\n", numEvenDenominator);
         }
         scanner.close();
         System.out.println();
     }
+
+    public static int[][] transpose(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        int[][] transposedMatrix = new int[cols][rows];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                transposedMatrix[j][i] = matrix[i][j];
+            }
+        }
+
+        return transposedMatrix;
+    }
+
+    public static int[][] multiplyMatrices(int[][] matrixA, int[][] matrixB) {
+        int rowsA = matrixA.length;
+        int colsA = matrixA[0].length;
+
+        int rowsB = matrixB.length;
+        int colsB = matrixB[0].length;
+        
+        int[][] result = new int[rowsA][colsB];
+        for (int i = 0; i < rowsA; i++) {
+            for (int j = 0; j < colsB; j++) {
+                result[i][j] = 0;
+                for (int k = 0; k < colsA; k++) {
+                    result[i][j] += matrixA[i][k] * matrixB[k][j];
+                }
+            }
+        }
+        
+        return result;
+    }
+
+    public void question10() {
+        Scanner scanner = new Scanner(System.in);
+        int N;
+        int M;
+        int[][] matrix;
+
+        System.out.println("Question 10:\n");
+        System.out.print("Number of tests: ");
+        int numTest = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < numTest; i++) {
+            System.out.printf("\nTest [%d]: ", i + 1);
+            N = scanner.nextInt();
+            M = scanner.nextInt();
+
+            matrix = new int[N][M];
+            for (int j = 0; j < N; j++) {
+                for (int k = 0; k < M; k++) {
+                    matrix[j][k] = scanner.nextInt();
+                }
+            }
+
+            int[][] transposedMatrix = transpose(matrix);
+
+            int[][] resultMatrix = multiplyMatrices(matrix, transposedMatrix);
+
+            System.out.printf("\nResult [%d]:\n", i + 1);
+            for (int j = 0; j < resultMatrix.length; j++) {
+                for (int k = 0; k < resultMatrix[j].length; k++) {
+                    System.out.printf("%d ", resultMatrix[j][k]);
+                }
+                System.out.println();
+            }
+
+        }
+        scanner.close();
+        System.out.println();
+    }
+
 
     public static void main(String[] args) {
         Practice obj = new Practice();
@@ -228,8 +301,9 @@ public class Practice {
         obj.question5();
         double[] tempArr = {1, 0, 1}; 
         obj.question6(tempArr);
-        // obj.question7();
-        // obj.question8();
+        obj.question7();
+        obj.question8();
         obj.question9();
+        obj.question10();
     }
 }
