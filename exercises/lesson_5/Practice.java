@@ -194,6 +194,26 @@ public class Practice {
         System.out.println();
     }
 
+    public void question9() {
+        Scanner scanner = new Scanner(System.in);
+        long num;
+        long evenDenominator = 0;
+
+        System.out.println("Question 9:\n");
+        System.out.print("Number of tests: ");
+        int numTest = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < numTest; i++) {
+            System.out.printf("\nTest [%d]: ", i + 1);
+            num = scanner.nextLong();
+            for (int j = 1; j <= num; j++) {
+                evenDenominator += (num % j == 0 && j % 2 == 0 ? 1 : 0);
+            }
+            System.out.printf("\nResult = %d\n", evenDenominator);
+        }
+        scanner.close();
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         Practice obj = new Practice();
         double[] matrix1D = {1.1, 2, 3.4, -5.9, -17.5, 20}; 
@@ -209,6 +229,7 @@ public class Practice {
         double[] tempArr = {1, 0, 1}; 
         obj.question6(tempArr);
         // obj.question7();
-        obj.question8();
+        // obj.question8();
+        obj.question9();
     }
 }
