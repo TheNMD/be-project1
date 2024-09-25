@@ -115,6 +115,85 @@ public class Practice {
         System.out.println();
     }
 
+    public static long findGCD(long a, long b) {
+        while (b != 0) {
+            long temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static long findLCM(long a, long b, long gcd) {
+        return (a / gcd) * b;
+    }
+
+    public void question7() {
+        Scanner scanner = new Scanner(System.in);
+        long numA;
+        long numB;
+        long gcd;
+        long lcm;
+
+        System.out.println("Question 7:\n");
+        System.out.print("Number of tests: ");
+        int numTest = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < numTest; i++) {
+            System.out.printf("\nTest [%d]: ", i + 1);
+            numA = scanner.nextLong();
+            numB = scanner.nextLong();
+            gcd = findGCD(numA, numB);
+            lcm = findLCM(numA, numB, gcd);
+            System.out.printf("\nGCD = %d", gcd);
+            System.out.printf("\nLCM = %d\n", lcm);
+        }
+        scanner.close();
+        System.out.println();
+    }
+
+    public void question8() {
+        Scanner scanner = new Scanner(System.in);
+        int numEle;
+        int[] arr;
+        boolean dupEle;
+
+        System.out.println("Question 8:\n");
+        System.out.print("Number of tests: ");
+        int numTest = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < numTest; i++) {
+            dupEle = false;
+
+            System.out.printf("\nTest [%d]: ", i + 1);
+            numEle = scanner.nextInt();
+
+            arr = new int[numEle];
+            for (int j = 0; j < numEle; j ++) {
+                arr[j] = scanner.nextInt();
+            }
+
+            for (int j = 0; j < numEle; j++) {
+                for (int k = j + 1; k < numEle - 1; k++) {
+                    if (arr[j] == arr[k]) {
+                        dupEle = true;
+                        System.out.printf("\n%d\n", arr[j]);
+                        break;
+                    }
+                }
+
+                if (dupEle) {
+                    break;
+                }
+            }
+
+            if (!dupEle) {
+                System.out.println("\nN0");
+            }
+            
+        }
+        scanner.close();
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         Practice obj = new Practice();
         double[] matrix1D = {1.1, 2, 3.4, -5.9, -17.5, 20}; 
@@ -129,5 +208,7 @@ public class Practice {
         obj.question5();
         double[] tempArr = {1, 0, 1}; 
         obj.question6(tempArr);
+        // obj.question7();
+        obj.question8();
     }
 }
