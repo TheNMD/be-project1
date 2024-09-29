@@ -31,8 +31,16 @@ public class CourseManageReq {
         return this.courseName;
     }
 
-    public void setCourseName(String courseName) {
+    public void setCourseName(String courseName,
+                              String teacherName,
+                              String status,
+                              double rating,
+                              String createdDate) {
         this.courseName = courseName;
+        this.teacherName = teacherName;
+        this.status = status;
+        this.rating = rating;
+        this.createdDate = createdDate;
     }
 
     public String getTeacherName() {

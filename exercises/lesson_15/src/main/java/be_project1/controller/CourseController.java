@@ -46,6 +46,7 @@ public class CourseController {
         response.setCourseName(request.getCourseName());
         response.setTeacherName(request.getTeacherName());
         response.setStatus(request.getStatus());
+        response.setRating(request.getRating());
         response.setCreatedDate(request.getCreatedDate());
         response.setSort(sort);
         response.setPage(page);

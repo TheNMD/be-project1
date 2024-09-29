@@ -18,23 +18,13 @@ import lombok.experimental.SuperBuilder;
 // @JsonInclude(JsonInclude.Include.NON_NULL)
 // @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class ChapterManageReq {
+public class ChapterSearchReq {
     private String chapterName;
     private String courseName;
     private String status;
     private String createdDate;
 
-    public ChapterManageReq() {}
-
-    public ChapterManageReq(String chapterName,
-                            String courseName,
-                            String status,
-                            String createdDate) {
-        this.chapterName = chapterName;
-        this.courseName = courseName;
-        this.status = status;
-        this.createdDate = createdDate;
-    }
+    public ChapterSearchReq() {}
 
     public String getChapterName() {
         return this.chapterName;
