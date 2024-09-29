@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import be_project1.lesson_15.dto.request.User;
+import be_project1.lesson_15.dto.request.UserLoginRequest;
 
 @RestController
-public class Init {
+public class UserController {
 
     @GetMapping("/welcome")
     public String Welcome() {
@@ -16,9 +16,9 @@ public class Init {
     }
 
     @PostMapping("/testing")
-    public User createUser(@RequestBody User user) {
+    public Object createUser(@RequestBody UserLoginRequest request) {
         // TODO Hash passwords
-        user.setPassword("NotARealPassword"); 
-        return user;
+        request.setPassword("NotARealPassword"); 
+        return request;
     }
 }
