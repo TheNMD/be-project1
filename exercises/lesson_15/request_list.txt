@@ -1,5 +1,3 @@
-// Admin
-
 1. Create user: 
 POST: http://localhost:8080/api/v1/user/create
 {
@@ -17,20 +15,53 @@ PUT: http://localhost:8080/api/v1/user/update/12
     "password": "456"
 }
 
-4. Create course: 
+4. Search user:
+POST: http://localhost:8080/api/v1/user/search?sort=created_date:desc&page=0&size=10
+{
+    "username": "abc",
+    "name": "xyz",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+5. Create course: 
 POST: http://localhost:8080/api/v1/course/create
 {
     "courseName": "RandomCourse"
 }
 
-5. Delete course:
+6. Delete course:
 DELETE: http://localhost:8080/api/v1/course/delete/7
 
-6. Update course:
+7. Update course:
 PUT: http://localhost:8080/api/v1/course/update/7
 {
     "courseName": "AnotherCourse"
 }
+
+8. Search user:
+POST: http://localhost:8080/api/v1/course/search?sort=created_date:desc&page=0&size=10
+{
+    "courseName": "abc",
+    "teacherName": "xyz",
+    "status": "ACTIVE",
+    "rating": 5,
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+9. View a course:
+GET: http://localhost:8080/api/v1/course/view/47
+
+10. Join a course:
+POST: http://localhost:8080/api/v1/course/join/47
+
+11. Rate a course:
+POST: http://localhost:8080/api/v1/course/rate/47
+{
+    "rating": "5"
+}
+
+
 
 7. Create chapter: 
 POST: http://localhost:8080/api/v1/chapter/create
@@ -62,44 +93,3 @@ PUT: http://localhost:8080/api/v1/course/lesson/33
     "lessonName": "AnotherLesson"
 }
 
-// User
-
-1. Login & Register: 
-POST: http://localhost:8080/api/v1/user/create
-{
-    "username": "testingUser",
-    "password": "123"
-}
-
-2. Delete account:
-DELETE: http://localhost:8080/api/v1/user/delete/12
-
-3. Update account:
-PUT: http://localhost:8080/api/v1/user/update/12
-{
-    "username": "AnotherUser",
-    "password": "456"
-}
-
-6. Join a course:
-POST: http://localhost:8080/api/v1/user/join/47
-
-7. Review a course:
-POST: http://localhost:8080/api/v1/user/rate/47
-{
-    "rating": "5"
-}
-
-8. Review a course:
-POST: http://localhost:8080/api/v1/user/review/47
-{
-    "review": "RandomReview"
-}
-
-9. View a course:
-GET: http://localhost:8080/api/v1/course/view/47
-
-10. Begin / Resume / Stop a lesson:
-POST: http://localhost:8080/api/v1/lesson/begin/30
-POST: http://localhost:8080/api/v1/lesson/resume/30
-POST: http://localhost:8080/api/v1/lesson/stop/30

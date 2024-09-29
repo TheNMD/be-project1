@@ -18,16 +18,14 @@ import lombok.experimental.SuperBuilder;
 // @JsonInclude(JsonInclude.Include.NON_NULL)
 // @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class CourseRequest {
+public class CourseManageReq {
     private String courseName;
-    private String rating;
-    private String review;
+    private String teacherName;
+    private String status;
+    private double rating;
+    private String createdDate;
 
-    public CourseRequest() {}
-
-    public CourseRequest(String courseName) {
-        this.courseName = courseName;
-    }
+    public CourseManageReq() {}
 
     public String getCourseName() {
         return this.courseName;
@@ -37,19 +35,35 @@ public class CourseRequest {
         this.courseName = courseName;
     }
 
-    public String getRating() {
+    public String getTeacherName() {
+        return this.teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public double getRating() {
         return this.rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
-    public String getReview() {
-        return this.review;
+    public String getCreatedDate() {
+        return this.createdDate;
     }
 
-    public void setReview(String review) {
-        this.review = review;
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 }

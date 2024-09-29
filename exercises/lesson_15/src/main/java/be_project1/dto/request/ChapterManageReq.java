@@ -18,12 +18,12 @@ import lombok.experimental.SuperBuilder;
 // @JsonInclude(JsonInclude.Include.NON_NULL)
 // @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class ChapterRequest {
+public class ChapterManageReq {
     private String chapterName;
 
-    public ChapterRequest() {}
+    public ChapterManageReq() {}
 
-    public ChapterRequest(String chapterName) {
+    public ChapterManageReq(String chapterName) {
         this.chapterName = chapterName;
     }
 
