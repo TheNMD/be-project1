@@ -13,6 +13,7 @@ public class URLConst {
     public static final String COURSE_CREATE = "/api/v1/course/create";
     public static final String COURSE_DELETE = "/api/v1/course/delete/{course_id}";
     public static final String COURSE_UPDATE = "/api/v1/course/update/{course_id}";
+    public static final String COURSE_SEARCH  = "/api/v1/course/search";
     public static final String COURSE_VIEW = "/api/v1/course/view/{course_id}";
     public static final String JOIN_COURSE = "/api/v1/course/join/{course_id}";
     public static final String RATE_COURSE = "/api/v1/course/rate/{course_id}";

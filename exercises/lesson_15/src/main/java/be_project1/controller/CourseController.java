@@ -13,8 +13,6 @@ import be_project1.lesson_15.constant.URLConst;
 import be_project1.lesson_15.dto.request.CourseManageReq;
 import be_project1.lesson_15.dto.request.CourseSearchReq;
 import be_project1.lesson_15.dto.response.CourseSearchRes;
-import exercises.lesson_15.src.main.java.be_project1.dto.request.UserSearchReq;
-import exercises.lesson_15.src.main.java.be_project1.dto.response.UserSearchRes;
 
 @RestController
 public class CourseController {
@@ -36,8 +34,8 @@ public class CourseController {
         return request;
     }
 
-    // Search user
-    @PostMapping(URLConst.USER_SEARCH)
+    // Search course
+    @PostMapping(URLConst.COURSE_SEARCH)
     public Object searchCourse(@RequestParam("sort") String sort,
                                @RequestParam("page") int page,
                                @RequestParam("size") int size,
