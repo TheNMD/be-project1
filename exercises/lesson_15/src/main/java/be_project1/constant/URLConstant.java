@@ -7,6 +7,10 @@ public class URLConstant {
     public static final String USER_CREATE = "/api/v1/user/create";
     public static final String USER_DELETE = "/api/v1/user/delete/{user_id}";
     public static final String USER_UPDATE = "/api/v1/user/update/{user_id}";
+    public static final String USER_VIEW_COURSE = "/api/v1/user/view/{course_id}";
+    public static final String USER_JOIN_COURSE = "/api/v1/user/join/{course_id}";
+    public static final String USER_RATE_COURSE = "/api/v1/user/rate/{course_id}";
+    public static final String USER_REVIEW_COURSE = "/api/v1/user/review/{course_id}";
 
     public static final String COURSE_CREATE = "/api/v1/course/create";
     public static final String COURSE_DELETE = "/api/v1/course/delete/{course_id}";
