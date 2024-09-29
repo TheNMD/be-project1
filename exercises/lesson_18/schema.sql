@@ -1,7 +1,6 @@
 -- PostgreSQL
 
 -- DROP SCHEMA IF EXISTS elearning;
-
 -- CREATE SCHEMA elearning;
 -- USE elearning;
 
