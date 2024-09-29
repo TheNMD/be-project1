@@ -1,0 +1,63 @@
+// Admin
+
+1. Create user: 
+POST: http://localhost:8080/api/v1/user/create
+{
+    "username": "testingUser",
+    "password": "123"
+}
+
+2. Delete user:
+DELETE: http://localhost:8080/api/v1/user/delete/12
+
+3. Update user:
+PUT: http://localhost:8080/api/v1/user/update/12
+{
+    "username": "AnotherUser",
+    "password": "456"
+}
+
+4. Create course: 
+POST: http://localhost:8080/api/v1/course/create
+{
+    "courseName": "RandomCourse"
+}
+
+5. Delete course:
+DELETE: http://localhost:8080/api/v1/course/delete/7
+
+6. Update course:
+PUT: http://localhost:8080/api/v1/course/update/7
+{
+    "courseName": "AnotherCourse"
+}
+
+7. Create chapter: 
+POST: http://localhost:8080/api/v1/chapter/create
+{
+    "chapterName": "RandomChapter"
+}
+
+8. Delete course:
+DELETE: http://localhost:8080/api/v1/chapter/delete/21
+
+9. Update course:
+PUT: http://localhost:8080/api/v1/chapter/update/21
+{
+    "chapterName": "AnotherChapter"
+}
+
+10. Create lesson: 
+POST: http://localhost:8080/api/v1/lesson/create
+{
+    "lessonName": "RandomLesson"
+}
+
+11. Delete lesson:
+DELETE: http://localhost:8080/api/v1/lesson/delete/33
+
+12. Update lesson:
+PUT: http://localhost:8080/api/v1/course/lesson/33
+{
+    "lessonName": "AnotherLesson"
+}

@@ -1,10 +1,12 @@
 package be_project1.lesson_15.dto.request;
 
-public class UserLoginRequest {
+public class UserRequest {
     private String username;
     private String password;
 
-    public UserLoginRequest(String username, String password) {
+    public UserRequest() {}
+
+    public UserRequest(String username, String password) {
         this.username = username;
         this.password = password;
     }
