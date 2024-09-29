@@ -1,4 +1,4 @@
-package be_project1.lesson_15.dto.response;
+package be_project1.lesson_15.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -18,16 +18,37 @@ import lombok.experimental.SuperBuilder;
 // @JsonInclude(JsonInclude.Include.NON_NULL)
 // @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class ChapterSearchRes {
+public class LessonManageReq {
+    private String lessonName;
     private String chapterName;
     private String courseName;
+    private String type;
     private String status;
     private String createdDate;
-    private String sort;
-    private int page;
-    private int size;
 
-    public ChapterSearchRes() {}
+    public LessonManageReq() {}
+
+    public LessonManageReq(String lessonName,
+                           String chapterName,
+                           String courseName,
+                           String type,
+                           String status,
+                           String createdDate) {
+        this.lessonName = lessonName;
+        this.chapterName = chapterName;
+        this.courseName = courseName;
+        this.type = type;
+        this.status = status;
+        this.createdDate = createdDate;
+    }
+
+    public String getLessonName() {
+        return this.lessonName;
+    }
+
+    public void setLessonName(String lessonName) {
+        this.lessonName = lessonName;
+    }
 
     public String getChapterName() {
         return this.chapterName;
@@ -45,6 +66,14 @@ public class ChapterSearchRes {
         this.courseName = courseName;
     }
 
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getStatus() {
         return this.status;
     }
@@ -59,29 +88,5 @@ public class ChapterSearchRes {
 
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
-    }
-
-    public String getSort() {
-        return this.sort;
-    }
-
-    public void setSort(String sort) {
-        this.sort = sort;
-    }
-
-    public int getPage() {
-        return this.page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public int getSize() {
-        return this.size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 }

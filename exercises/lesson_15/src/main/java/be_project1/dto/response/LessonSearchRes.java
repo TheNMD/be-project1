@@ -18,16 +18,26 @@ import lombok.experimental.SuperBuilder;
 // @JsonInclude(JsonInclude.Include.NON_NULL)
 // @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class ChapterSearchRes {
+public class LessonSearchRes {
+    private String lessonName;
     private String chapterName;
     private String courseName;
+    private String type;
     private String status;
     private String createdDate;
     private String sort;
     private int page;
     private int size;
 
-    public ChapterSearchRes() {}
+    public LessonSearchRes() {}
+
+    public String getLessonName() {
+        return this.lessonName;
+    }
+
+    public void setLessonName(String lessonName) {
+        this.lessonName = lessonName;
+    }
 
     public String getChapterName() {
         return this.chapterName;
@@ -43,6 +53,14 @@ public class ChapterSearchRes {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getStatus() {

@@ -37,14 +37,6 @@ public class UserController {
         return request;
     }
 
-    // Login user
-    @PostMapping(URLConst.USER_LOGIN)
-    public Object loginUser(@RequestBody UserLoginReq request) {
-        // TODO Hash passwords
-        request.setPassword("NotARealPassword"); 
-        return request;
-    }
-
     // Search user
     @PostMapping(URLConst.USER_SEARCH)
     public Object searchUser(@RequestParam("sort") String sort,
@@ -63,5 +55,13 @@ public class UserController {
         response.setSize(size);
             
         return response;
+    }
+
+    // Login user
+    @PostMapping(URLConst.USER_LOGIN)
+    public Object loginUser(@RequestBody UserLoginReq request) {
+        // TODO Hash passwords
+        request.setPassword("NotARealPassword"); 
+        return request;
     }
 }

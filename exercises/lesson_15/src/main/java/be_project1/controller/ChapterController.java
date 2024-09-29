@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import be_project1.lesson_15.constant.URLConst;
 import be_project1.lesson_15.dto.request.ChapterManageReq;
-import exercises.lesson_15.src.main.java.be_project1.dto.request.ChapterSearchReq;
-import exercises.lesson_15.src.main.java.be_project1.dto.request.CourseSearchReq;
-import exercises.lesson_15.src.main.java.be_project1.dto.response.ChapterSearchRes;
-import exercises.lesson_15.src.main.java.be_project1.dto.response.CourseSearchRes;
+import be_project1.lesson_15.dto.request.ChapterSearchReq;
+import be_project1.lesson_15.dto.response.ChapterSearchRes;
+
 
 @RestController
 public class ChapterController {
