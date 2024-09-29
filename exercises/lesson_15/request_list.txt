@@ -98,3 +98,8 @@ POST: http://localhost:8080/api/v1/user/review/47
 
 9. View a course:
 GET: http://localhost:8080/api/v1/course/view/47
+
+10. Begin / Resume / Stop a lesson:
+POST: http://localhost:8080/api/v1/lesson/begin/30
+POST: http://localhost:8080/api/v1/lesson/resume/30
+POST: http://localhost:8080/api/v1/lesson/stop/30

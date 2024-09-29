@@ -1,8 +1,9 @@
 package be_project1.lesson_15.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +32,7 @@ public class CourseController {
     }
 
     // View a course
-    @GetMapping(URLConstant.USER_VIEW_COURSE)
+    @GetMapping(URLConstant.COURSE_VIEW)
     public Object viewCourse(@PathVariable("course_id") String courseID) {
         return courseID;
     }

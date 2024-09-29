@@ -29,4 +29,22 @@ public class LessonController {
     public Object updateLesson(@PathVariable("lesson_id") String lessonID,  @RequestBody LessonRequest request) { 
         return request;
     }
+
+    // Begin lesson
+    @PostMapping(URLConstant.LESSON_BEGIN)
+    public Object beginLesson(@PathVariable("lesson_id") String lessonID) {
+        return "Begin lesson " + lessonID + "!";
+    }
+
+    // Resume lesson
+    @PostMapping(URLConstant.LESSON_RESUME)
+    public Object resumeLesson(@PathVariable("lesson_id") String lessonID) {
+        return "Resume lesson " + lessonID + "!";
+    }
+
+    // Stop lesson
+    @PostMapping(URLConstant.LESSON_STOP)
+    public Object stopLesson(@PathVariable("lesson_id") String lessonID) {
+        return "Stop lesson " + lessonID + "!";
+    }
 }

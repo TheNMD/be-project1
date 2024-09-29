@@ -14,7 +14,7 @@ public class URLConstant {
     public static final String COURSE_CREATE = "/api/v1/course/create";
     public static final String COURSE_DELETE = "/api/v1/course/delete/{course_id}";
     public static final String COURSE_UPDATE = "/api/v1/course/update/{course_id}";
-    public static final String USER_VIEW = "/api/v1/course/view/{course_id}";
+    public static final String COURSE_VIEW = "/api/v1/course/view/{course_id}";
 
     public static final String CHAPTER_CREATE = "/api/v1/chapter/create";
     public static final String CHAPTER_DELETE = "/api/v1/chapter/delete/{chapter_id}";
@@ -23,4 +23,7 @@ public class URLConstant {
     public static final String LESSON_CREATE = "/api/v1/lesson/create";
     public static final String LESSON_DELETE = "/api/v1/lesson/delete/{lesson_id}";
     public static final String LESSON_UPDATE = "/api/v1/lesson/update/{lesson_id}";
+    public static final String LESSON_BEGIN = "/api/v1/lesson/begin/{lesson_id}";
+    public static final String LESSON_RESUME = "/api/v1/lesson/resume/{lesson_id}";
+    public static final String LESSON_STOP = "/api/v1/lesson/stop/{lesson_id}";
 }
