@@ -29,4 +29,10 @@ public class CourseController {
     public Object updateCourse(@PathVariable("course_id") String courseID,  @RequestBody CourseRequest request) { 
         return request;
     }
+
+    // View a course
+    @GetMapping(URLConstant.USER_VIEW_COURSE)
+    public Object viewCourse(@PathVariable("course_id") String courseID) {
+        return courseID;
+    }
 }

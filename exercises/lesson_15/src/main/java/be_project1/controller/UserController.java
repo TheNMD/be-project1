@@ -34,12 +34,6 @@ public class UserController {
         return request;
     }
 
-    // View a course
-    @GetMapping(URLConstant.USER_VIEW_COURSE)
-    public Object viewCourse(@PathVariable("course_id") String courseID) {
-        return courseID;
-    }
-
     // Join a course
     @PostMapping(URLConstant.USER_JOIN_COURSE)
     public Object joinCourse(@PathVariable("course_id") String courseID) {

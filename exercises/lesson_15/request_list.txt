@@ -81,20 +81,20 @@ PUT: http://localhost:8080/api/v1/user/update/12
     "password": "456"
 }
 
-4. View a course:
-GET: http://localhost:8080/api/v1/user/view/47
-
-5. Join a course:
+6. Join a course:
 POST: http://localhost:8080/api/v1/user/join/47
 
-6. Review a course:
+7. Review a course:
 POST: http://localhost:8080/api/v1/user/rate/47
 {
     "rating": "5"
 }
 
-7. Review a course:
+8. Review a course:
 POST: http://localhost:8080/api/v1/user/review/47
 {
     "review": "RandomReview"
 }
+
+9. View a course:
+GET: http://localhost:8080/api/v1/course/view/47
