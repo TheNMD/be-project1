@@ -4,8 +4,6 @@ public class URLConst {
 
     private URLConst() {}
 
-    public static final String TESTING = "/welcome";
-
     public static final String USER_CREATE = "/api/v1/user/create";
     public static final String USER_DELETE = "/api/v1/user/delete/{user_id}";
     public static final String USER_UPDATE = "/api/v1/user/update/{user_id}";
