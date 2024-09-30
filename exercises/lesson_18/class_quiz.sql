@@ -50,7 +50,7 @@ SELECT student.id AS student_id, student.name AS student_name, course.name AS co
 	INNER JOIN teacher ON teacher.id = course.teacher_id
 	ORDER BY student.id;
 
--- Class Quiz 7
+-- Class Quiz 8
 SELECT course.id AS course_id, course.name AS course_name, chapter.id AS chapter_id, chapter.name AS chapter_name, lesson.id AS lesson_id, lesson.name AS lesson_name, user_course_user_id, chapter.status AS status, student.name AS name 
 	FROM course 
 	INNER JOIN chapter ON course.id = chapter.course_id
