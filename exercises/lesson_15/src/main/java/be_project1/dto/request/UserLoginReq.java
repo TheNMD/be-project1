@@ -10,19 +10,17 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Data
-// @SuperBuilder
-// @Accessors(chain=true)
-// @JsonInclude(JsonInclude.Include.NON_NULL)
-// @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@SuperBuilder
+@Accessors(chain=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
 public class UserLoginReq {
     private String username;
     private String password;
-
-    public UserLoginReq() {}
 
     public UserLoginReq(String username, String password) {
         this.username = username;

@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Data
-// @SuperBuilder
-// @Accessors(chain=true)
-// @JsonInclude(JsonInclude.Include.NON_NULL)
-// @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@SuperBuilder
+@Accessors(chain=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
 public class CourseManageReq {
     private String courseName;
@@ -25,22 +25,24 @@ public class CourseManageReq {
     private double rating;
     private String createdDate;
 
-    public CourseManageReq() {}
-
-    public String getCourseName() {
-        return this.courseName;
-    }
-
-    public void setCourseName(String courseName,
-                              String teacherName,
-                              String status,
-                              double rating,
-                              String createdDate) {
+    public CourseManageReq(String courseName,
+                           String teacherName,
+                           String status,
+                           double rating,
+                           String createdDate) {
         this.courseName = courseName;
         this.teacherName = teacherName;
         this.status = status;
         this.rating = rating;
         this.createdDate = createdDate;
+    }
+
+    public String getCourseName() {
+        return this.courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public String getTeacherName() {

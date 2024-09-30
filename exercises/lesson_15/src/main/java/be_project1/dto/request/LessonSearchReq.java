@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Data
-// @SuperBuilder
-// @Accessors(chain=true)
-// @JsonInclude(JsonInclude.Include.NON_NULL)
-// @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@SuperBuilder
+@Accessors(chain=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
 public class LessonSearchReq {
     private String lessonName;
@@ -26,7 +26,19 @@ public class LessonSearchReq {
     private String status;
     private String createdDate;
 
-    public LessonSearchReq() {}
+    public LessonSearchReq(String lessonName,
+                           String chapterName,
+                           String courseName,
+                           String type,
+                           String status,
+                           String createdDate) {
+        this.lessonName = lessonName;
+        this.chapterName = chapterName;
+        this.courseName = courseName;
+        this.type = type;
+        this.status = status;
+        this.createdDate = createdDate;
+    }
 
     public String getLessonName() {
         return this.lessonName;
