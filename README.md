@@ -8,7 +8,8 @@
     - Artifact ID: lesson_<n>
     - Dependencies: Spring Web, Lombok, Postgres
 1. Edit files in src/main/java/<group_id>/<artifact_id>
-2. ./mvnw spring-boot:run
+2. mvn -N io.takari:maven:wrapper 
+3. ./mvnw spring-boot:run
 
 # POSTGRESQL COMMANDS
 0. **Version**: psql --version

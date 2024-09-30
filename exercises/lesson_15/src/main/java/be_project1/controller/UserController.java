@@ -17,6 +17,12 @@ import be_project1.lesson_15.dto.response.UserSearchRes;
 
 @RestController
 public class UserController {
+    // Testing
+    @GetMapping("/welcome")
+    public String Welcome() {
+        return "Hello course online project";
+    }
+
     // Create user
     @PostMapping(URLConst.USER_CREATE)
     public Object createUser(@RequestBody UserManageReq request) {
