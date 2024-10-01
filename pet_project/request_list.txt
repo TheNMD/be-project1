@@ -1,0 +1,156 @@
+1. Create user: 
+POST: http://localhost:8080/api/v1/user/create
+{
+    "username": "testingUser",
+    "password": "123",
+    "name": "xyz",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+2. Delete user:
+DELETE: http://localhost:8080/api/v1/user/delete/12
+
+3. Update user:
+PUT: http://localhost:8080/api/v1/user/update/12
+{
+    "username": "testingUser",
+    "password": "123",
+    "name": "xyz",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+4. Search user:
+POST: http://localhost:8080/api/v1/user/search?sort=createdDate:desc&page=0&size=10
+{
+    "username": "abc",
+    "name": "xyz",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+5. Login user:
+POST: http://localhost:8080/api/v1/user/login
+{
+    "username": "abc",
+    "password": "123"
+}
+
+5. Create course: 
+POST: http://localhost:8080/api/v1/course/create
+{
+    "courseName": "abc",
+    "teacherName": "xyz",
+    "status": "ACTIVE",
+    "rating": 5,
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+6. Delete course:
+DELETE: http://localhost:8080/api/v1/course/delete/7
+
+7. Update course:
+PUT: http://localhost:8080/api/v1/course/update/7
+{
+    "courseName": "abc",
+    "teacherName": "xyz",
+    "status": "ACTIVE",
+    "rating": 5,
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+8. Search course:
+POST: http://localhost:8080/api/v1/course/search?sort=createdDate:desc&page=0&size=10
+{
+    "courseName": "abc",
+    "teacherName": "xyz",
+    "status": "ACTIVE",
+    "rating": 5,
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+9. View a course:
+GET: http://localhost:8080/api/v1/course/view/47
+
+10. Join a course:
+POST: http://localhost:8080/api/v1/course/join/47
+
+11. Rate a course:
+POST: http://localhost:8080/api/v1/course/rate/47
+{
+    "rating": "5"
+}
+
+12. Create chapter: 
+POST: http://localhost:8080/api/v1/chapter/create
+{
+    "chapterName": "abc",
+    "courseName": "xyz",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+13. Delete chapter:
+DELETE: http://localhost:8080/api/v1/chapter/delete/21
+
+14. Update chapter:
+PUT: http://localhost:8080/api/v1/chapter/update/21
+{
+    "chapterName": "abc",
+    "courseName": "xyz",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+15. Search chapter:
+POST: http://localhost:8080/api/v1/chapter/search?sort=createdDate:desc&page=0&size=10
+{
+    "chapterName": "abc",
+    "courseName": "xyz",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+16. Create lesson: 
+POST: http://localhost:8080/api/v1/lesson/create
+{
+    "lessonName": "abc",
+    "chapterName": "xyz",
+    "courseName": "123",
+    "type": "RandomType",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+
+17. Delete lesson:
+DELETE: http://localhost:8080/api/v1/lesson/delete/33
+
+18. Update lesson:
+PUT: http://localhost:8080/api/v1/lesson/update/33
+{
+    "lessonName": "abc",
+    "chapterName": "xyz",
+    "courseName": "123",
+    "type": "RandomType",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+
+19. Search lesson:
+POST: http://localhost:8080/api/v1/lesson/search?sort=createdDate:desc&page=0&size=10
+{
+    "lessonName": "abc",
+    "chapterName": "xyz",
+    "courseName": "123",
+    "type": "RandomType",
+    "status": "ACTIVE",
+    "createdDate": "2024-09-10 00:00:00"
+}
+
+20. Begin / Resume / Stop a lesson:
+POST: http://localhost:8080/api/v1/lesson/begin/33
+POST: http://localhost:8080/api/v1/lesson/resume/33
+POST: http://localhost:8080/api/v1/lesson/stop/33

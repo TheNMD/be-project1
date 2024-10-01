@@ -1,4 +1,4 @@
-package be_project1.controller;
+package be_project1.pet_project.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,14 +9,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import be_project1.constant.URLConst;
-import be_project1.dto.request.UserManageReq;
-import be_project1.dto.request.UserLoginReq;
-import be_project1.dto.request.UserSearchReq;
-import be_project1.dto.response.UserSearchRes;
+import be_project1.pet_project.constant.URLConst;
+import be_project1.pet_project.dto.request.UserLoginReq;
+import be_project1.pet_project.dto.request.UserManageReq;
+import be_project1.pet_project.dto.request.UserSearchReq;
+import be_project1.pet_project.dto.response.UserSearchRes;
 
 @RestController
 public class UserController {
+    // Testing
+    @GetMapping("/test")
+    public String test() {
+        return "Test endpoint is working!";
+    }
+
+    // Login user
+    @PostMapping(URLConst.USER_LOGIN)
+    public Object loginUser(@RequestBody UserLoginReq request) {
+        // TODO Hash passwords
+        request.getUsername();
+        request.setPassword("NotARealPassword"); 
+        return request;
+    }
+
     // Create user
     @PostMapping(URLConst.USER_CREATE)
     public Object createUser(@RequestBody UserManageReq request) {
@@ -55,13 +70,5 @@ public class UserController {
         response.setSize(size);
             
         return response;
-    }
-
-    // Login user
-    @PostMapping(URLConst.USER_LOGIN)
-    public Object loginUser(@RequestBody UserLoginReq request) {
-        // TODO Hash passwords
-        request.setPassword("NotARealPassword"); 
-        return request;
     }
 }

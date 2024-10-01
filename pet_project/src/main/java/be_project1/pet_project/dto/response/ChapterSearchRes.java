@@ -1,4 +1,4 @@
-package be_project1.dto.request;
+package be_project1.pet_project.dto.response;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -21,10 +21,12 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class CourseManageReq {
+public class ChapterSearchRes {
+    private String chapterName;
     private String courseName;
-    private String teacherName;
     private String status;
-    private double rating;
     private String createdDate;
+    private String sort;
+    private int page;
+    private int size;
 }

@@ -1,4 +1,4 @@
-package be_project1.dto.response;
+package be_project1.pet_project.dto.response;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;

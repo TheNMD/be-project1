@@ -1,4 +1,4 @@
-package be_project1.constant;
+package be_project1.pet_project.constant;
 
 public class URLConst {
 
