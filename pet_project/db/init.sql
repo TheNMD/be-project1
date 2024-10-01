@@ -1,6 +1,7 @@
 -- PostgreSQL
 
--- USE elearning;
+-- Select a schema
+SET search_path TO pet_project;
 
 -- Inserting sample data into the admin table
 INSERT INTO admin (status, username, password, created_date, updated_date)

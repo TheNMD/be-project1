@@ -1,8 +1,9 @@
 -- PostgreSQL
 
--- DROP SCHEMA IF EXISTS elearning;
--- CREATE SCHEMA elearning;
--- USE elearning;
+-- Create and select a schema
+DROP SCHEMA IF EXISTS pet_project;
+CREATE SCHEMA pet_project;
+SET search_path TO pet_project;
 
 -- Table for Admin Users
 CREATE TABLE admin
@@ -50,7 +51,7 @@ CREATE TABLE course
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_date TIMESTAMP NULL,
     teacher_id   BIGINT,
-    FOREIGN KEY (teacher_id) REFERENCES teacher (id)
+    FOREIGN KEY (teacher_id) REFERENCES teacher (id) ON DELETE CASCADE
 );
 
 -- Table for Chapters
@@ -64,7 +65,7 @@ CREATE TABLE chapter
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_date TIMESTAMP NULL,
     course_id    BIGINT,
-    FOREIGN KEY (course_id) REFERENCES course (id)
+    FOREIGN KEY (course_id) REFERENCES course (id) ON DELETE CASCADE
 );
 
 -- Table for Lessons
@@ -80,7 +81,7 @@ CREATE TABLE lesson
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_date TIMESTAMP NULL,
     chapter_id   BIGINT,
-    FOREIGN KEY (chapter_id) REFERENCES chapter (id)
+    FOREIGN KEY (chapter_id) REFERENCES chapter (id) ON DELETE CASCADE
 );
 
 -- Relationship Table for Student-Course
@@ -94,8 +95,8 @@ CREATE TABLE student_course
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_date TIMESTAMP NULL,
     PRIMARY KEY (student_id, course_id),
-    FOREIGN KEY (student_id) REFERENCES student (id),
-    FOREIGN KEY (course_id) REFERENCES course (id)
+    FOREIGN KEY (student_id) REFERENCES student (id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES course (id) ON DELETE CASCADE
 );
 
 -- Relationship Table for Student-Course-Lesson
@@ -108,6 +109,15 @@ CREATE TABLE student_course_lesson
     created_date          TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_date          TIMESTAMP NULL,
     PRIMARY KEY (user_course_user_id, user_course_course_id, lesson_id),
-    FOREIGN KEY (user_course_user_id, user_course_course_id) REFERENCES student_course (student_id, course_id),
-    FOREIGN KEY (lesson_id) REFERENCES lesson (id)
+    FOREIGN KEY (user_course_user_id, user_course_course_id) REFERENCES student_course (student_id, course_id) ON DELETE CASCADE,
+    FOREIGN KEY (lesson_id) REFERENCES lesson (id) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS admin CASCADE;
+DROP TABLE IF EXISTS student CASCADE;
+DROP TABLE IF EXISTS teacher CASCADE;
+DROP TABLE IF EXISTS course CASCADE;
+DROP TABLE IF EXISTS chapter CASCADE;
+DROP TABLE IF EXISTS lesson CASCADE;
+DROP TABLE IF EXISTS student_course CASCADE;
+DROP TABLE IF EXISTS student_course_lesson CASCADE;
