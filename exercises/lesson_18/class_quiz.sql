@@ -55,7 +55,42 @@ SELECT course.id AS course_id, course.name AS course_name, chapter.id AS chapter
 	FROM course 
 	INNER JOIN chapter ON course.id = chapter.course_id
 	INNER JOIN lesson ON chapter.id = lesson.chapter_id
-	INNER JOIN student_course_lesson ON lesson.id = student_course_lesson.lesson_id
-	INNER JOIN student_course ON student_course.course_id = student_course_lesson.user_course_course_id
-	INNER JOIN student ON student.id = student_course_lesson.user_course_user_id
-	ORDER BY course.id, user_course_user_id;
+	INNER JOIN student_course ON course.id = student_course.course_id
+	INNER JOIN student ON student.id = student_course.student_id
+	INNER JOIN student_course_lesson ON student_course.student_id = student_course_lesson.user_course_user_id AND student_course.course_id = student_course_lesson.user_course_course_id AND lesson.id = student_course_lesson.lesson_id
+	ORDER BY student_course_lesson.user_course_course_id, course.id, chapter.id, lesson.id;
+
+-- Câu hỏi
+SELECT * FROM student_course_lesson ORDER BY user_course_user_id, user_course_course_id, lesson_id;
+-- User ID 1 đăng ký lớp ID 1 và lớp ID 2
+-- User ID 1 học bài ID 2 ở lớp ID 1 và bài ID 3 lớp ID 2 (1)
+
+SELECT id, name, course_id FROM chapter;
+SELECT id, name, chapter_id FROM lesson;
+-- Chapter ID 1, 2, 3 lần lượt thuộc về course ID 1, 2, 3
+-- Lesson ID 1, 2, 3 lần lượt thuộc về chapter ID 1, 2, 3
+-- => Course ID 1 chỉ có Lesson ID 1; Course ID 2 chỉ có Lesson ID 2; Course ID 3 chỉ có Lesson ID 3
+-- => Trái với (1)
+
+-- Class Quiz 9
+WITH
+	temp_table AS
+	(
+		SELECT
+			student_course_lesson.lesson_id,
+		    SUM(CASE WHEN student_course_lesson.status = 'not_started' THEN 1 ELSE 0 END) AS num_NotStarted,
+		    SUM(CASE WHEN student_course_lesson.status = 'in_progress' THEN 1 ELSE 0 END) AS num_InProgress,
+		    SUM(CASE WHEN student_course_lesson.status = 'completed' THEN 1 ELSE 0 END) AS num_Completed
+			FROM student_course_lesson
+			GROUP BY student_course_lesson.lesson_id
+			ORDER BY student_course_lesson.lesson_id
+	)
+SELECT course.id AS course_id, course.name AS course_name, 
+	   chapter.id AS chapter_id, chapter.name AS chapter_name, 
+	   lesson.id AS lesson_id, lesson.name AS lesson_name, 
+	   temp_table.num_completed AS completed_users, temp_table.num_inprogress AS in_progress_users
+	FROM course
+	INNER JOIN chapter ON course.id = chapter.course_id
+	INNER JOIN lesson ON chapter.id = lesson.chapter_id
+	INNER JOIN temp_table ON lesson.id = temp_table.lesson_id
+	ORDER BY course.id, chapter.id, lesson.id;
