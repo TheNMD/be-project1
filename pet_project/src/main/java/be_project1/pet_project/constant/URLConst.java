@@ -2,7 +2,7 @@ package be_project1.pet_project.constant;
 
 public class URLConst {
     public static final String USER_LOGIN  = "/api/v1/user/login";
-    public static final String USER_LOGOUT  = "/api/v1/user/logout";
+    public static final String USER_LOGOUT  = "/api/v1/user/logout/{user_id}";
     public static final String USER_CREATE = "/api/v1/user/create";
     public static final String USER_DELETE = "/api/v1/user/delete/{user_id}";
     public static final String USER_UPDATE = "/api/v1/user/update/{user_id}";

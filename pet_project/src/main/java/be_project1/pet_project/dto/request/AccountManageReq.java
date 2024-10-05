@@ -14,7 +14,10 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class UserLoginReq {
+public class AccountManageReq {
     private String username;
     private String password;
+    private String name;
+    private String status;
+    private String createdDate;
 }

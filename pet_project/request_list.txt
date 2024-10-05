@@ -1,9 +1,20 @@
-1. Create user: 
+1. Login user:
+POST: http://localhost:8080/api/v1/user/login
+{
+    "username": "admin",
+    "password": "abcxyz123456"
+}
+
+2. Logout user:
+POST: http://localhost:8080/api/v1/user/logout/12
+
+
+1. Create user:
 POST: http://localhost:8080/api/v1/user/create
 {
-    "username": "testingUser",
-    "password": "123",
-    "name": "xyz",
+    "username": "admin",
+    "password": "abcxyz123456",
+    "name": "RandomName",
     "status": "ACTIVE",
     "created_date": "2024-09-10 00:00:00"
 }
@@ -28,13 +39,6 @@ POST: http://localhost:8080/api/v1/user/search?sort=created_date:desc&page=0&siz
     "name": "xyz",
     "status": "ACTIVE",
     "created_date": "2024-09-10 00:00:00"
-}
-
-5. Login user:
-POST: http://localhost:8080/api/v1/user/login
-{
-    "username": "abc",
-    "password": "123"
 }
 
 5. Create course: 
