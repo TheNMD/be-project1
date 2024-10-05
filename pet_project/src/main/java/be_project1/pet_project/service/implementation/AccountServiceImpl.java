@@ -50,9 +50,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Object create(AccountManageReq request) {
         request.setStatus("active");
-        Instant now = Instant.now();
-        String timestamp = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(now);
-        request.setCreatedDate(timestamp);
+        Instant currentTimestamp = Instant.now();
+        String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
+        request.setCreatedDate(createdDate);
+
         String error = accountServiceVal.create(request);
         if (error != null) {
             return error;
@@ -64,7 +65,7 @@ public class AccountServiceImpl implements AccountService {
     // delete
     @Override
     public Object delete(String accountID) {
-        String error = accountServiceVal.logout(accountID);
+        String error = accountServiceVal.delete(accountID);
         if (error != null) {
             return error;
         }

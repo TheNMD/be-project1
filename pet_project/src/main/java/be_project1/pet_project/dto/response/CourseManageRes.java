@@ -26,6 +26,7 @@ public class CourseManageRes {
     private String teacherName;
     private String status;
     private double rating;
+    private String review;
     private String createdDate;
     private String sort;
     private int page;

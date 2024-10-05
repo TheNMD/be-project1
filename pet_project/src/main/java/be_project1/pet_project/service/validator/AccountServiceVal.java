@@ -7,11 +7,11 @@ import be_project1.pet_project.dto.request.AccountManageReq;
 
 @Service("accountServiceVal")
 public class AccountServiceVal {
-    // Check UserID
-    public String checkUserID(String userID) {
+    // Check ID
+    public String checkID(String id) {
         // Not numeric
-        if (!userID.matches("\\d+")) {
-            return "Account ID is not numeric!";
+        if (!id.matches("\\d+")) {
+            return "ID is not numeric!";
         }
         
         return null;
@@ -114,30 +114,34 @@ public class AccountServiceVal {
         String result;
 
         // Username
-        if (username == null) {
-            return "Username is empty!";
+        if (username != null) {
+            result = checkUsername(username);
+            if (result != null) {
+                return result;
+            }
         }
-        result = checkUsername(username);
-        if (result != null) {
-            return result;
+        else {
+            return "Username not entered!";
         }
 
         // Password
-        if (password == null) {
-            return "Password is empty!";
+        if (password != null) {
+            result = checkPassword(password);
+            if (result != null) {
+                return result;
+            }
         }
-        result = checkPassword(password);
-        if (result != null) {
-            return result;
+        else {
+            return "Password not entered!";
         }
         
         return null;
     }
 
     // Logout
-    public String logout(String userID) {
-        // UserID
-        return checkUserID(userID);
+    public String logout(String id) {
+        // AccountID
+        return checkID(id);
     }
 
     // Create
@@ -150,62 +154,72 @@ public class AccountServiceVal {
         String result;
 
         // Username
-        if (username == null) {
-            return "Username is empty!";
+        if (username != null) {
+            result = checkUsername(username);
+            if (result != null) {
+                return result;
+            }
         }
-        result = checkUsername(username);
-        if (result != null) {
-            return result;
+        else {
+            return "Username not entered!";
         }
 
         // Password
-        if (password == null) {
-            return "Password is empty!";
+        if (password != null) {
+            result = checkPassword(password);
+            if (result != null) {
+                return result;
+            }
         }
-        result = checkPassword(password);
-        if (result != null) {
-            return result;
+        else {
+            return "Password not entered!";
         }
 
         // Name
-        if (name == null) {
-            return "Name is empty!";
+        if (name != null) {
+            result = checkName(name);
+            if (result != null) {
+                return result;
+            }
         }
-        result = checkName(name);
-        if (result != null) {
-            return result;
+        else {
+            return "Name not entered!";
         }
 
         // Status
-        if (status == null) {
-            return "Status is empty!";
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
         }
-        result = checkStatus(status);
-        if (result != null) {
-            return result;
+        else {
+            return "Status not entered!";
         }
 
         // Created Date
         // Empty
-        if (createdDate == null) {
-            return "Created Date is empty!";
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
         }
-        result = checkDate(createdDate);
-        if (result != null) {
-            return result;
+        else {
+            return "Created Date not entered!";
         }
 
         return null;
     }
 
     // Delete
-    public String delete(String userID) {
-        // UserID
-        return checkUserID(userID);
+    public String delete(String id) {
+        // AccountID
+        return checkID(id);
     }
 
     // Update
-    public String update(String userID, AccountManageReq request) {
+    public String update(String id, AccountManageReq request) {
         String username    = request.getUsername();
         String password    = request.getPassword();
         String name        = request.getName();
@@ -213,8 +227,8 @@ public class AccountServiceVal {
         String createdDate = request.getCreatedDate();
         String result;
         
-        // UserID
-        result = checkUserID(userID);
+        // AccountID
+        result = checkID(id);
         if (result != null) {
             return result;
         }
