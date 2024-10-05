@@ -1,24 +1,24 @@
 package be_project1.pet_project.service;
 
-import be_project1.pet_project.dto.request.AccountLoginReq;
+import be_project1.pet_project.dto.request.LoginReq;
 import be_project1.pet_project.dto.request.AccountManageReq;
 
 public interface AccountService {
     // Login
-    public Object login(AccountLoginReq request);
+    public Object login(LoginReq request);
 
     // Logout
-    public Object logout(String userID);
+    public Object logout(String accountID);
 
     // Create
-    public Object createAccount(AccountManageReq request);
+    public Object create(AccountManageReq request);
 
     // Delete
-    public Object deleteAccount(String userID);
+    public Object delete(String accountID);
 
      // Update
-    public Object updateAccount(AccountManageReq request);
+    public Object update(String accountID, AccountManageReq request);
 
     // Search
-    public Object searchAccount(String sort, int page, int size, AccountManageReq request);
+    public Object search(String sort, int page, int size, AccountManageReq request);
 }

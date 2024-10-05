@@ -14,12 +14,6 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class UserManageRes {
+public class LoginRes {
     private String username;
-    private String name;
-    private String status;
-    private String createdDate;
-    private String sort;
-    private int page;
-    private int size;
 }

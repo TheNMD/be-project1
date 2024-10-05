@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.AccountService;
 import be_project1.pet_project.service.validator.AccountServiceVal;
-import be_project1.pet_project.dto.request.AccountLoginReq;
+import be_project1.pet_project.dto.request.LoginReq;
 import be_project1.pet_project.dto.request.AccountManageReq;
 import be_project1.pet_project.dto.response.AccountManageRes;
 
@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AccountService {
 
     // Login
     @Override
-    public Object login(AccountLoginReq request) {
+    public Object login(LoginReq request) {
         String error = userServiceVal.loginVal(request);
         if (error != null) {
             return error;
@@ -34,44 +34,44 @@ public class AccountServiceImpl implements AccountService {
 
     // Logout
     @Override
-    public Object logout(String userID) {
-        String error = userServiceVal.logoutVal(userID);
+    public Object logout(String accountID) {
+        String error = userServiceVal.logoutVal(accountID);
         if (error != null) {
             return error;
         }
         // TODO
-        return "Account " + userID + " logout!";
+        return accountID;
     }
 
-    // Create
+    // create
     @Override
-    public Object createAccount(AccountManageReq request) {
+    public Object create(AccountManageReq request) {
         // TODO
         return request;
     }
 
-    // Delete
+    // delete
     @Override
-    public Object deleteAccount(String userID) { 
+    public Object delete(String accountID) {
         // TODO
-        return "Account " + userID + " deleted!";
+        return accountID;
     }
 
-    // Update
+    // update
     @Override
-    public Object updateAccount(AccountManageReq request) { 
+    public Object update(String accountID, AccountManageReq request) {
         // TODO
         return request;
     }
 
-    // Search
+    // search
     @Override
-    public Object searchAccount(String sort, int page, int size, AccountManageReq request) {
+    public Object search(String sort, int page, int size, AccountManageReq request) {
         // TODO
 
         AccountManageRes response = new AccountManageRes();
 
-        response.setAccountname(request.getAccountname());
+        response.setUsername(request.getUsername());
         response.setName(request.getName());
         response.setStatus(request.getStatus());
         response.setCreatedDate(request.getCreatedDate());

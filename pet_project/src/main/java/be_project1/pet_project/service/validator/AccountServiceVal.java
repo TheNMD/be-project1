@@ -2,12 +2,12 @@ package be_project1.pet_project.service.validator;
 
 import org.springframework.stereotype.Service;
 
-import be_project1.pet_project.dto.request.AccountLoginReq;
+import be_project1.pet_project.dto.request.LoginReq;
 import be_project1.pet_project.dto.request.AccountManageReq;
 
 @Service("userServiceVal")
 public class AccountServiceVal {
-    public String loginVal(AccountLoginReq request) {
+    public String loginVal(LoginReq request) {
         String username = request.getUsername();
         String password = request.getPassword();
 
