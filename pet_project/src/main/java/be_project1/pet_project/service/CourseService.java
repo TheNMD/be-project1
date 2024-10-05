@@ -15,12 +15,12 @@ public interface CourseService {
     // Search
     public Object search(String sort, int page, int size, CourseManageReq request);
 
-    // View a course
+    // View
     public Object view(String courseID);
 
-    // Join a course
+    // Join
     public Object join(String courseID);
 
-    // Rate a course
+    // Rate
     public Object rate(String courseID, CourseManageReq request);
 }

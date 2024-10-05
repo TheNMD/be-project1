@@ -43,31 +43,31 @@ public class CourseServiceImpl implements CourseService {
     public Object search(String sort, int page, int size, CourseManageReq request) {
         CourseManageRes response = new CourseManageRes();
 
-        response.setCourseName(request.getCourseName());
-        response.setTeacherName(request.getTeacherName());
-        response.setStatus(request.getStatus());
-        response.setRating(request.getRating());
-        response.setCreatedDate(request.getCreatedDate());
-        response.setSort(sort);
-        response.setPage(page);
-        response.setSize(size);
+        // response.setCourseName(request.getCourseName());
+        // response.setTeacherName(request.getTeacherName());
+        // response.setStatus(request.getStatus());
+        // response.setRating(request.getRating());
+        // response.setCreatedDate(request.getCreatedDate());
+        // response.setSort(sort);
+        // response.setPage(page);
+        // response.setSize(size);
             
         return response;
     }
 
-    // View a course
+    // View
     @Override
     public Object view(String courseID) {
         return courseID;
     }
 
-    // Join a course
+    // Join
     @Override
     public Object join(String courseID) {
         return courseID;
     }
 
-    // Rate a course
+    // Rate
     @Override
     public Object rate(String courseID, CourseManageReq request) {
         return courseID;

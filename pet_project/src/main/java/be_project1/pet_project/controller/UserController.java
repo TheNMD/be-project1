@@ -18,9 +18,10 @@ import be_project1.pet_project.service.LessonService;
 
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.dto.request.LoginReq;
-import be_project1.pet_project.dto.response.CourseManageRes;
 import be_project1.pet_project.dto.request.AccountManageReq;
 import be_project1.pet_project.dto.request.CourseManageReq;
+import be_project1.pet_project.dto.request.ChapterManageReq;
+import be_project1.pet_project.dto.request.LessonManageReq;
 
 
 @RestController("userController")
@@ -75,7 +76,8 @@ public class UserController {
 
      // Update
     @PutMapping(URLConst.USER_UPDATE)
-    public Object updateAccount(@PathVariable("user_id") String accountID,  @RequestBody AccountManageReq request) { 
+    public Object updateAccount(@PathVariable("user_id") String accountID,
+                                @RequestBody AccountManageReq request) {
         return accountService.update(accountID, request);
     }
 
@@ -103,7 +105,8 @@ public class UserController {
 
      // Update course
     @PutMapping(URLConst.COURSE_UPDATE)
-    public Object updateCourse(@PathVariable("course_id") String courseID, @RequestBody CourseManageReq request) { 
+    public Object updateCourse(@PathVariable("course_id") String courseID, 
+                               @RequestBody CourseManageReq request) { 
         return courseService.update(courseID, request);
     }
 
@@ -130,7 +133,84 @@ public class UserController {
 
     // Rate a course
     @PostMapping(URLConst.RATE_COURSE)
-    public Object rateCourse(@PathVariable("course_id") String courseID, @RequestBody CourseManageReq request) {
+    public Object rateCourse(@PathVariable("course_id") String courseID, 
+                             @RequestBody CourseManageReq request) {
         return courseService.rate(courseID, request);
+    }
+
+    // Chapter
+    // Create chapter
+    @PostMapping(URLConst.CHAPTER_CREATE)
+    public Object createChapter(@RequestBody ChapterManageReq request) {
+        return chapterService.create(request);
+    }
+
+    // Delete chapter
+    @DeleteMapping(URLConst.CHAPTER_DELETE)
+    public Object deleteChapter(@PathVariable("chapter_id") String chapterID) {
+        return chapterService.delete(chapterID);
+    }
+
+     // Update chapter
+    @PutMapping(URLConst.CHAPTER_UPDATE)
+    public Object updateChapter(@PathVariable("chapter_id") String chapterID,
+                                @RequestBody ChapterManageReq request) {
+        return chapterService.update(chapterID, request);
+    }
+
+    // Search chapter
+    @PostMapping(URLConst.CHAPTER_SEARCH)
+    public Object searchChapter(@RequestParam("sort") String sort,
+                                @RequestParam("page") int page,
+                                @RequestParam("size") int size,
+                                @RequestBody ChapterManageReq request) {
+        return chapterService.search(sort, page, size, request);
+    }
+
+    // Lesson
+    // Create lesson
+    @PostMapping(URLConst.LESSON_CREATE)
+    public Object createLesson(@RequestBody LessonManageReq request) {
+        return lessonService.create(request);
+    }
+
+    // Delete lesson
+    @DeleteMapping(URLConst.LESSON_DELETE)
+    public Object deleteLesson(@PathVariable("lesson_id") String lessonID) {
+        return lessonService.delete(lessonID);
+    }
+
+     // Update lesson
+    @PutMapping(URLConst.LESSON_UPDATE)
+    public Object updateLesson(@PathVariable("lesson_id") String lessonID,
+                               @RequestBody LessonManageReq request) {
+        return lessonService.update(lessonID, request);
+    }
+
+    // Search lesson
+    @PostMapping(URLConst.LESSON_SEARCH)
+    public Object searchChapter(@RequestParam("sort") String sort,
+                                @RequestParam("page") int page,
+                                @RequestParam("size") int size,
+                                @RequestBody LessonManageReq request) {
+        return lessonService.search(sort, page, size, request);
+    }
+
+    // Begin lesson
+    @PostMapping(URLConst.LESSON_BEGIN)
+    public Object beginLesson(@PathVariable("lesson_id") String lessonID) {
+        return lessonService.begin(lessonID);
+    }
+
+    // Resume lesson
+    @PostMapping(URLConst.LESSON_RESUME)
+    public Object stopLesson(@PathVariable("lesson_id") String lessonID) {
+        return lessonService.stop(lessonID);
+    }
+
+    // Stop lesson
+    @PostMapping(URLConst.LESSON_STOP)
+    public Object finishLesson(@PathVariable("lesson_id") String lessonID) {
+        return lessonService.finish(lessonID);
     }
 }

@@ -71,13 +71,13 @@ public class AccountServiceImpl implements AccountService {
 
         AccountManageRes response = new AccountManageRes();
 
-        response.setUsername(request.getUsername());
-        response.setName(request.getName());
-        response.setStatus(request.getStatus());
-        response.setCreatedDate(request.getCreatedDate());
-        response.setSort(sort);
-        response.setPage(page);
-        response.setSize(size);
+        // response.setUsername(request.getUsername());
+        // response.setName(request.getName());
+        // response.setStatus(request.getStatus());
+        // response.setCreatedDate(request.getCreatedDate());
+        // response.setSort(sort);
+        // response.setPage(page);
+        // response.setSize(size);
             
         return response;
     }
