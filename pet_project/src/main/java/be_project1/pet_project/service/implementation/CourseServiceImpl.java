@@ -28,8 +28,8 @@ public class CourseServiceImpl implements CourseService {
 
     // Delete
     @Override
-    public Object delete(String userID) {
-        return userID;
+    public Object delete(String courseID) {
+        return courseID;
     }
 
      // Update
@@ -70,6 +70,12 @@ public class CourseServiceImpl implements CourseService {
     // Rate
     @Override
     public Object rate(String courseID, CourseManageReq request) {
+        return courseID;
+    }
+
+    // Rate
+    @Override
+    public Object review(String courseID, CourseManageReq request) {
         return courseID;
     }
 }

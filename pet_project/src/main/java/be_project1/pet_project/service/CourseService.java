@@ -7,7 +7,7 @@ public interface CourseService {
     public Object create(CourseManageReq request);
 
     // Delete
-    public Object delete(String userID);
+    public Object delete(String courseID);
 
      // Update
     public Object update(String courseID, CourseManageReq request);
@@ -23,4 +23,7 @@ public interface CourseService {
 
     // Rate
     public Object rate(String courseID, CourseManageReq request);
+
+    // Review
+    public Object review(String courseID, CourseManageReq request);
 }

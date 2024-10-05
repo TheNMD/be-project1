@@ -1,5 +1,8 @@
 package be_project1.pet_project.service.implementation;
 
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,74 +13,92 @@ import be_project1.pet_project.dto.request.LoginReq;
 import be_project1.pet_project.dto.request.AccountManageReq;
 import be_project1.pet_project.dto.response.AccountManageRes;
 
-@Service("userServiceImpl")
+@Service("accountServiceImpl")
 public class AccountServiceImpl implements AccountService {
 
     // Init
-    private final AccountServiceVal userServiceVal;
+    private final AccountServiceVal accountServiceVal;
 
     @Autowired
-    public AccountServiceImpl(@Qualifier("userServiceVal") AccountServiceVal userServiceVal) {
-        this.userServiceVal = userServiceVal;
+    public AccountServiceImpl(@Qualifier("accountServiceVal") AccountServiceVal accountServiceVal) {
+        this.accountServiceVal = accountServiceVal;
     }
 
     // Login
     @Override
     public Object login(LoginReq request) {
-        String error = userServiceVal.loginVal(request);
+        String error = accountServiceVal.login(request);
         if (error != null) {
             return error;
         }
-        // TODO
+
         return request;
     }
 
     // Logout
     @Override
     public Object logout(String accountID) {
-        String error = userServiceVal.logoutVal(accountID);
+        String error = accountServiceVal.logout(accountID);
         if (error != null) {
             return error;
         }
-        // TODO
+
         return accountID;
     }
 
     // create
     @Override
     public Object create(AccountManageReq request) {
-        // TODO
+        request.setStatus("active");
+        Instant now = Instant.now();
+        String timestamp = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(now);
+        request.setCreatedDate(timestamp);
+        String error = accountServiceVal.create(request);
+        if (error != null) {
+            return error;
+        }
+
         return request;
     }
 
     // delete
     @Override
     public Object delete(String accountID) {
-        // TODO
+        String error = accountServiceVal.logout(accountID);
+        if (error != null) {
+            return error;
+        }
+
         return accountID;
     }
 
     // update
     @Override
     public Object update(String accountID, AccountManageReq request) {
-        // TODO
+        String error = accountServiceVal.update(accountID, request);
+        if (error != null) {
+            return error;
+        }
+
         return request;
     }
 
     // search
     @Override
     public Object search(String sort, int page, int size, AccountManageReq request) {
-        // TODO
+        String error = accountServiceVal.search(request);
+        if (error != null) {
+            return error;
+        }
 
         AccountManageRes response = new AccountManageRes();
-
-        // response.setUsername(request.getUsername());
-        // response.setName(request.getName());
-        // response.setStatus(request.getStatus());
-        // response.setCreatedDate(request.getCreatedDate());
-        // response.setSort(sort);
-        // response.setPage(page);
-        // response.setSize(size);
+        response.setUsername(request.getUsername());
+        response.setName(request.getName());
+        response.setStatus(request.getStatus());
+        response.setCreatedDate(request.getCreatedDate());
+        response.setSort(sort);
+        response.setPage(page);
+        response.setSize(size);
             
         return response;
     }
