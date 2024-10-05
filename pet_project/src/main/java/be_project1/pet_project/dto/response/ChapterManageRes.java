@@ -21,11 +21,10 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class CourseSearchRes {
+public class ChapterManageRes {
+    private String chapterName;
     private String courseName;
-    private String teacherName;
     private String status;
-    private double rating;
     private String createdDate;
     private String sort;
     private int page;

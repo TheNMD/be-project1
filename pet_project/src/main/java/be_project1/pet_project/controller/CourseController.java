@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.dto.request.CourseManageReq;
-import be_project1.pet_project.dto.request.CourseSearchReq;
-import be_project1.pet_project.dto.response.CourseSearchRes;
+import be_project1.pet_project.dto.response.CourseManageRes;
 
 @RestController
 public class CourseController {
@@ -39,9 +38,9 @@ public class CourseController {
     public Object searchCourse(@RequestParam("sort") String sort,
                                @RequestParam("page") int page,
                                @RequestParam("size") int size,
-                               @RequestBody CourseSearchReq request) {
+                               @RequestBody CourseManageReq request) {
 
-        CourseSearchRes response = new CourseSearchRes();
+        CourseManageRes response = new CourseManageRes();
 
         response.setCourseName(request.getCourseName());
         response.setTeacherName(request.getTeacherName());

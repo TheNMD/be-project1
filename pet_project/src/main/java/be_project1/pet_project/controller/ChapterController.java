@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.dto.request.ChapterManageReq;
-import be_project1.pet_project.dto.request.ChapterSearchReq;
-import be_project1.pet_project.dto.response.ChapterSearchRes;
+import be_project1.pet_project.dto.response.ChapterManageRes;
 
 
 @RestController
@@ -40,9 +39,9 @@ public class ChapterController {
     public Object searchChapter(@RequestParam("sort") String sort,
                                 @RequestParam("page") int page,
                                 @RequestParam("size") int size,
-                                @RequestBody ChapterSearchReq request) {
+                                @RequestBody ChapterManageReq request) {
 
-        ChapterSearchRes response = new ChapterSearchRes();
+        ChapterManageRes response = new ChapterManageRes();
         
         response.setChapterName(request.getChapterName());
         response.setCourseName(request.getCourseName());

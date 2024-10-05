@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.dto.request.UserLoginReq;
 import be_project1.pet_project.dto.request.UserManageReq;
-import be_project1.pet_project.dto.request.UserSearchReq;
-import be_project1.pet_project.dto.response.UserSearchRes;
+import be_project1.pet_project.dto.response.UserManageRes;
 
 @RestController
 public class UserController {
@@ -57,9 +56,9 @@ public class UserController {
     public Object searchUser(@RequestParam("sort") String sort,
                              @RequestParam("page") int page,
                              @RequestParam("size") int size,
-                             @RequestBody UserSearchReq request) {
+                             @RequestBody UserManageReq request) {
 
-        UserSearchRes response = new UserSearchRes();
+        UserManageRes response = new UserManageRes();
 
         response.setUsername(request.getUsername());
         response.setName(request.getName());
