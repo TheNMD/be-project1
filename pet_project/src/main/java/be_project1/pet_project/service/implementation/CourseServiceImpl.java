@@ -112,7 +112,7 @@ public class CourseServiceImpl implements CourseService {
             return error;
         }
         
-        return courseID;
+        return request;
     }
 
     // Rate
@@ -123,6 +123,6 @@ public class CourseServiceImpl implements CourseService {
             return error;
         }
         
-        return courseID;
+        return request;
     }
 }

@@ -16,6 +16,24 @@ public class CourseServiceVal {
         return null;
     }
 
+    // Check Course Name
+    public String checkCourseName(String courseName) {
+        // Empty
+        if (courseName.isEmpty()) {
+            return "Course Name is empty!";
+        }
+        // Too long
+        if (courseName.length() > 100) {
+            return "Course Name is too long (More than 100 characters)";
+        }
+        // Contains special characters
+        if (!courseName.matches("[a-zA-Z1-9 ]+")) {
+            return "Course Name contains special characters";
+        }
+
+        return null;
+    }
+
     // Check name
     public String checkName(String name) {
         // Empty
@@ -49,10 +67,18 @@ public class CourseServiceVal {
     }
 
     // Check rating
-    public String checkRating(double rating) {
+    public String checkRating(String rating) {
         // Empty
-        if (rating < 1 || rating > 5) {
-            return "Status is invalid!";
+        if (rating.isEmpty()) {
+            return "Rating is empty!";
+        }
+        if (!rating.matches("[-+]?\\d*(\\.\\d+)?")) {
+            return "Rating is invalid!";
+        }
+        // Less than 0 or more than 5
+        double ratingNum = Double.parseDouble(rating);
+        if (ratingNum < 0 || ratingNum > 5) {
+            return "Rating out of bound! (Less than 0 or more than 5)";
         }
 
         return null;
@@ -91,14 +117,14 @@ public class CourseServiceVal {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String status      = request.getStatus();
-        double rating      = request.getRating();
+        String rating      = request.getRating();
         String review      = request.getReview();
         String createdDate = request.getCreatedDate();
         String result;
 
         // Course name
         if (courseName != null) {
-            result = checkName(courseName);
+            result = checkCourseName(courseName);
             if (result != null) {
                 return result;
             }
@@ -127,7 +153,7 @@ public class CourseServiceVal {
         }
 
         // Rating
-        if (rating != 0.0) {
+        if (rating != null) {
             result = checkRating(rating);
             if (result != null) {
                 return result;
@@ -168,7 +194,7 @@ public class CourseServiceVal {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String status      = request.getStatus();
-        double rating      = request.getRating();
+        String rating      = request.getRating();
         String review      = request.getReview();
         String createdDate = request.getCreatedDate();
         String result;
@@ -181,7 +207,7 @@ public class CourseServiceVal {
 
         // Course name
         if (courseName != null) {
-            result = checkName(courseName);
+            result = checkCourseName(courseName);
             if (result != null) {
                 return result;
             }
@@ -204,7 +230,7 @@ public class CourseServiceVal {
         }
 
         // Rating
-        if (rating != 0.0) {
+        if (rating != null) {
             result = checkRating(rating);
             if (result != null) {
                 return result;
@@ -236,14 +262,14 @@ public class CourseServiceVal {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String status      = request.getStatus();
-        double rating      = request.getRating();
+        String rating      = request.getRating();
         String review      = request.getReview();
         String createdDate = request.getCreatedDate();
         String result;
 
         // Course name
         if (courseName != null) {
-            result = checkName(courseName);
+            result = checkCourseName(courseName);
             if (result != null) {
                 return result;
             }
@@ -266,7 +292,7 @@ public class CourseServiceVal {
         }
 
         // Rating
-        if (rating != 0.0) {
+        if (rating != null) {
             result = checkRating(rating);
             if (result != null) {
                 return result;
@@ -304,7 +330,7 @@ public class CourseServiceVal {
     }
 
     public String rate(String id, CourseManageReq request) {
-        double rating = request.getRating();
+        String rating = request.getRating();
         String result;
         
         // CourseID
@@ -314,7 +340,7 @@ public class CourseServiceVal {
         }
 
         // Rating
-        if (rating != 0.0) {
+        if (rating != null) {
             result = checkRating(rating);
             if (result != null) {
                 return result;
