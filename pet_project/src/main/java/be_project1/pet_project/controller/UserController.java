@@ -4,17 +4,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.dto.request.UserLoginReq;
 import be_project1.pet_project.dto.request.UserManageReq;
 import be_project1.pet_project.dto.response.UserManageRes;
 
-@RestController
 public class UserController {
     // Testing
     @GetMapping("/test")
@@ -25,17 +23,18 @@ public class UserController {
     // Login user
     @PostMapping(URLConst.USER_LOGIN)
     public Object loginUser(@RequestBody UserLoginReq request) {
-        // TODO Hash passwords
-        request.getUsername();
-        request.setPassword("NotARealPassword"); 
+        return request;
+    }
+
+    // Logout user
+    @PostMapping(URLConst.USER_LOGOUT)
+    public Object logoutUser(@RequestBody UserLoginReq request) {
         return request;
     }
 
     // Create user
     @PostMapping(URLConst.USER_CREATE)
     public Object createUser(@RequestBody UserManageReq request) {
-        // TODO Hash passwords
-        request.setPassword("NotARealPassword"); 
         return request;
     }
 

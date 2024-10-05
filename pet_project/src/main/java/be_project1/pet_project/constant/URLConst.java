@@ -1,13 +1,11 @@
 package be_project1.pet_project.constant;
 
 public class URLConst {
-
-    private URLConst() {}
-
+    public static final String USER_LOGIN  = "/api/v1/user/login";
+    public static final String USER_LOGOUT  = "/api/v1/user/logout";
     public static final String USER_CREATE = "/api/v1/user/create";
     public static final String USER_DELETE = "/api/v1/user/delete/{user_id}";
     public static final String USER_UPDATE = "/api/v1/user/update/{user_id}";
-    public static final String USER_LOGIN  = "/api/v1/user/login";
     public static final String USER_SEARCH = "/api/v1/user/search";
 
     public static final String COURSE_CREATE = "/api/v1/course/create";
@@ -31,4 +29,6 @@ public class URLConst {
     public static final String LESSON_BEGIN  = "/api/v1/lesson/begin/{lesson_id}";
     public static final String LESSON_RESUME = "/api/v1/lesson/resume/{lesson_id}";
     public static final String LESSON_STOP   = "/api/v1/lesson/stop/{lesson_id}";
+
+    private URLConst() {}
 }
