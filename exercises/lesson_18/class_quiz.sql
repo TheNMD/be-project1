@@ -1,3 +1,5 @@
+SET search_path TO pet_project;
+
 -- Class Quiz 1
 SELECT teacher.id AS teacher_id, COUNT(course.id) AS course_count
 	FROM teacher 
@@ -63,12 +65,12 @@ SELECT course.id AS course_id, course.name AS course_name, chapter.id AS chapter
 -- Câu hỏi
 SELECT * FROM student_course_lesson ORDER BY user_course_user_id, user_course_course_id, lesson_id;
 -- User ID 1 đăng ký lớp ID 1 và lớp ID 2
--- User ID 1 học bài ID 2 ở lớp ID 1 và bài ID 3 lớp ID 2 (1)
+-- User ID 1 học Lesson ID 2 ở Course ID 1 và Lesson ID 3 Course ID 2 (1)
 
 SELECT id, name, course_id FROM chapter;
+-- Chapter ID 1, 2, 3 lần lượt thuộc về Course ID 1, 2, 3
 SELECT id, name, chapter_id FROM lesson;
--- Chapter ID 1, 2, 3 lần lượt thuộc về course ID 1, 2, 3
--- Lesson ID 1, 2, 3 lần lượt thuộc về chapter ID 1, 2, 3
+-- Lesson ID 1, 2, 3 lần lượt thuộc về Chapter ID 1, 2, 3
 -- => Course ID 1 chỉ có Lesson ID 1; Course ID 2 chỉ có Lesson ID 2; Course ID 3 chỉ có Lesson ID 3
 -- => Trái với (1)
 

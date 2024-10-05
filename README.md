@@ -5,15 +5,15 @@
     - Spring 3.3.4
     - Java 23
     - Group ID: be_project1
-    - Artifact ID: lesson_<n>
+    - Artifact ID: pet_project
     - Dependencies: Spring Web, Lombok, Postgres
-1. Edit files in src/main/java/<group_id>/<artifact_id>
-2. mvn -N io.takari:maven:wrapper 
+1. Edit files in src/main/java/be_project1/pet_project
+2. mvn -N io.takari:maven:wrapper
 3. ./mvnw spring-boot:run
 
 # POSTGRESQL COMMANDS
 0. **Version**: psql --version
-1. **Status**: sudo service postgresql status 
+1. **Status**: sudo service postgresql status
 2. **Start**: sudo service postgresql start
 3. **Stop**: sudo service postgresql stop
 4. **Connect**: sudo -u postgres psql
