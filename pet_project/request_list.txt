@@ -116,10 +116,7 @@ GET: http://localhost:8080/api/v1/admin/chapter/search?sort=created_date:desc&pa
         "created_date": "2024-09-10 00:00:00"
     }
 
-13. Delete chapter:
-DELETE: http://localhost:8080/api/v1/chapter/delete/21
-
-14. Update chapter:
+17. Update chapter:
 PUT: http://localhost:8080/api/v1/chapter/update/21
     {
         "chapter_name": "RandomChapter1",
@@ -129,9 +126,12 @@ PUT: http://localhost:8080/api/v1/chapter/update/21
         "created_date": "2024-09-10 00:00:00"
     }
 
+18. Delete chapter:
+DELETE: http://localhost:8080/api/v1/chapter/delete/21
+
 //// Lesson ////
 
-15. Create lesson:
+19. Create lesson:
 POST: http://localhost:8080/api/v1/admin/lesson/create
     {
         "lesson_name": "RandomLesson",
@@ -140,7 +140,7 @@ POST: http://localhost:8080/api/v1/admin/lesson/create
         "type": "video"
     }
 
-16. Read lesson:
+20. Read lesson:
 GET: http://localhost:8080/api/v1/admin/lesson/search?sort=created_date:desc&page=0&size=10
     {
         "lesson_name": "RandomLesson",
@@ -151,7 +151,7 @@ GET: http://localhost:8080/api/v1/admin/lesson/search?sort=created_date:desc&pag
         "created_date": "2024-09-10 00:00:00"
     }
 
-17. Update lesson:
+21. Update lesson:
 PUT: http://localhost:8080/api/v1/admin/lesson/update/33
     {
         "lesson_name": "RandomLesson1",
@@ -162,11 +162,11 @@ PUT: http://localhost:8080/api/v1/admin/lesson/update/33
         "created_date": "2024-09-10 00:00:00"
     }
 
-18. Delete lesson:
+22. Delete lesson:
 DELETE: http://localhost:8080/api/v1/admin/lesson/delete/33
 
 
-20. Begin / Resume / Stop a lesson:
-POST: http://localhost:8080/api/v1/lesson/begin/33
-POST: http://localhost:8080/api/v1/lesson/resume/33
-POST: http://localhost:8080/api/v1/lesson/stop/33
+23. Begin / Resume / Stop a lesson:
+POST: http://localhost:8080/api/v1/admin/lesson/begin/33
+POST: http://localhost:8080/api/v1/admin/lesson/stop/33
+POST: http://localhost:8080/api/v1/admin/lesson/finish/33

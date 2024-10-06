@@ -28,8 +28,8 @@ public class URLConst {
     public static final String UPDATE_LESSON = "/lesson/update/{lesson_id}";
     public static final String SEARCH_LESSON = "/lesson/search";
     public static final String BEGIN_LESSON  = "/lesson/begin/{lesson_id}";
-    public static final String STOP_LESSON   = "/lesson/resume/{lesson_id}";
-    public static final String FINISH_LESSON = "/lesson/stop/{lesson_id}";
+    public static final String STOP_LESSON   = "/lesson/stop/{lesson_id}";
+    public static final String FINISH_LESSON = "/lesson/finish/{lesson_id}";
 
     private URLConst() {}
 }
