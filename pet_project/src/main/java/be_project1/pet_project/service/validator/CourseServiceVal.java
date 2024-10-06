@@ -2,6 +2,7 @@ package be_project1.pet_project.service.validator;
 
 import org.springframework.stereotype.Service;
 
+import be_project1.pet_project.constant.RegexConst;
 import be_project1.pet_project.dto.request.CourseManageReq;
 
 @Service("courseServiceVal")
@@ -9,8 +10,8 @@ public class CourseServiceVal {
     // Check ID
     public String checkID(String id) {
         // Not numeric
-        if (!id.matches("\\d+")) {
-            return "ID is not numeric!";
+        if (!id.matches(RegexConst.ID)) {
+            return "ID is not valid! (Not a positive integer)";
         }
         
         return null;
@@ -27,7 +28,7 @@ public class CourseServiceVal {
             return "Course Name is too long (More than 100 characters)";
         }
         // Contains special characters
-        if (!courseName.matches("[a-zA-Z1-9 ]+")) {
+        if (!courseName.matches(RegexConst.NAME)) {
             return "Course Name contains special characters";
         }
 
@@ -45,7 +46,7 @@ public class CourseServiceVal {
             return "Name is too long (More than 50 characters)";
         }
         // Contains special characters
-        if (!name.matches("[a-zA-Z ]+")) {
+        if (!name.matches(RegexConst.NAME)) {
             return "Name contains special characters";
         }
 
@@ -72,7 +73,7 @@ public class CourseServiceVal {
         if (rating.isEmpty()) {
             return "Rating is empty!";
         }
-        if (!rating.matches("[-+]?\\d*(\\.\\d+)?")) {
+        if (!rating.matches(RegexConst.RATING)) {
             return "Rating is invalid!";
         }
         // Less than 0 or more than 5
@@ -105,7 +106,7 @@ public class CourseServiceVal {
             return "Created Date is empty!";
         }
         // Not following the datetime format
-        if (!date.matches("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$")) {
+        if (!date.matches(RegexConst.DATETIME)) {
             return "Created Date is invalid!";
         }
 
