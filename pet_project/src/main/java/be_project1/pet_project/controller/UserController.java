@@ -151,13 +151,6 @@ public class UserController {
         return accountCourseService.read(sort, page, size, request);
     }
 
-     // Update
-     @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE)
-     public Object updateAccountCourse(@PathVariable("course_id") String courseID,
-                                       @RequestBody AccountCourseReq request) {
-         return accountCourseService.update(courseID, request);
-     }
-
     // Delete
     @DeleteMapping(URLConst.DELETE_ACCOUNT_COURSE)
     public Object deleteAccountCourse(@PathVariable("course_id") String courseID) {
@@ -220,10 +213,10 @@ public class UserController {
         return accountCourseLessonService.delete(courseID);
     }
 
-    // Begin
-    @PostMapping(URLConst.BEGIN_LESSON)
-    public Object beginLesson(@PathVariable("lesson_id") String lessonID) {
-        return accountCourseLessonService.begin(lessonID);
+    // Start
+    @PostMapping(URLConst.START_LESSON)
+    public Object startLesson(@PathVariable("lesson_id") String lessonID) {
+        return accountCourseLessonService.start(lessonID);
     }
 
     // Stop

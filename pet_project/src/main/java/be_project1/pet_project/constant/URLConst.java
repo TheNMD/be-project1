@@ -37,7 +37,7 @@ public class URLConst {
     public static final String READ_ACCOUNT_COURSE_LESSON   = "/account/read_lesson";
     public static final String UPDATE_ACCOUNT_COURSE_LESSON = "/account/update_lesson/{lesson_id}";
     public static final String DELETE_ACCOUNT_COURSE_LESSON = "/account/delete_lesson/{lesson_id}";
-    public static final String BEGIN_LESSON                 = "/account/begin/{lesson_id}";
+    public static final String START_LESSON                 = "/account/start/{lesson_id}";
     public static final String STOP_LESSON                  = "/account/stop/{lesson_id}";
     public static final String FINISH_LESSON                = "/account/finish/{lesson_id}";
 

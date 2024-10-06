@@ -15,8 +15,8 @@ public interface AccountCourseLessonService {
     // Delete
     public Object delete(String lessonID);
 
-    // Begin
-    public Object begin(String lessonID);
+    // Start
+    public Object start(String lessonID);
 
     // Stop
     public Object stop(String lessonID);

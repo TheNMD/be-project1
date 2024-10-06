@@ -265,11 +265,11 @@ public class AdminController {
     }
 
      // Update
-     @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE_LESSON)
-     public Object updateAccountCourseLesson(@PathVariable("course_id") String courseID,
-                                             @RequestBody AccountCourseLessonReq request) {
-         return accountCourseLessonService.update(courseID, request);
-     }
+    @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE_LESSON)
+    public Object updateAccountCourseLesson(@PathVariable("course_id") String courseID,
+                                            @RequestBody AccountCourseLessonReq request) {
+        return accountCourseLessonService.update(courseID, request);
+    }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_ACCOUNT_COURSE_LESSON)
@@ -277,10 +277,10 @@ public class AdminController {
         return accountCourseLessonService.delete(courseID);
     }
 
-    // Begin
-    @PostMapping(URLConst.BEGIN_LESSON)
-    public Object beginLesson(@PathVariable("lesson_id") String lessonID) {
-        return accountCourseLessonService.begin(lessonID);
+    // Start
+    @PostMapping(URLConst.START_LESSON)
+    public Object startLesson(@PathVariable("lesson_id") String lessonID) {
+        return accountCourseLessonService.start(lessonID);
     }
 
     // Stop

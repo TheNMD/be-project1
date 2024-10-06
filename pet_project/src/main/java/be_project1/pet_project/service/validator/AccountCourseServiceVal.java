@@ -55,8 +55,8 @@ public class AccountCourseServiceVal {
         if (status.isEmpty()) {
             return "Status is empty!";
         }
-        // Contain value different than "active" and "inactive"
-        if (!status.equals("start") && !status.equals("processing") && !status.equals("done")) {
+        // Contain value different than "started" and "stopped" and "finised"
+        if (!status.equals("started") && !status.equals("stopped") && !status.equals("finised")) {
             return "Status is invalid!";
         }
 

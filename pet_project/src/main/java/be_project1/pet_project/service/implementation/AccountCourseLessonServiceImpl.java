@@ -82,9 +82,9 @@ public class AccountCourseLessonServiceImpl implements AccountCourseLessonServic
         return lessonID;
     }
 
-    // Begin
+    // Start
     @Override
-    public Object begin(String lessonID) {
+    public Object start(String lessonID) {
         String error = accountCourseLessonServiceVal.delete(lessonID);
         if (error != null) {
             return error;

@@ -23,8 +23,8 @@ public class AccountCourseLessonServiceVal {
         if (status.isEmpty()) {
             return "Status is empty!";
         }
-        // Contain value different than "active" and "inactive"
-        if (!status.equals("start") && !status.equals("processing") && !status.equals("done")) {
+        // Contain value different than "started" and "stopped" and "finised"
+        if (!status.equals("started") && !status.equals("stopped") && !status.equals("finised")) {
             return "Status is invalid!";
         }
 
@@ -168,8 +168,8 @@ public class AccountCourseLessonServiceVal {
         return checkID(id);
     }
 
-    // Begin
-    public String begin(String id) {
+    // Start
+    public String start(String id) {
         // LessonID
         return checkID(id);
     }
