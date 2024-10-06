@@ -1,11 +1,11 @@
-#### User ####
+#### ADMIN ####
 
 //// Account ////
 
 1. Login:
 POST: http://localhost:8080/api/v1/user/login
     {
-        "username": "admin",
+        "username": "user",
         "password": "abcxyz123456"
     }
 
@@ -15,15 +15,15 @@ POST: http://localhost:8080/api/v1/user/logout/12
 3. Create account:
 POST: http://localhost:8080/api/v1/user/account/create
     {
-        "username": "admin",
+        "username": "user",
         "password": "abcxyz123456",
         "name": "RandomName"
     }
 
 4. Read account:
-GET: http://localhost:8080/api/v1/user/account/search?sort=created_date:desc&page=0&size=10
+GET: http://localhost:8080/api/v1/user/account/read?sort=created_date:desc&page=0&size=10
     {
-        "username": "admin",
+        "username": "user",
         "name": "RandomName",
         "status": "active",
         "created_date": "2024-09-10 00:00:00"
@@ -32,7 +32,7 @@ GET: http://localhost:8080/api/v1/user/account/search?sort=created_date:desc&pag
 5. Update account:
 PUT: http://localhost:8080/api/v1/user/account/update/12
     {
-        "username": "admin1",
+        "username": "user1",
         "password": "123456abcxyz",
         "name": "RandomNameI",
         "status": "inactive",
@@ -45,38 +45,19 @@ DELETE: http://localhost:8080/api/v1/user/account/delete/12
 //// Course ////
 
 7. Read course:
-GET: http://localhost:8080/api/v1/user/course/search?sort=created_date:desc&page=0&size=10
+GET: http://localhost:8080/api/v1/user/course/read?sort=created_date:desc&page=0&size=10
     {
         "course_name": "RandomCourse",
         "teacher_name": "RandomName",
         "description": "RandomDescription",
-        "rating": "5",
         "status": "active",
         "created_date": "2024-09-10 00:00:00"
     }
 
-8. View course:
-GET: http://localhost:8080/api/v1/user/course/view/12
-
-9. Join course:
-POST: http://localhost:8080/api/v1/user/course/join/12
-
-10. Rate course:
-POST: http://localhost:8080/api/v1/user/course/rate/12
-    {
-        "rating": "5"
-    }
-
-11. Review course:
-POST: http://localhost:8080/api/v1/user/course/review/12
-    {
-        "review": "RandomReview"
-    }
-
 //// Chapter ////
 
-12. Read chapter:
-GET: http://localhost:8080/api/v1/user/chapter/search?sort=created_date:desc&page=0&size=10
+8. Read chapter:
+GET: http://localhost:8080/api/v1/user/chapter/read?sort=created_date:desc&page=0&size=10
     {
         "chapter_name": "RandomChapter",
         "course_name": "RandomCourse",
@@ -88,8 +69,8 @@ GET: http://localhost:8080/api/v1/user/chapter/search?sort=created_date:desc&pag
 
 //// Lesson ////
 
-13. Read lesson:
-GET: http://localhost:8080/api/v1/user/lesson/search?sort=created_date:desc&page=0&size=10
+9. Read lesson:
+GET: http://localhost:8080/api/v1/user/lesson/read?sort=created_date:desc&page=0&size=10
     {
         "lesson_name": "RandomLesson",
         "chapter_name": "RandomChapter",
@@ -101,7 +82,68 @@ GET: http://localhost:8080/api/v1/user/lesson/search?sort=created_date:desc&page
         "created_date": "2024-09-10 00:00:00"
     }
 
-14. Start / Resume / Stop a lesson:
-POST: http://localhost:8080/api/v1/user/lesson/start/33
-POST: http://localhost:8080/api/v1/user/lesson/stop/33
-POST: http://localhost:8080/api/v1/user/lesson/finish/33
+//// AccountCourse ////
+
+10. Create AccountCourse:
+POST: http://localhost:8080/api/v1/user/account/create_course
+    {
+        "rating": "5",
+        "review": "RandomReview"
+    }
+
+11. Read AccountCourse:
+GET: http://localhost:8080/api/v1/user/account/read_course?sort=created_date:desc&page=0&size=10
+    {
+        "rating": "5",
+        "review": "RandomReview",
+        "status": "started",
+        "created_date": "2024-09-10 00:00:00"
+    }
+
+12. Delete AccountCourse:
+DELETE: http://localhost:8080/api/v1/user/account/delete_course/12
+
+13. View course:
+GET: http://localhost:8080/api/v1/user/account/view/12
+
+14. Join course:
+POST: http://localhost:8080/api/v1/user/account/join/12
+
+15. Rate course:
+POST: http://localhost:8080/api/v1/user/account/rate/12
+    {
+        "rating": "5"
+    }
+
+16. Review course:
+POST: http://localhost:8080/api/v1/user/account/review/12
+    {
+        "review": "RandomReview"
+    }
+
+//// AccountCourseLesson ////
+
+17. Create AccountCourseLesson:
+POST: http://localhost:8080/api/v1/user/account/create_lesson
+
+18. Read AccountCourseLesson:
+GET: http://localhost:8080/api/v1/user/account/read_lesson?sort=created_date:desc&page=0&size=10
+    {
+        "status": "started",
+        "created_date": "2024-09-10 00:00:00"
+    }
+
+19. Update AccountCourseLesson:
+PUT: http://localhost:8080/api/v1/user/account/update_lesson/12
+    {
+        "status": "stopped",
+        "created_date": "2024-09-10 00:00:00"
+    }
+
+20. Delete AccountCourseLesson:
+DELETE: http://localhost:8080/api/v1/user/account/delete_lesson/12
+
+21. Start / Stop / Finish a lesson:
+POST: http://localhost:8080/api/v1/user/account/start/33
+POST: http://localhost:8080/api/v1/user/account/stop/33
+POST: http://localhost:8080/api/v1/user/account/finish/33

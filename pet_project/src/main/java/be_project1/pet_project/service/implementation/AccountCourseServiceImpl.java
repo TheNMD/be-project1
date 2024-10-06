@@ -25,7 +25,7 @@ public class AccountCourseServiceImpl implements AccountCourseService {
     // Create
     @Override
     public Object create(AccountCourseReq request) {
-        request.setStatus("active");
+        request.setStatus("stopped");
         Instant currentTimestamp = Instant.now();
         String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
         request.setCreatedDate(createdDate);
