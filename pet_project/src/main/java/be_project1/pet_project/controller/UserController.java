@@ -24,9 +24,9 @@ import be_project1.pet_project.dto.request.CourseManageReq;
 import be_project1.pet_project.dto.request.ChapterManageReq;
 import be_project1.pet_project.dto.request.LessonManageReq;
 
-@RestController("adminController")
-@RequestMapping("/api/v1/admin")
-public class AdminController {
+@RestController("userController")
+@RequestMapping("/api/v1/user")
+public class UserController {
     // Init
     private final AccountService accountService;
     private final CourseService courseService;
@@ -34,10 +34,10 @@ public class AdminController {
     private final LessonService lessonService;
 
     @Autowired
-    public AdminController(@Qualifier("accountServiceImpl") AccountService accountService,
-                           @Qualifier("courseServiceImpl") CourseService courseService,
-                           @Qualifier("chapterServiceImpl") ChapterService chapterService,
-                           @Qualifier("lessonServiceImpl") LessonService lessonService) {
+    public UserController(@Qualifier("accountServiceImpl") AccountService accountService,
+                          @Qualifier("courseServiceImpl") CourseService courseService,
+                          @Qualifier("chapterServiceImpl") ChapterService chapterService,
+                          @Qualifier("lessonServiceImpl") LessonService lessonService) {
         this.accountService = accountService;
         this.courseService = courseService;
         this.chapterService = chapterService;
@@ -94,12 +94,6 @@ public class AdminController {
 
     // Courses
 
-    // Create
-    @PostMapping(URLConst.CREATE_COURSE)
-    public Object createCourse(@RequestBody CourseManageReq request) {
-        return courseService.create(request);
-    }
-
     // Read
     @GetMapping(URLConst.SEARCH_COURSE)
     public Object readCourse(@RequestParam("sort") String sort,
@@ -107,19 +101,6 @@ public class AdminController {
                              @RequestParam("size") int size,
                              @RequestBody CourseManageReq request) {
         return courseService.read(sort, page, size, request);
-    }
-
-     // Update
-     @PutMapping(URLConst.UPDATE_COURSE)
-     public Object updateCourse(@PathVariable("course_id") String courseID,
-                                @RequestBody CourseManageReq request) {
-         return courseService.update(courseID, request);
-     }
-
-    // Delete
-    @DeleteMapping(URLConst.DELETE_COURSE)
-    public Object deleteCourse(@PathVariable("course_id") String courseID) {
-        return courseService.delete(courseID);
     }
 
     // View
@@ -150,12 +131,6 @@ public class AdminController {
 
     // Chapter
 
-    // Create
-    @PostMapping(URLConst.CREATE_CHAPTER)
-    public Object createChapter(@RequestBody ChapterManageReq request) {
-        return chapterService.create(request);
-    }
-
     // Read
     @GetMapping(URLConst.SEARCH_CHAPTER)
     public Object readChapter(@RequestParam("sort") String sort,
@@ -165,26 +140,7 @@ public class AdminController {
         return chapterService.read(sort, page, size, request);
     }
 
-     // Update
-     @PutMapping(URLConst.UPDATE_CHAPTER)
-     public Object updateChapter(@PathVariable("chapter_id") String chapterID,
-                                 @RequestBody ChapterManageReq request) {
-         return chapterService.update(chapterID, request);
-     }
-
-    // Delete
-    @DeleteMapping(URLConst.DELETE_CHAPTER)
-    public Object deleteChapter(@PathVariable("chapter_id") String chapterID) {
-        return chapterService.delete(chapterID);
-    }
-
     // Lesson
-    
-    // Create
-    @PostMapping(URLConst.CREATE_LESSON)
-    public Object createLesson(@RequestBody LessonManageReq request) {
-        return lessonService.create(request);
-    }
 
     // Read
     @GetMapping(URLConst.SEARCH_LESSON)
@@ -193,19 +149,6 @@ public class AdminController {
                               @RequestParam("size") int size,
                               @RequestBody LessonManageReq request) {
         return lessonService.read(sort, page, size, request);
-    }
-
-     // Update
-    @PutMapping(URLConst.UPDATE_LESSON)
-    public Object updateLesson(@PathVariable("lesson_id") String lessonID,
-                               @RequestBody LessonManageReq request) {
-        return lessonService.update(lessonID, request);
-    }
-
-    // Delete
-    @DeleteMapping(URLConst.DELETE_LESSON)
-    public Object deleteLesson(@PathVariable("lesson_id") String lessonID) {
-        return lessonService.delete(lessonID);
     }
 
     // Begin
