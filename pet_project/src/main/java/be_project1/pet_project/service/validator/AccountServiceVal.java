@@ -7,7 +7,7 @@ import be_project1.pet_project.dto.request.AccountReq;
 
 @Service("accountServiceVal")
 public class AccountServiceVal {
-    // Check AccountID
+    // Check ID
     public String checkID(String id) {
         // Not numeric
         if (!id.matches(RegexConst.ID)) {

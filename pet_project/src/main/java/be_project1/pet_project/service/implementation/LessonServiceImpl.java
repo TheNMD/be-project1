@@ -87,37 +87,4 @@ public class LessonServiceImpl implements LessonService {
         
         return lessonID;
     }
-
-    // Begin
-    @Override
-    public Object begin(String lessonID) {
-        String error = lessonServiceVal.delete(lessonID);
-        if (error != null) {
-            return error;
-        }
-        
-        return lessonID;
-    }
-
-    // Stop
-    @Override
-    public Object stop(String lessonID) {
-        String error = lessonServiceVal.delete(lessonID);
-        if (error != null) {
-            return error;
-        }
-        
-        return lessonID;
-    }
-
-    // Finish
-    @Override
-    public Object finish(String lessonID) {
-        String error = lessonServiceVal.delete(lessonID);
-        if (error != null) {
-            return error;
-        }
-        
-        return lessonID;
-    }
 }

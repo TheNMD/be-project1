@@ -25,8 +25,6 @@ public class CourseRes {
     private String courseName;
     private String teacherName;
     private String description;
-    private String rating;
-    private String review;
     private String status;
     private String createdDate;
     private String updatedDate;

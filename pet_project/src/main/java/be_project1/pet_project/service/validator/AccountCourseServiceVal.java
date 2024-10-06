@@ -3,11 +3,11 @@ package be_project1.pet_project.service.validator;
 import org.springframework.stereotype.Service;
 
 import be_project1.pet_project.constant.RegexConst;
-import be_project1.pet_project.dto.request.AccountLessonReq;
+import be_project1.pet_project.dto.request.AccountCourseReq;
 
 @Service("accountCourseServiceVal")
 public class AccountCourseServiceVal {
-    // Check AccountID
+    // Check ID
     public String checkID(String id) {
         // Not numeric
         if (!id.matches(RegexConst.ID)) {
@@ -17,63 +17,33 @@ public class AccountCourseServiceVal {
         return null;
     }
     
-    // Check Username
-    public String checkUsername(String username) {
+    // Check Rating
+    public String checkRating(String rating) {
         // Empty
-        if (username.isEmpty()) {
-            return "Username is empty!";
+        if (rating.isEmpty()) {
+            return "Rating is empty!";
         }
-        // Too long
-        if (username.length() > 50) {
-            return "Username is too long (More than 50 characters)";
+        if (!rating.matches(RegexConst.RATING)) {
+            return "Rating is invalid!";
         }
-        // Too short
-        if (username.length() < 3) {
-            return "Username is too short (Less than 3 characters)";
-        }
-        // Contains special characters
-        if (!username.matches(RegexConst.USERNAME)) {
-            return "Username contains special characters";
+        // Less than 0 or more than 5
+        double ratingNum = Double.parseDouble(rating);
+        if (ratingNum < 0 || ratingNum > 5) {
+            return "Rating out of bound! (Less than 0 or more than 5)";
         }
 
         return null;
     }
 
-    // Check Password
-    public String checkPassword(String password) {
+    // Check Review
+    public String checkReview(String review) {
         // Empty
-        if (password.isEmpty()) {
-            return "Password is empty!";
+        if (review.isEmpty()) {
+            return "Review is empty!";
         }
         // Too long
-        if (password.length() > 64) {
-            return "Password is too long (More than 64 characters)";
-        }
-        // Too short
-        if (password.length() < 10) {
-            return "Password is too short (Less than 10 characters)";
-        }
-        // Contains spaces
-        if (password.matches(RegexConst.PASSWORD)) {
-            return "Password contains spaces";
-        }
-
-        return null;
-    }
-
-    // Check Name
-    public String checkName(String name) {
-        // Empty
-        if (name.isEmpty()) {
-            return "Name is empty!";
-        }
-        // Too long
-        if (name.length() > 50) {
-            return "Name is too long (More than 50 characters)";
-        }
-        // Contains special characters
-        if (!name.matches(RegexConst.NAME)) {
-            return "Name contains special characters";
+        if (review.length() > 300) {
+            return "Review is too long (More than 300 characters)";
         }
 
         return null;
@@ -86,7 +56,7 @@ public class AccountCourseServiceVal {
             return "Status is empty!";
         }
         // Contain value different than "active" and "inactive"
-        if (!status.equals("active") && !status.equals("inactive")) {
+        if (!status.equals("start") && !status.equals("processing") && !status.equals("done")) {
             return "Status is invalid!";
         }
 
@@ -102,6 +72,235 @@ public class AccountCourseServiceVal {
         // Not following the datetime format
         if (!date.matches(RegexConst.DATETIME)) {
             return "Date is invalid!";
+        }
+
+        return null;
+    }
+
+    // Create
+    public String create(AccountCourseReq request) {
+        String rating      = request.getRating();
+        String review      = request.getReview();
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
+        String result;
+
+        // Rating
+        if (rating != null) {
+            result = checkRating(rating);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Review
+        if (review != null) {
+            result = checkReview(review);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Status not entered!";
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Created Date not entered!";
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    // Read
+    public String read(AccountCourseReq request) {
+        String rating      = request.getRating();
+        String review      = request.getReview();
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
+        String result;
+
+        // Rating
+        if (rating != null) {
+            result = checkRating(rating);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Review
+        if (review != null) {
+            result = checkReview(review);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    // Update
+    public String update(String id, AccountCourseReq request) {
+        String rating      = request.getRating();
+        String review      = request.getReview();
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
+        String result;
+        
+        // CourseID
+        result = checkID(id);
+        if (result != null) {
+            return result;
+        }
+
+        // Rating
+        if (rating != null) {
+            result = checkRating(rating);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Review
+        if (review != null) {
+            result = checkReview(review);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Updated Date not entered!";
+        }
+
+        return null;
+    }
+
+    // Delete
+    public String delete(String id) {
+        // CourseID
+        return checkID(id);
+    }
+
+    public String view(String id) {
+        // CourseID
+        return checkID(id);
+    }
+
+    public String join(String id) {
+        // CourseID
+        return checkID(id);
+    }
+
+    public String rate(String id, AccountCourseReq request) {
+        String rating = request.getRating();
+        String result;
+        
+        // CourseID
+        result = checkID(id);
+        if (result != null) {
+            return result;
+        }
+
+        // Rating
+        if (rating != null) {
+            result = checkRating(rating);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    public String review(String id, AccountCourseReq request) {
+        String review = request.getReview();
+        String result;
+        
+        // CourseID
+        result = checkID(id);
+        if (result != null) {
+            return result;
+        }
+
+        // Review
+        if (review != null) {
+            result = checkReview(review);
+            if (result != null) {
+                return result;
+            }
         }
 
         return null;

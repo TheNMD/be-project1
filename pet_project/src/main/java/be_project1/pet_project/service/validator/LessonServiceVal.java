@@ -466,22 +466,4 @@ public class LessonServiceVal {
         // LessonID
         return checkID(id);
     }
-
-    // Begin
-    public String begin(String id) {
-        // LessonID
-        return checkID(id);
-    }
-
-    // Stop
-    public String stop(String id) {
-        // LessonID
-        return checkID(id);
-    }
-
-    // Finish
-    public String finish(String id) {
-        // LessonID
-        return checkID(id);
-    }
 }

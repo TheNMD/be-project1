@@ -16,68 +16,6 @@ public class AccountCourseLessonServiceVal {
         
         return null;
     }
-    
-    // Check Username
-    public String checkUsername(String username) {
-        // Empty
-        if (username.isEmpty()) {
-            return "Username is empty!";
-        }
-        // Too long
-        if (username.length() > 50) {
-            return "Username is too long (More than 50 characters)";
-        }
-        // Too short
-        if (username.length() < 3) {
-            return "Username is too short (Less than 3 characters)";
-        }
-        // Contains special characters
-        if (!username.matches(RegexConst.USERNAME)) {
-            return "Username contains special characters";
-        }
-
-        return null;
-    }
-
-    // Check Password
-    public String checkPassword(String password) {
-        // Empty
-        if (password.isEmpty()) {
-            return "Password is empty!";
-        }
-        // Too long
-        if (password.length() > 64) {
-            return "Password is too long (More than 64 characters)";
-        }
-        // Too short
-        if (password.length() < 10) {
-            return "Password is too short (Less than 10 characters)";
-        }
-        // Contains spaces
-        if (password.matches(RegexConst.PASSWORD)) {
-            return "Password contains spaces";
-        }
-
-        return null;
-    }
-
-    // Check Name
-    public String checkName(String name) {
-        // Empty
-        if (name.isEmpty()) {
-            return "Name is empty!";
-        }
-        // Too long
-        if (name.length() > 50) {
-            return "Name is too long (More than 50 characters)";
-        }
-        // Contains special characters
-        if (!name.matches(RegexConst.NAME)) {
-            return "Name contains special characters";
-        }
-
-        return null;
-    }
 
     // Check Status
     public String checkStatus(String status) {
@@ -86,7 +24,7 @@ public class AccountCourseLessonServiceVal {
             return "Status is empty!";
         }
         // Contain value different than "active" and "inactive"
-        if (!status.equals("active") && !status.equals("inactive")) {
+        if (!status.equals("start") && !status.equals("processing") && !status.equals("done")) {
             return "Status is invalid!";
         }
 
@@ -105,5 +43,146 @@ public class AccountCourseLessonServiceVal {
         }
 
         return null;
+    }
+
+    // Create
+    public String create(AccountCourseLessonReq request) {
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
+        String result;
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Status not entered!";
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Created Date not entered!";
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    // Read
+    public String read(AccountCourseLessonReq request) {
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
+        String result;
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    // Update
+    public String update(String id, AccountCourseLessonReq request) {
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
+        String result;
+        
+        // LessonID
+        result = checkID(id);
+        if (result != null) {
+            return result;
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Updated Date not entered!";
+        }
+
+        return null;
+    }
+
+    // Delete
+    public String delete(String id) {
+        // LessonID
+        return checkID(id);
+    }
+
+    // Begin
+    public String begin(String id) {
+        // LessonID
+        return checkID(id);
+    }
+
+    // Stop
+    public String stop(String id) {
+        // LessonID
+        return checkID(id);
+    }
+
+    // Finish
+    public String finish(String id) {
+        // LessonID
+        return checkID(id);
     }
 }

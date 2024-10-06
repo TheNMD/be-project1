@@ -14,13 +14,4 @@ public interface LessonService {
 
     // Delete
     public Object delete(String lessonID);
-
-    // Begin
-    public Object begin(String lessonID);
-
-    // Stop
-    public Object stop(String lessonID);
-
-    // Finish
-    public Object finish(String lessonID);
 }
