@@ -25,22 +25,37 @@ public class LessonServiceImpl implements LessonService {
     // Create
     @Override
     public Object create(LessonManageReq request) {
+        request.setStatus("active");
+        Instant currentTimestamp = Instant.now();
+        String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
+        request.setCreatedDate(createdDate);
+        
+        String error = lessonServiceVal.create(request);
+        if (error != null) {
+            return error;
+        }
+
         return request;
     }
 
     // Read
     @Override
     public Object read(String sort, int page, int size, LessonManageReq request) {
+        String error = lessonServiceVal.read(request);
+        if (error != null) {
+            return error;
+        }
+        
         LessonManageRes response = new LessonManageRes();
-
-        // response.setLessonName(request.getLessonName());
-        // response.setTeacherName(request.getTeacherName());
-        // response.setStatus(request.getStatus());
-        // response.setRating(request.getRating());
-        // response.setCreatedDate(request.getCreatedDate());
-        // response.setSort(sort);
-        // response.setPage(page);
-        // response.setSize(size);
+        response.setLessonName(request.getLessonName());
+        response.setChapterName(request.getChapterName());
+        response.setCourseName(request.getCourseName());
+        response.setType(request.getType());
+        response.setStatus(request.getStatus());
+        response.setCreatedDate(request.getCreatedDate());
+        response.setSort(sort);
+        response.setPage(page);
+        response.setSize(size);
             
         return response;
     }
@@ -48,30 +63,55 @@ public class LessonServiceImpl implements LessonService {
     // Update
     @Override
     public Object update(String lessonID, LessonManageReq request) {
+        String error = lessonServiceVal.update(lessonID, request);
+        if (error != null) {
+            return error;
+        }
+        
         return request;
     }
 
     // Delete
     @Override
-    public Object delete(String userID) {
-        return userID;
+    public Object delete(String lessonID) {
+        String error = lessonServiceVal.delete(lessonID);
+        if (error != null) {
+            return error;
+        }
+        
+        return lessonID;
     }
 
-    // View
+    // Begin
     @Override
     public Object begin(String lessonID) {
+        String error = lessonServiceVal.delete(lessonID);
+        if (error != null) {
+            return error;
+        }
+        
         return lessonID;
     }
 
-    // Join
+    // Stop
     @Override
     public Object stop(String lessonID) {
+        String error = lessonServiceVal.delete(lessonID);
+        if (error != null) {
+            return error;
+        }
+        
         return lessonID;
     }
 
-    // Rate
+    // Finish
     @Override
     public Object finish(String lessonID) {
+        String error = lessonServiceVal.delete(lessonID);
+        if (error != null) {
+            return error;
+        }
+        
         return lessonID;
     }
 }

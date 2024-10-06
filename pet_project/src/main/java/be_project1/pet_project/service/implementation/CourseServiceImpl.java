@@ -50,8 +50,9 @@ public class CourseServiceImpl implements CourseService {
         response.setCourseName(request.getCourseName());
         response.setDescription(request.getDescription());
         response.setTeacherName(request.getTeacherName());
-        response.setStatus(request.getStatus());
         response.setRating(request.getRating());
+        response.setReview(request.getReview());
+        response.setStatus(request.getStatus());
         response.setCreatedDate(request.getCreatedDate());
         response.setSort(sort);
         response.setPage(page);
