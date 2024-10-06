@@ -43,8 +43,8 @@ public class UserController {
                           @Qualifier("courseServiceImpl") CourseService courseService,
                           @Qualifier("chapterServiceImpl") ChapterService chapterService,
                           @Qualifier("lessonServiceImpl") LessonService lessonService,
-                          @Qualifier("lessonServiceImpl") AccountCourseService accountCourseService,
-                          @Qualifier("lessonServiceImpl") AccountCourseLessonService accountCourseLessonService) {
+                          @Qualifier("accountCourseServiceImpl") AccountCourseService accountCourseService,
+                          @Qualifier("accountCourseLessonServiceImpl") AccountCourseLessonService accountCourseLessonService) {
         this.accountService = accountService;
         this.courseService = courseService;
         this.chapterService = chapterService;
@@ -80,7 +80,7 @@ public class UserController {
     }
 
     // Read
-    @GetMapping(URLConst.SEARCH_ACCOUNT)
+    @GetMapping(URLConst.READ_ACCOUNT)
     public Object readAccount(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
@@ -104,7 +104,7 @@ public class UserController {
     // Courses
 
     // Read
-    @GetMapping(URLConst.SEARCH_COURSE)
+    @GetMapping(URLConst.READ_COURSE)
     public Object readCourse(@RequestParam("sort") String sort,
                              @RequestParam("page") int page,
                              @RequestParam("size") int size,
@@ -115,7 +115,7 @@ public class UserController {
     // Chapter
 
     // Read
-    @GetMapping(URLConst.SEARCH_CHAPTER)
+    @GetMapping(URLConst.READ_CHAPTER)
     public Object readChapter(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
@@ -126,7 +126,7 @@ public class UserController {
     // Lesson
 
     // Read
-    @GetMapping(URLConst.SEARCH_LESSON)
+    @GetMapping(URLConst.READ_LESSON)
     public Object readChapter(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
@@ -143,7 +143,7 @@ public class UserController {
     }
 
     // Read
-    @GetMapping(URLConst.SEARCH_COURSE)
+    @GetMapping(URLConst.READ_COURSE)
     public Object readAccountCourse(@RequestParam("sort") String sort,
                                     @RequestParam("page") int page,
                                     @RequestParam("size") int size,
@@ -199,7 +199,7 @@ public class UserController {
     }
 
     // Read
-    @GetMapping(URLConst.SEARCH_COURSE)
+    @GetMapping(URLConst.READ_COURSE)
     public Object readAccountCourseLesson(@RequestParam("sort") String sort,
                                           @RequestParam("page") int page,
                                           @RequestParam("size") int size,

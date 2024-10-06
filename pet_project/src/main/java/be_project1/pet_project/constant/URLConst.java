@@ -5,31 +5,41 @@ public class URLConst {
     public static final String LOGOUT  = "/logout/{user_id}";
 
     public static final String CREATE_ACCOUNT = "/account/create";
-    public static final String DELETE_ACCOUNT = "/account/delete/{user_id}";
+    public static final String READ_ACCOUNT   = "/account/read";
     public static final String UPDATE_ACCOUNT = "/account/update/{user_id}";
-    public static final String SEARCH_ACCOUNT = "/account/search";
+    public static final String DELETE_ACCOUNT = "/account/delete/{user_id}";
 
     public static final String CREATE_COURSE = "/course/create";
-    public static final String DELETE_COURSE = "/course/delete/{course_id}";
+    public static final String READ_COURSE   = "/course/read";
     public static final String UPDATE_COURSE = "/course/update/{course_id}";
-    public static final String SEARCH_COURSE = "/course/search";
-    public static final String VIEW_COURSE   = "/course/view/{course_id}";
-    public static final String JOIN_COURSE   = "/course/join/{course_id}";
-    public static final String RATE_COURSE   = "/course/rate/{course_id}";
-    public static final String REVIEW_COURSE = "/course/review/{course_id}";
+    public static final String DELETE_COURSE = "/course/delete/{course_id}";
 
     public static final String CREATE_CHAPTER = "/chapter/create";
-    public static final String DELETE_CHAPTER = "/chapter/delete/{chapter_id}";
+    public static final String READ_CHAPTER   = "/chapter/read";
     public static final String UPDATE_CHAPTER = "/chapter/update/{chapter_id}";
-    public static final String SEARCH_CHAPTER = "/chapter/search";
+    public static final String DELETE_CHAPTER = "/chapter/delete/{chapter_id}";
 
     public static final String CREATE_LESSON = "/lesson/create";
-    public static final String DELETE_LESSON = "/lesson/delete/{lesson_id}";
+    public static final String READ_LESSON   = "/lesson/read";
     public static final String UPDATE_LESSON = "/lesson/update/{lesson_id}";
-    public static final String SEARCH_LESSON = "/lesson/search";
-    public static final String BEGIN_LESSON  = "/lesson/begin/{lesson_id}";
-    public static final String STOP_LESSON   = "/lesson/stop/{lesson_id}";
-    public static final String FINISH_LESSON = "/lesson/finish/{lesson_id}";
+    public static final String DELETE_LESSON = "/lesson/delete/{lesson_id}";
+
+    public static final String CREATE_ACCOUNT_COURSE = "/account/create_course";
+    public static final String READ_ACCOUNT_COURSE   = "/account/read_course";
+    public static final String UPDATE_ACCOUNT_COURSE = "/account/update_course/{course_id}";
+    public static final String DELETE_ACCOUNT_COURSE = "/account/delete_course/{course_id}";
+    public static final String VIEW_COURSE           = "/account/view/{course_id}";
+    public static final String JOIN_COURSE           = "/account/join/{course_id}";
+    public static final String RATE_COURSE           = "/account/rate/{course_id}";
+    public static final String REVIEW_COURSE         = "/account/review/{course_id}";
+
+    public static final String CREATE_ACCOUNT_COURSE_LESSON = "/account/create_lesson";
+    public static final String READ_ACCOUNT_COURSE_LESSON   = "/account/read_lesson";
+    public static final String UPDATE_ACCOUNT_COURSE_LESSON = "/account/update_lesson/{lesson_id}";
+    public static final String DELETE_ACCOUNT_COURSE_LESSON = "/account/delete_lesson/{lesson_id}";
+    public static final String BEGIN_LESSON                 = "/account/begin/{lesson_id}";
+    public static final String STOP_LESSON                  = "/account/stop/{lesson_id}";
+    public static final String FINISH_LESSON                = "/account/finish/{lesson_id}";
 
     private URLConst() {}
 }

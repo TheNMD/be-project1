@@ -128,8 +128,6 @@ public class CourseServiceVal {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String description = request.getDescription();
-        String rating      = request.getRating();
-        String review      = request.getReview();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String updatedDate = request.getUpdatedDate();
@@ -157,22 +155,6 @@ public class CourseServiceVal {
         // Description
         if (description != null) {
             result = checkDescription(description);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Rating
-        if (rating != null) {
-            result = checkRating(rating);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Review
-        if (review != null) {
-            result = checkReview(review);
             if (result != null) {
                 return result;
             }
@@ -216,8 +198,6 @@ public class CourseServiceVal {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String description = request.getDescription();
-        String rating      = request.getRating();
-        String review      = request.getReview();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String updatedDate = request.getUpdatedDate();
@@ -242,22 +222,6 @@ public class CourseServiceVal {
         // Description
         if (description != null) {
             result = checkDescription(description);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Rating
-        if (rating != null) {
-            result = checkRating(rating);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Review
-        if (review != null) {
-            result = checkReview(review);
             if (result != null) {
                 return result;
             }
@@ -295,8 +259,6 @@ public class CourseServiceVal {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String description = request.getDescription();
-        String rating      = request.getRating();
-        String review      = request.getReview();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String updatedDate = request.getUpdatedDate();
@@ -327,22 +289,6 @@ public class CourseServiceVal {
         // Description
         if (description != null) {
             result = checkDescription(description);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Rating
-        if (rating != null) {
-            result = checkRating(rating);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Review
-        if (review != null) {
-            result = checkReview(review);
             if (result != null) {
                 return result;
             }
@@ -382,57 +328,5 @@ public class CourseServiceVal {
     public String delete(String id) {
         // CourseID
         return checkID(id);
-    }
-
-    public String view(String id) {
-        // CourseID
-        return checkID(id);
-    }
-
-    public String join(String id) {
-        // CourseID
-        return checkID(id);
-    }
-
-    public String rate(String id, CourseReq request) {
-        String rating = request.getRating();
-        String result;
-        
-        // CourseID
-        result = checkID(id);
-        if (result != null) {
-            return result;
-        }
-
-        // Rating
-        if (rating != null) {
-            result = checkRating(rating);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        return null;
-    }
-
-    public String review(String id, CourseReq request) {
-        String review = request.getReview();
-        String result;
-        
-        // CourseID
-        result = checkID(id);
-        if (result != null) {
-            return result;
-        }
-
-        // Review
-        if (review != null) {
-            result = checkReview(review);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        return null;
     }
 }
