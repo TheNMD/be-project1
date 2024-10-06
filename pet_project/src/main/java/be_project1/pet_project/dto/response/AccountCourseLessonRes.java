@@ -1,4 +1,4 @@
-package be_project1.pet_project.dto.request;
+package be_project1.pet_project.dto.response;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -18,4 +18,7 @@ public class AccountCourseLessonRes {
     private String status;
     private String createdDate;
     private String updatedDate;
+    private String sort;
+    private int page;
+    private int size;
 }
