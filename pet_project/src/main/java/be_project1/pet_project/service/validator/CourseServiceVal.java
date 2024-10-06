@@ -3,7 +3,7 @@ package be_project1.pet_project.service.validator;
 import org.springframework.stereotype.Service;
 
 import be_project1.pet_project.constant.RegexConst;
-import be_project1.pet_project.dto.request.CourseManageReq;
+import be_project1.pet_project.dto.request.CourseReq;
 
 @Service("courseServiceVal")
 public class CourseServiceVal {
@@ -124,7 +124,7 @@ public class CourseServiceVal {
     }
 
     // Create
-    public String create(CourseManageReq request) {
+    public String create(CourseReq request) {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String description = request.getDescription();
@@ -203,7 +203,7 @@ public class CourseServiceVal {
     }
 
     // Read
-    public String read(CourseManageReq request) {
+    public String read(CourseReq request) {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String description = request.getDescription();
@@ -273,7 +273,7 @@ public class CourseServiceVal {
     }
 
     // Update
-    public String update(String id, CourseManageReq request) {
+    public String update(String id, CourseReq request) {
         String courseName  = request.getCourseName();
         String teacherName = request.getTeacherName();
         String description = request.getDescription();
@@ -364,7 +364,7 @@ public class CourseServiceVal {
         return checkID(id);
     }
 
-    public String rate(String id, CourseManageReq request) {
+    public String rate(String id, CourseReq request) {
         String rating = request.getRating();
         String result;
         
@@ -385,7 +385,7 @@ public class CourseServiceVal {
         return null;
     }
 
-    public String review(String id, CourseManageReq request) {
+    public String review(String id, CourseReq request) {
         String review = request.getReview();
         String result;
         

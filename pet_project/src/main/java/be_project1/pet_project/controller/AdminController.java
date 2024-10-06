@@ -18,11 +18,10 @@ import be_project1.pet_project.service.ChapterService;
 import be_project1.pet_project.service.LessonService;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.LoginReq;
-import be_project1.pet_project.dto.request.AccountManageReq;
-import be_project1.pet_project.dto.request.CourseManageReq;
-import be_project1.pet_project.dto.request.ChapterManageReq;
-import be_project1.pet_project.dto.request.LessonManageReq;
+import be_project1.pet_project.dto.request.AccountReq;
+import be_project1.pet_project.dto.request.CourseReq;
+import be_project1.pet_project.dto.request.ChapterReq;
+import be_project1.pet_project.dto.request.LessonReq;
 
 @RestController("adminController")
 @RequestMapping("/api/v1/admin")
@@ -54,7 +53,7 @@ public class AdminController {
 
     // Login
     @PostMapping(URLConst.LOGIN)
-    public Object login(@RequestBody LoginReq request) {
+    public Object login(@RequestBody AccountReq request) {
         return accountService.login(request);
     }
 
@@ -66,7 +65,7 @@ public class AdminController {
 
     // Create
     @PostMapping(URLConst.CREATE_ACCOUNT)
-    public Object createAccount(@RequestBody AccountManageReq request) {
+    public Object createAccount(@RequestBody AccountReq request) {
         return accountService.create(request);
     }
 
@@ -75,14 +74,14 @@ public class AdminController {
     public Object readAccount(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
-                              @RequestBody AccountManageReq request) {
+                              @RequestBody AccountReq request) {
         return accountService.read(sort, page, size, request);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_ACCOUNT)
     public Object updateAccount(@PathVariable("user_id") String accountID,
-                                @RequestBody AccountManageReq request) {
+                                @RequestBody AccountReq request) {
         return accountService.update(accountID, request);
     }
 
@@ -96,7 +95,7 @@ public class AdminController {
 
     // Create
     @PostMapping(URLConst.CREATE_COURSE)
-    public Object createCourse(@RequestBody CourseManageReq request) {
+    public Object createCourse(@RequestBody CourseReq request) {
         return courseService.create(request);
     }
 
@@ -105,14 +104,14 @@ public class AdminController {
     public Object readCourse(@RequestParam("sort") String sort,
                              @RequestParam("page") int page,
                              @RequestParam("size") int size,
-                             @RequestBody CourseManageReq request) {
+                             @RequestBody CourseReq request) {
         return courseService.read(sort, page, size, request);
     }
 
      // Update
      @PutMapping(URLConst.UPDATE_COURSE)
      public Object updateCourse(@PathVariable("course_id") String courseID,
-                                @RequestBody CourseManageReq request) {
+                                @RequestBody CourseReq request) {
          return courseService.update(courseID, request);
      }
 
@@ -137,14 +136,14 @@ public class AdminController {
     // Rate
     @PostMapping(URLConst.RATE_COURSE)
     public Object rateCourse(@PathVariable("course_id") String courseID,
-                             @RequestBody CourseManageReq request) {
+                             @RequestBody CourseReq request) {
         return courseService.rate(courseID, request);
     }
 
     // Review
     @PostMapping(URLConst.REVIEW_COURSE)
     public Object reviewCourse(@PathVariable("course_id") String courseID,
-                               @RequestBody CourseManageReq request) {
+                               @RequestBody CourseReq request) {
         return courseService.review(courseID, request);
     }
 
@@ -152,7 +151,7 @@ public class AdminController {
 
     // Create
     @PostMapping(URLConst.CREATE_CHAPTER)
-    public Object createChapter(@RequestBody ChapterManageReq request) {
+    public Object createChapter(@RequestBody ChapterReq request) {
         return chapterService.create(request);
     }
 
@@ -161,14 +160,14 @@ public class AdminController {
     public Object readChapter(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
-                              @RequestBody ChapterManageReq request) {
+                              @RequestBody ChapterReq request) {
         return chapterService.read(sort, page, size, request);
     }
 
      // Update
      @PutMapping(URLConst.UPDATE_CHAPTER)
      public Object updateChapter(@PathVariable("chapter_id") String chapterID,
-                                 @RequestBody ChapterManageReq request) {
+                                 @RequestBody ChapterReq request) {
          return chapterService.update(chapterID, request);
      }
 
@@ -179,10 +178,10 @@ public class AdminController {
     }
 
     // Lesson
-    
+
     // Create
     @PostMapping(URLConst.CREATE_LESSON)
-    public Object createLesson(@RequestBody LessonManageReq request) {
+    public Object createLesson(@RequestBody LessonReq request) {
         return lessonService.create(request);
     }
 
@@ -191,14 +190,14 @@ public class AdminController {
     public Object readChapter(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
-                              @RequestBody LessonManageReq request) {
+                              @RequestBody LessonReq request) {
         return lessonService.read(sort, page, size, request);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_LESSON)
     public Object updateLesson(@PathVariable("lesson_id") String lessonID,
-                               @RequestBody LessonManageReq request) {
+                               @RequestBody LessonReq request) {
         return lessonService.update(lessonID, request);
     }
 

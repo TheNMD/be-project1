@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
-public class ChapterManageReq {
+public class ChapterReq {
     private String chapterName;
     private String courseName;
     private String description;

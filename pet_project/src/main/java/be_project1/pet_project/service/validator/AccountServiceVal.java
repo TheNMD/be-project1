@@ -3,8 +3,7 @@ package be_project1.pet_project.service.validator;
 import org.springframework.stereotype.Service;
 
 import be_project1.pet_project.constant.RegexConst;
-import be_project1.pet_project.dto.request.LoginReq;
-import be_project1.pet_project.dto.request.AccountManageReq;
+import be_project1.pet_project.dto.request.AccountReq;
 
 @Service("accountServiceVal")
 public class AccountServiceVal {
@@ -109,7 +108,7 @@ public class AccountServiceVal {
     }
 
     // Login
-    public String login(LoginReq request) {
+    public String login(AccountReq request) {
         String username = request.getUsername();
         String password = request.getPassword();
         String result;
@@ -146,7 +145,7 @@ public class AccountServiceVal {
     }
 
     // Create
-    public String create(AccountManageReq request) {
+    public String create(AccountReq request) {
         String username    = request.getUsername();
         String password    = request.getPassword();
         String name        = request.getName();
@@ -214,7 +213,7 @@ public class AccountServiceVal {
     }
 
     // Read
-    public String read(AccountManageReq request) {
+    public String read(AccountReq request) {
         String username    = request.getUsername();
         String name        = request.getName();
         String status      = request.getStatus();
@@ -257,7 +256,7 @@ public class AccountServiceVal {
     }
 
     // Update
-    public String update(String id, AccountManageReq request) {
+    public String update(String id, AccountReq request) {
         String username    = request.getUsername();
         String password    = request.getPassword();
         String name        = request.getName();

@@ -1,8 +1,8 @@
 package be_project1.pet_project.constant;
 
 public class URLConst {
-    public static final String LOGIN   = "/account/login";
-    public static final String LOGOUT  = "/account/logout/{user_id}";
+    public static final String LOGIN   = "/login";
+    public static final String LOGOUT  = "/logout/{user_id}";
 
     public static final String CREATE_ACCOUNT = "/account/create";
     public static final String DELETE_ACCOUNT = "/account/delete/{user_id}";

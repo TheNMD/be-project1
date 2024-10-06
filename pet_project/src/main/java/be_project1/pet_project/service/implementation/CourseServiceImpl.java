@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.CourseService;
 import be_project1.pet_project.service.validator.CourseServiceVal;
-import be_project1.pet_project.dto.request.CourseManageReq;
-import be_project1.pet_project.dto.response.CourseManageRes;
+import be_project1.pet_project.dto.request.CourseReq;
+import be_project1.pet_project.dto.response.CourseRes;
 
 @Service("courseServiceImpl")
 public class CourseServiceImpl implements CourseService {
@@ -24,7 +24,7 @@ public class CourseServiceImpl implements CourseService {
 
     // Create
     @Override
-    public Object create(CourseManageReq request) {
+    public Object create(CourseReq request) {
         request.setStatus("active");
         Instant currentTimestamp = Instant.now();
         String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
@@ -40,13 +40,13 @@ public class CourseServiceImpl implements CourseService {
 
     // Read
     @Override
-    public Object read(String sort, int page, int size, CourseManageReq request) {
+    public Object read(String sort, int page, int size, CourseReq request) {
         String error = courseServiceVal.read(request);
         if (error != null) {
             return error;
         }
         
-        CourseManageRes response = new CourseManageRes();
+        CourseRes response = new CourseRes();
         response.setCourseName(request.getCourseName());
         response.setDescription(request.getDescription());
         response.setTeacherName(request.getTeacherName());
@@ -63,7 +63,7 @@ public class CourseServiceImpl implements CourseService {
 
     // Update
     @Override
-    public Object update(String courseID, CourseManageReq request) {
+    public Object update(String courseID, CourseReq request) {
         String error = courseServiceVal.update(courseID, request);
         if (error != null) {
             return error;
@@ -107,7 +107,7 @@ public class CourseServiceImpl implements CourseService {
 
     // Rate
     @Override
-    public Object rate(String courseID, CourseManageReq request) {
+    public Object rate(String courseID, CourseReq request) {
         String error = courseServiceVal.rate(courseID, request);
         if (error != null) {
             return error;
@@ -118,7 +118,7 @@ public class CourseServiceImpl implements CourseService {
 
     // Rate
     @Override
-    public Object review(String courseID, CourseManageReq request) {
+    public Object review(String courseID, CourseReq request) {
         String error = courseServiceVal.review(courseID, request);
         if (error != null) {
             return error;

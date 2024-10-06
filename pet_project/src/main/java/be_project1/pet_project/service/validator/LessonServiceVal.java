@@ -3,7 +3,7 @@ package be_project1.pet_project.service.validator;
 import org.springframework.stereotype.Service;
 
 import be_project1.pet_project.constant.RegexConst;
-import be_project1.pet_project.dto.request.LessonManageReq;
+import be_project1.pet_project.dto.request.LessonReq;
 
 @Service("lessonServiceVal")
 public class LessonServiceVal {
@@ -112,7 +112,7 @@ public class LessonServiceVal {
             return "Order is empty!";
         }
         // Not numeric
-        if (!order.matches(RegexConst.ID)) {
+        if (!order.matches(RegexConst.ORDER)) {
             return "Order is not valid! (Not a non-negative integer)";
         }
         // Less than 0
@@ -153,7 +153,7 @@ public class LessonServiceVal {
     }
 
     // Create
-    public String create(LessonManageReq request) {
+    public String create(LessonReq request) {
         String lessonName  = request.getLessonName();
         String chapterName = request.getChapterName();
         String courseName  = request.getCourseName();
@@ -250,7 +250,7 @@ public class LessonServiceVal {
     }
 
     // Read
-    public String read(LessonManageReq request) {
+    public String read(LessonReq request) {
         String lessonName  = request.getLessonName();
         String chapterName = request.getChapterName();
         String courseName  = request.getCourseName();
@@ -338,7 +338,7 @@ public class LessonServiceVal {
     }
 
     // Create
-    public String update(String id, LessonManageReq request) {
+    public String update(String id, LessonReq request) {
         String lessonName  = request.getLessonName();
         String chapterName = request.getChapterName();
         String courseName  = request.getCourseName();

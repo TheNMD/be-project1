@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.ChapterService;
 import be_project1.pet_project.service.validator.ChapterServiceVal;
-import be_project1.pet_project.dto.request.ChapterManageReq;
-import be_project1.pet_project.dto.response.ChapterManageRes;
+import be_project1.pet_project.dto.request.ChapterReq;
+import be_project1.pet_project.dto.response.ChapterRes;
 
 @Service("chapterServiceImpl")
 public class ChapterServiceImpl implements ChapterService {
@@ -24,7 +24,7 @@ public class ChapterServiceImpl implements ChapterService {
 
     // Create
     @Override
-    public Object create(ChapterManageReq request) {
+    public Object create(ChapterReq request) {
         request.setStatus("active");
         Instant currentTimestamp = Instant.now();
         String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
@@ -40,13 +40,13 @@ public class ChapterServiceImpl implements ChapterService {
 
     // Read
     @Override
-    public Object read(String sort, int page, int size, ChapterManageReq request) {
+    public Object read(String sort, int page, int size, ChapterReq request) {
         String error = chapterServiceVal.read(request);
         if (error != null) {
             return error;
         }
         
-        ChapterManageRes response = new ChapterManageRes();
+        ChapterRes response = new ChapterRes();
         response.setChapterName(request.getChapterName());
         response.setCourseName(request.getCourseName());
         response.setDescription(request.getDescription());
@@ -62,7 +62,7 @@ public class ChapterServiceImpl implements ChapterService {
 
      // Update
     @Override
-    public Object update(String chapterID, ChapterManageReq request) {
+    public Object update(String chapterID, ChapterReq request) {
         String error = chapterServiceVal.update(chapterID, request);
         if (error != null) {
             return error;

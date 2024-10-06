@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.LessonService;
 import be_project1.pet_project.service.validator.LessonServiceVal;
-import be_project1.pet_project.dto.request.LessonManageReq;
-import be_project1.pet_project.dto.response.LessonManageRes;
+import be_project1.pet_project.dto.request.LessonReq;
+import be_project1.pet_project.dto.response.LessonRes;
 
 @Service("lessonServiceImpl")
 public class LessonServiceImpl implements LessonService {
@@ -24,7 +24,7 @@ public class LessonServiceImpl implements LessonService {
 
     // Create
     @Override
-    public Object create(LessonManageReq request) {
+    public Object create(LessonReq request) {
         request.setStatus("active");
         Instant currentTimestamp = Instant.now();
         String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
@@ -40,13 +40,13 @@ public class LessonServiceImpl implements LessonService {
 
     // Read
     @Override
-    public Object read(String sort, int page, int size, LessonManageReq request) {
+    public Object read(String sort, int page, int size, LessonReq request) {
         String error = lessonServiceVal.read(request);
         if (error != null) {
             return error;
         }
         
-        LessonManageRes response = new LessonManageRes();
+        LessonRes response = new LessonRes();
         response.setLessonName(request.getLessonName());
         response.setChapterName(request.getChapterName());
         response.setCourseName(request.getCourseName());
@@ -64,7 +64,7 @@ public class LessonServiceImpl implements LessonService {
 
     // Update
     @Override
-    public Object update(String lessonID, LessonManageReq request) {
+    public Object update(String lessonID, LessonReq request) {
         String error = lessonServiceVal.update(lessonID, request);
         if (error != null) {
             return error;

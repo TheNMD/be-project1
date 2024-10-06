@@ -1,16 +1,16 @@
 package be_project1.pet_project.service;
 
-import be_project1.pet_project.dto.request.CourseManageReq;
+import be_project1.pet_project.dto.request.CourseReq;
 
 public interface CourseService {
     // Create
-    public Object create(CourseManageReq request);
+    public Object create(CourseReq request);
 
     // Read
-    public Object read(String sort, int page, int size, CourseManageReq request);
+    public Object read(String sort, int page, int size, CourseReq request);
 
      // Update
-    public Object update(String courseID, CourseManageReq request);
+    public Object update(String courseID, CourseReq request);
 
     // Delete
     public Object delete(String courseID);
@@ -22,8 +22,8 @@ public interface CourseService {
     public Object join(String courseID);
 
     // Rate
-    public Object rate(String courseID, CourseManageReq request);
+    public Object rate(String courseID, CourseReq request);
 
     // Review
-    public Object review(String courseID, CourseManageReq request);
+    public Object review(String courseID, CourseReq request);
 }
