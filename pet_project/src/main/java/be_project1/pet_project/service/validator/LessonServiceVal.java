@@ -11,7 +11,7 @@ public class LessonServiceVal {
     public String checkID(String id) {
         // Not numeric
         if (!id.matches(RegexConst.ID)) {
-            return "ID is not valid! (Not a positive integer)";
+            return "ID is not valid! (Not a non-negative integer)";
         }
         
         return null;
@@ -87,6 +87,43 @@ public class LessonServiceVal {
         return null;
     }
 
+    // Check URL
+    public String checkURL(String url) {
+        // Empty
+        if (url.isEmpty()) {
+            return "URL is empty!";
+        }
+        // Too long
+        if (url.length() > 200) {
+            return "URL is too long (More than 200 characters)";
+        }
+        // Not valid
+        if (!url.matches(RegexConst.URL)) {
+            return "URL is not valid!";
+        }
+
+        return null;
+    }
+
+    // Check Order
+    public String checkOrder(String order) {
+        // Empty
+        if (order.isEmpty()) {
+            return "Order is empty!";
+        }
+        // Not numeric
+        if (!order.matches(RegexConst.ID)) {
+            return "Order is not valid! (Not a non-negative integer)";
+        }
+        // Less than 0
+        int orderNum = Integer.parseInt(order);
+        if (orderNum < 0) {
+            return "Order out of bound! (Less than 0)";
+        }
+
+        return null;
+    }
+
     // Check Status
     public String checkStatus(String status) {
         // Empty
@@ -122,6 +159,8 @@ public class LessonServiceVal {
         String courseName  = request.getCourseName();
         String description = request.getDescription();
         String type        = request.getType();
+        String url         = request.getUrl();
+        String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String result;
@@ -169,6 +208,22 @@ public class LessonServiceVal {
             }
         }
 
+        // URL
+        if (url != null) {
+            result = checkURL(url);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Order
+        if (order != null) {
+            result = checkOrder(order);
+            if (result != null) {
+                return result;
+            }
+        }
+
         // Status
         if (status != null) {
             result = checkStatus(status);
@@ -201,6 +256,8 @@ public class LessonServiceVal {
         String courseName  = request.getCourseName();
         String description = request.getDescription();
         String type        = request.getType();
+        String url         = request.getUrl();
+        String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String result;
@@ -245,6 +302,22 @@ public class LessonServiceVal {
             }
         }
 
+        // URL
+        if (url != null) {
+            result = checkURL(url);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Order
+        if (order != null) {
+            result = checkOrder(order);
+            if (result != null) {
+                return result;
+            }
+        }
+        
         // Status
         if (status != null) {
             result = checkStatus(status);
@@ -271,6 +344,8 @@ public class LessonServiceVal {
         String courseName  = request.getCourseName();
         String description = request.getDescription();
         String type        = request.getType();
+        String url         = request.getUrl();
+        String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String result;
@@ -316,6 +391,22 @@ public class LessonServiceVal {
         // Type
         if (type != null) {
             result = checkType(type);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // URL
+        if (url != null) {
+            result = checkURL(url);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Order
+        if (order != null) {
+            result = checkOrder(order);
             if (result != null) {
                 return result;
             }

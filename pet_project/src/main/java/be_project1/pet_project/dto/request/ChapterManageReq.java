@@ -25,6 +25,7 @@ public class ChapterManageReq {
     private String chapterName;
     private String courseName;
     private String description;
+    private String order;
     private String status;
     private String createdDate;
 }

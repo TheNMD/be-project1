@@ -11,7 +11,7 @@ public class CourseServiceVal {
     public String checkID(String id) {
         // Not numeric
         if (!id.matches(RegexConst.ID)) {
-            return "ID is not valid! (Not a positive integer)";
+            return "ID is not valid! (Not a non-negative integer)";
         }
         
         return null;

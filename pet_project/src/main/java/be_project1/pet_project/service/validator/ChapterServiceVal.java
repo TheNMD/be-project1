@@ -11,7 +11,7 @@ public class ChapterServiceVal {
     public String checkID(String id) {
         // Not numeric
         if (!id.matches(RegexConst.ID)) {
-            return "ID is not valid! (Not a positive integer)";
+            return "ID is not valid! (Not a non-negative integer)";
         }
         
         return null;
@@ -59,6 +59,25 @@ public class ChapterServiceVal {
         return null;
     }
 
+    // Check Order
+    public String checkOrder(String order) {
+        // Empty
+        if (order.isEmpty()) {
+            return "Order is empty!";
+        }
+        // Not numeric
+        if (!order.matches(RegexConst.ID)) {
+            return "Order is not valid! (Not a non-negative integer)";
+        }
+        // Less than 0
+        int orderNum = Integer.parseInt(order);
+        if (orderNum < 0) {
+            return "Order out of bound! (Less than 0)";
+        }
+
+        return null;
+    }
+
     // Check Status
     public String checkStatus(String status) {
         // Empty
@@ -92,6 +111,7 @@ public class ChapterServiceVal {
         String chapterName = request.getChapterName();
         String courseName  = request.getCourseName();
         String description = request.getDescription();
+        String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String result;
@@ -118,6 +138,14 @@ public class ChapterServiceVal {
         // Description
         if (description != null) {
             result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Order
+        if (order != null) {
+            result = checkOrder(order);
             if (result != null) {
                 return result;
             }
@@ -153,6 +181,7 @@ public class ChapterServiceVal {
         String chapterName = request.getChapterName();
         String courseName  = request.getCourseName();
         String description = request.getDescription();
+        String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String result;
@@ -176,6 +205,14 @@ public class ChapterServiceVal {
         // Description
         if (description != null) {
             result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Order
+        if (order != null) {
+            result = checkOrder(order);
             if (result != null) {
                 return result;
             }
@@ -205,6 +242,7 @@ public class ChapterServiceVal {
         String chapterName = request.getChapterName();
         String courseName  = request.getCourseName();
         String description = request.getDescription();
+        String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
         String result;
@@ -234,6 +272,14 @@ public class ChapterServiceVal {
         // Description
         if (description != null) {
             result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Order
+        if (order != null) {
+            result = checkOrder(order);
             if (result != null) {
                 return result;
             }

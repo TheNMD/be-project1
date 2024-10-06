@@ -51,6 +51,8 @@ public class LessonServiceImpl implements LessonService {
         response.setChapterName(request.getChapterName());
         response.setCourseName(request.getCourseName());
         response.setType(request.getType());
+        response.setUrl(request.getUrl());
+        response.setOrder(request.getOrder());
         response.setStatus(request.getStatus());
         response.setCreatedDate(request.getCreatedDate());
         response.setSort(sort);

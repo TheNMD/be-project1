@@ -103,7 +103,8 @@ POST: http://localhost:8080/api/v1/admin/chapter/create
     {
         "chapter_name": "RandomChapter",
         "course_name": "RandomCourse",
-        "description": "RandomDescription"
+        "description": "RandomDescription",
+        "order": "0"
     }
 
 16. Read chapter:
@@ -112,6 +113,7 @@ GET: http://localhost:8080/api/v1/admin/chapter/search?sort=created_date:desc&pa
         "chapter_name": "RandomChapter",
         "course_name": "RandomCourse",
         "description": "RandomDescription",
+        "order": "0",
         "status": "active",
         "created_date": "2024-09-10 00:00:00"
     }
@@ -122,6 +124,7 @@ PUT: http://localhost:8080/api/v1/chapter/update/21
         "chapter_name": "RandomChapter1",
         "course_name": "RandomCourse1",
         "description": "RandomDescription1",
+        "order": "1",
         "status": "inactive",
         "created_date": "2024-09-10 00:00:00"
     }
@@ -137,7 +140,9 @@ POST: http://localhost:8080/api/v1/admin/lesson/create
         "lesson_name": "RandomLesson",
         "chapter_name": "RandomChapter",
         "course_name": "RandomCourse",
-        "type": "video"
+        "type": "video",
+        "url": "https://randomurl.com",
+        "order": "0"
     }
 
 20. Read lesson:
@@ -147,6 +152,8 @@ GET: http://localhost:8080/api/v1/admin/lesson/search?sort=created_date:desc&pag
         "chapter_name": "RandomChapter",
         "course_name": "RandomCourse",
         "type": "video",
+        "url": "https://randomurl.com",
+        "order": "0",
         "status": "active",
         "created_date": "2024-09-10 00:00:00"
     }
@@ -158,6 +165,8 @@ PUT: http://localhost:8080/api/v1/admin/lesson/update/33
         "chapter_name": "RandomChapter1",
         "course_name": "RandomCourse1",
         "type": "slide",
+        "url": "https://randomurl1.com",
+        "order": "1"
         "status": "inactive",
         "created_date": "2024-09-10 00:00:00"
     }

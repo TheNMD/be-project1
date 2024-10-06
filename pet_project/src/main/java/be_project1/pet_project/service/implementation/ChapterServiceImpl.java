@@ -48,8 +48,9 @@ public class ChapterServiceImpl implements ChapterService {
         
         ChapterManageRes response = new ChapterManageRes();
         response.setChapterName(request.getChapterName());
-        response.setDescription(request.getDescription());
         response.setCourseName(request.getCourseName());
+        response.setDescription(request.getDescription());
+        response.setOrder(request.getOrder());
         response.setStatus(request.getStatus());
         response.setCreatedDate(request.getCreatedDate());
         response.setSort(sort);
