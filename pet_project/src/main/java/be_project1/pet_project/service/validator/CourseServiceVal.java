@@ -63,7 +63,7 @@ public class CourseServiceVal {
         return null;
     }
 
-    // Check status
+    // Check Status
     public String checkStatus(String status) {
         // Empty
         if (status.isEmpty()) {
@@ -77,7 +77,7 @@ public class CourseServiceVal {
         return null;
     }
 
-    // Check rating
+    // Check Rating
     public String checkRating(String rating) {
         // Empty
         if (rating.isEmpty()) {
@@ -95,7 +95,7 @@ public class CourseServiceVal {
         return null;
     }
 
-    // Check review
+    // Check Review
     public String checkReview(String review) {
         // Empty
         if (review.isEmpty()) {
@@ -109,7 +109,7 @@ public class CourseServiceVal {
         return null;
     }
 
-    // Check date
+    // Check Created Date
     public String checkDate(String date) {
         // Empty
         if (date.isEmpty()) {

@@ -8,7 +8,7 @@ import be_project1.pet_project.dto.request.AccountManageReq;
 
 @Service("accountServiceVal")
 public class AccountServiceVal {
-    // Check ID
+    // Check AccountID
     public String checkID(String id) {
         // Not numeric
         if (!id.matches(RegexConst.ID)) {
@@ -18,7 +18,7 @@ public class AccountServiceVal {
         return null;
     }
     
-    // Check username
+    // Check Username
     public String checkUsername(String username) {
         // Empty
         if (username.isEmpty()) {
@@ -40,7 +40,7 @@ public class AccountServiceVal {
         return null;
     }
 
-    // Check password
+    // Check Password
     public String checkPassword(String password) {
         // Empty
         if (password.isEmpty()) {
@@ -62,7 +62,7 @@ public class AccountServiceVal {
         return null;
     }
 
-    // Check name
+    // Check Name
     public String checkName(String name) {
         // Empty
         if (name.isEmpty()) {
@@ -80,7 +80,7 @@ public class AccountServiceVal {
         return null;
     }
 
-    // Check status
+    // Check Status
     public String checkStatus(String status) {
         // Empty
         if (status.isEmpty()) {
@@ -94,7 +94,7 @@ public class AccountServiceVal {
         return null;
     }
 
-    // Check date
+    // Check Created Date
     public String checkDate(String date) {
         // Empty
         if (date.isEmpty()) {

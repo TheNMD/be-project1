@@ -27,7 +27,7 @@ import be_project1.pet_project.dto.request.LessonManageReq;
 @RestController("adminController")
 @RequestMapping("/api/v1/admin")
 public class AdminController {
-    
+    // Init
     private final AccountService accountService;
     private final CourseService courseService;
     private final ChapterService chapterService;

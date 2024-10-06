@@ -17,6 +17,34 @@ public class ChapterServiceVal {
         return null;
     }
 
+    // Check Chapter Name
+    public String checkChapterName(String chapterName) {
+        // Empty
+        if (chapterName.isEmpty()) {
+            return "Chapter Name is empty!";
+        }
+        // Too long
+        if (chapterName.length() > 100) {
+            return "Chapter Name is too long (More than 100 characters)";
+        }
+
+        return null;
+    }
+
+    // Check Description
+    public String checkDescription(String description) {
+        // Empty
+        if (description.isEmpty()) {
+            return "Description is empty!";
+        }
+        // Too long
+        if (description.length() > 1000) {
+            return "Description is too long (More than 1000 characters)";
+        }
+
+        return null;
+    }
+
     // Check Course Name
     public String checkCourseName(String courseName) {
         // Empty
@@ -27,33 +55,11 @@ public class ChapterServiceVal {
         if (courseName.length() > 100) {
             return "Course Name is too long (More than 100 characters)";
         }
-        // Contains special characters
-        if (!courseName.matches(RegexConst.NAME)) {
-            return "Course Name contains special characters";
-        }
 
         return null;
     }
 
-    // Check name
-    public String checkName(String name) {
-        // Empty
-        if (name.isEmpty()) {
-            return "Name is empty!";
-        }
-        // Too long
-        if (name.length() > 50) {
-            return "Name is too long (More than 50 characters)";
-        }
-        // Contains special characters
-        if (!name.matches(RegexConst.NAME)) {
-            return "Name contains special characters";
-        }
-
-        return null;
-    }
-
-    // Check status
+    // Check Status
     public String checkStatus(String status) {
         // Empty
         if (status.isEmpty()) {
@@ -67,39 +73,7 @@ public class ChapterServiceVal {
         return null;
     }
 
-    // Check rating
-    public String checkRating(String rating) {
-        // Empty
-        if (rating.isEmpty()) {
-            return "Rating is empty!";
-        }
-        if (!rating.matches(RegexConst.RATING)) {
-            return "Rating is invalid!";
-        }
-        // Less than 0 or more than 5
-        double ratingNum = Double.parseDouble(rating);
-        if (ratingNum < 0 || ratingNum > 5) {
-            return "Rating out of bound! (Less than 0 or more than 5)";
-        }
-
-        return null;
-    }
-
-    // Check review
-    public String checkReview(String review) {
-        // Empty
-        if (review.isEmpty()) {
-            return "Review is empty!";
-        }
-        // Too long
-        if (review.length() > 300) {
-            return "Review is too long (More than 300 characters)";
-        }
-
-        return null;
-    }
-
-    // Check date
+    // Check Created Date
     public String checkDate(String date) {
         // Empty
         if (date.isEmpty()) {
