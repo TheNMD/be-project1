@@ -83,6 +83,10 @@ public class AccountServiceImpl implements AccountService {
     // Update
     @Override
     public Object update(String accountID, AccountReq request) {
+        Instant currentTimestamp = Instant.now();
+        String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
+        request.setUpdatedDate(updatedDate);
+        
         String error = accountServiceVal.update(accountID, request);
         if (error != null) {
             return error;

@@ -109,15 +109,15 @@ public class CourseServiceVal {
         return null;
     }
 
-    // Check Created Date
+    // Check Created & Updated Date
     public String checkDate(String date) {
         // Empty
         if (date.isEmpty()) {
-            return "Created Date is empty!";
+            return "Date is empty!";
         }
         // Not following the datetime format
         if (!date.matches(RegexConst.DATETIME)) {
-            return "Created Date is invalid!";
+            return "Date is invalid!";
         }
 
         return null;
@@ -132,6 +132,7 @@ public class CourseServiceVal {
         String review      = request.getReview();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
 
         // Course Name
@@ -199,6 +200,14 @@ public class CourseServiceVal {
             return "Created Date not entered!";
         }
 
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
         return null;
     }
 
@@ -211,6 +220,7 @@ public class CourseServiceVal {
         String review      = request.getReview();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
 
         // Course Name
@@ -269,6 +279,14 @@ public class CourseServiceVal {
             }
         }
 
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
         return null;
     }
 
@@ -281,6 +299,7 @@ public class CourseServiceVal {
         String review      = request.getReview();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
         
         // CourseID
@@ -343,6 +362,17 @@ public class CourseServiceVal {
             if (result != null) {
                 return result;
             }
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Updated Date not entered!";
         }
 
         return null;

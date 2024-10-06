@@ -29,4 +29,5 @@ public class CourseReq {
     private String review;
     private String status;
     private String createdDate;
+    private String updatedDate;
 }

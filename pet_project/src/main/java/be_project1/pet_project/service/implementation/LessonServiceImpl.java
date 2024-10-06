@@ -65,6 +65,10 @@ public class LessonServiceImpl implements LessonService {
     // Update
     @Override
     public Object update(String lessonID, LessonReq request) {
+        Instant currentTimestamp = Instant.now();
+        String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
+        request.setUpdatedDate(updatedDate);
+        
         String error = lessonServiceVal.update(lessonID, request);
         if (error != null) {
             return error;

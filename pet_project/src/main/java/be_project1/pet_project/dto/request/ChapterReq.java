@@ -28,4 +28,5 @@ public class ChapterReq {
     private String order;
     private String status;
     private String createdDate;
+    private String updatedDate;
 }

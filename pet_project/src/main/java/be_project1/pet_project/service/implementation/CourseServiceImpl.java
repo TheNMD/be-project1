@@ -64,6 +64,10 @@ public class CourseServiceImpl implements CourseService {
     // Update
     @Override
     public Object update(String courseID, CourseReq request) {
+        Instant currentTimestamp = Instant.now();
+        String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
+        request.setUpdatedDate(updatedDate);
+        
         String error = courseServiceVal.update(courseID, request);
         if (error != null) {
             return error;

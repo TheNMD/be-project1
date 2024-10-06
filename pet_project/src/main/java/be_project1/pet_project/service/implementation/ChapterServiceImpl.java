@@ -63,6 +63,10 @@ public class ChapterServiceImpl implements ChapterService {
      // Update
     @Override
     public Object update(String chapterID, ChapterReq request) {
+        Instant currentTimestamp = Instant.now();
+        String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
+        request.setUpdatedDate(updatedDate);
+        
         String error = chapterServiceVal.update(chapterID, request);
         if (error != null) {
             return error;

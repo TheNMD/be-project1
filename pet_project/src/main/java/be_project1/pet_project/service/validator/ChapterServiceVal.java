@@ -92,15 +92,15 @@ public class ChapterServiceVal {
         return null;
     }
 
-    // Check Created Date
+    // Check Created & Updated Date
     public String checkDate(String date) {
         // Empty
         if (date.isEmpty()) {
-            return "Created Date is empty!";
+            return "Date is empty!";
         }
         // Not following the datetime format
         if (!date.matches(RegexConst.DATETIME)) {
-            return "Created Date is invalid!";
+            return "Date is invalid!";
         }
 
         return null;
@@ -114,6 +114,7 @@ public class ChapterServiceVal {
         String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
 
         // Chapter Name
@@ -173,6 +174,14 @@ public class ChapterServiceVal {
             return "Created Date not entered!";
         }
 
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
         return null;
     }
 
@@ -184,6 +193,7 @@ public class ChapterServiceVal {
         String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
 
         // Chapter Name
@@ -234,6 +244,14 @@ public class ChapterServiceVal {
             }
         }
 
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
         return null;
     }
 
@@ -245,6 +263,7 @@ public class ChapterServiceVal {
         String order       = request.getOrder();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
 
         // ChapterID
@@ -299,6 +318,17 @@ public class ChapterServiceVal {
             if (result != null) {
                 return result;
             }
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Updated Date not entered!";
         }
 
         return null;

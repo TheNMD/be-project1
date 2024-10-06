@@ -93,15 +93,15 @@ public class AccountServiceVal {
         return null;
     }
 
-    // Check Created Date
+    // Check Created & Updated Date
     public String checkDate(String date) {
         // Empty
         if (date.isEmpty()) {
-            return "Created Date is empty!";
+            return "Date is empty!";
         }
         // Not following the datetime format
         if (!date.matches(RegexConst.DATETIME)) {
-            return "Created Date is invalid!";
+            return "Date is invalid!";
         }
 
         return null;
@@ -151,6 +151,7 @@ public class AccountServiceVal {
         String name        = request.getName();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
 
         // Username
@@ -198,7 +199,6 @@ public class AccountServiceVal {
         }
 
         // Created Date
-        // Empty
         if (createdDate != null) {
             result = checkDate(createdDate);
             if (result != null) {
@@ -207,6 +207,14 @@ public class AccountServiceVal {
         }
         else {
             return "Created Date not entered!";
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
         }
 
         return null;
@@ -218,6 +226,7 @@ public class AccountServiceVal {
         String name        = request.getName();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
     
         // Username
@@ -252,6 +261,14 @@ public class AccountServiceVal {
             }
         }
 
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
         return null;
     }
 
@@ -262,6 +279,7 @@ public class AccountServiceVal {
         String name        = request.getName();
         String status      = request.getStatus();
         String createdDate = request.getCreatedDate();
+        String updatedDate = request.getUpdatedDate();
         String result;
         
         // AccountID
@@ -308,6 +326,17 @@ public class AccountServiceVal {
             if (result != null) {
                 return result;
             }
+        }
+
+        // Updated Date
+        if (updatedDate != null) {
+            result = checkDate(updatedDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Updated Date not entered!";
         }
 
         return null;

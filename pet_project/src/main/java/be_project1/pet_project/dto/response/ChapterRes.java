@@ -28,6 +28,7 @@ public class ChapterRes {
     private String order;
     private String status;
     private String createdDate;
+    private String updatedDate;
     private String sort;
     private int page;
     private int size;
