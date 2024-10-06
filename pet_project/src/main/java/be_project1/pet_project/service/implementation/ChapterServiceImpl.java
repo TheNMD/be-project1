@@ -25,23 +25,36 @@ public class ChapterServiceImpl implements ChapterService {
     // Create
     @Override
     public Object create(ChapterManageReq request) {
+        request.setStatus("active");
+        Instant currentTimestamp = Instant.now();
+        String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
+        request.setCreatedDate(createdDate);
+        
+        String error = chapterServiceVal.create(request);
+        if (error != null) {
+            return error;
+        }
+
         return request;
     }
 
     // Read
     @Override
     public Object read(String sort, int page, int size, ChapterManageReq request) {
+        String error = chapterServiceVal.read(request);
+        if (error != null) {
+            return error;
+        }
+        
         ChapterManageRes response = new ChapterManageRes();
-
-        // response.setChapterName(request.getChapterName());
-        // response.setDescription(request.getDescription());
-        // response.setTeacherName(request.getTeacherName());
-        // response.setStatus(request.getStatus());
-        // response.setRating(request.getRating());
-        // response.setCreatedDate(request.getCreatedDate());
-        // response.setSort(sort);
-        // response.setPage(page);
-        // response.setSize(size);
+        response.setChapterName(request.getChapterName());
+        response.setDescription(request.getDescription());
+        response.setCourseName(request.getCourseName());
+        response.setStatus(request.getStatus());
+        response.setCreatedDate(request.getCreatedDate());
+        response.setSort(sort);
+        response.setPage(page);
+        response.setSize(size);
         
         return response;
     }
@@ -49,12 +62,22 @@ public class ChapterServiceImpl implements ChapterService {
      // Update
     @Override
     public Object update(String chapterID, ChapterManageReq request) {
+        String error = chapterServiceVal.update(chapterID, request);
+        if (error != null) {
+            return error;
+        }
+        
         return request;
     }
 
     // Delete
     @Override
-    public Object delete(String userID) {
-        return userID;
+    public Object delete(String chapterID) {
+        String error = chapterServiceVal.delete(chapterID);
+        if (error != null) {
+            return error;
+        }
+        
+        return chapterID;
     }
 }

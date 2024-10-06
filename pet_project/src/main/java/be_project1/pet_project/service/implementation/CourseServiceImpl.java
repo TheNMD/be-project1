@@ -60,16 +60,16 @@ public class CourseServiceImpl implements CourseService {
         return response;
     }
 
-     // Update
-     @Override
-     public Object update(String courseID, CourseManageReq request) {
-         String error = courseServiceVal.update(courseID, request);
-         if (error != null) {
-             return error;
-         }
-         
-         return request;
-     }
+    // Update
+    @Override
+    public Object update(String courseID, CourseManageReq request) {
+        String error = courseServiceVal.update(courseID, request);
+        if (error != null) {
+            return error;
+        }
+        
+        return request;
+    }
 
     // Delete
     @Override

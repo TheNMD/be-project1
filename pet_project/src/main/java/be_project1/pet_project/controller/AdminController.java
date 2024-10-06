@@ -4,13 +4,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.service.AccountService;
 import be_project1.pet_project.service.CourseService;
@@ -70,11 +70,11 @@ public class AdminController {
     }
 
     // Read
-    @PostMapping(URLConst.SEARCH_ACCOUNT)
+    @GetMapping(URLConst.SEARCH_ACCOUNT)
     public Object readAccount(@RequestParam("sort") String sort,
-                                @RequestParam("page") int page,
-                                @RequestParam("size") int size,
-                                @RequestBody AccountManageReq request) {
+                              @RequestParam("page") int page,
+                              @RequestParam("size") int size,
+                              @RequestBody AccountManageReq request) {
         return accountService.read(sort, page, size, request);
     }
 
@@ -99,11 +99,11 @@ public class AdminController {
     }
 
     // Read
-    @PostMapping(URLConst.SEARCH_COURSE)
+    @GetMapping(URLConst.SEARCH_COURSE)
     public Object readCourse(@RequestParam("sort") String sort,
-                               @RequestParam("page") int page,
-                               @RequestParam("size") int size,
-                               @RequestBody CourseManageReq request) {
+                             @RequestParam("page") int page,
+                             @RequestParam("size") int size,
+                             @RequestBody CourseManageReq request) {
         return courseService.read(sort, page, size, request);
     }
 
@@ -154,11 +154,11 @@ public class AdminController {
     }
 
     // Read
-    @PostMapping(URLConst.SEARCH_CHAPTER)
+    @GetMapping(URLConst.SEARCH_CHAPTER)
     public Object readChapter(@RequestParam("sort") String sort,
-                                @RequestParam("page") int page,
-                                @RequestParam("size") int size,
-                                @RequestBody ChapterManageReq request) {
+                              @RequestParam("page") int page,
+                              @RequestParam("size") int size,
+                              @RequestBody ChapterManageReq request) {
         return chapterService.read(sort, page, size, request);
     }
 
@@ -183,11 +183,11 @@ public class AdminController {
     }
 
     // Read
-    @PostMapping(URLConst.SEARCH_LESSON)
+    @GetMapping(URLConst.SEARCH_LESSON)
     public Object readChapter(@RequestParam("sort") String sort,
-                                @RequestParam("page") int page,
-                                @RequestParam("size") int size,
-                                @RequestBody LessonManageReq request) {
+                              @RequestParam("page") int page,
+                              @RequestParam("size") int size,
+                              @RequestBody LessonManageReq request) {
         return lessonService.read(sort, page, size, request);
     }
 

@@ -31,20 +31,6 @@ public class ChapterServiceVal {
         return null;
     }
 
-    // Check Description
-    public String checkDescription(String description) {
-        // Empty
-        if (description.isEmpty()) {
-            return "Description is empty!";
-        }
-        // Too long
-        if (description.length() > 1000) {
-            return "Description is too long (More than 1000 characters)";
-        }
-
-        return null;
-    }
-
     // Check Course Name
     public String checkCourseName(String courseName) {
         // Empty
@@ -54,6 +40,20 @@ public class ChapterServiceVal {
         // Too long
         if (courseName.length() > 100) {
             return "Course Name is too long (More than 100 characters)";
+        }
+
+        return null;
+    }
+
+    // Check Description
+    public String checkDescription(String description) {
+        // Empty
+        if (description.isEmpty()) {
+            return "Description is empty!";
+        }
+        // Too long
+        if (description.length() > 1000) {
+            return "Description is too long (More than 1000 characters)";
         }
 
         return null;
@@ -85,5 +85,182 @@ public class ChapterServiceVal {
         }
 
         return null;
+    }
+
+    // Create
+    public String create(ChapterManageReq request) {
+        String chapterName = request.getChapterName();
+        String courseName  = request.getCourseName();
+        String description = request.getDescription();
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String result;
+
+        // Chapter Name
+        if (chapterName != null) {
+            result = checkChapterName(chapterName);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Chapter Name not entered!";
+        }
+
+        // Course Name
+        if (courseName != null) {
+            result = checkCourseName(courseName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Description
+        if (description != null) {
+            result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Status not entered!";
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+        else {
+            return "Created Date not entered!";
+        }
+
+        return null;
+    }
+
+    // Read
+    public String read(ChapterManageReq request) {
+        String chapterName = request.getChapterName();
+        String courseName  = request.getCourseName();
+        String description = request.getDescription();
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String result;
+
+        // Chapter Name
+        if (chapterName != null) {
+            result = checkChapterName(chapterName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Course Name
+        if (courseName != null) {
+            result = checkCourseName(courseName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Description
+        if (description != null) {
+            result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    // Update
+    public String update(String id, ChapterManageReq request) {
+        String chapterName = request.getChapterName();
+        String courseName  = request.getCourseName();
+        String description = request.getDescription();
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String result;
+
+        // ChapterID
+        result = checkID(id);
+        if (result != null) {
+            return result;
+        }
+
+        // Chapter Name
+        if (chapterName != null) {
+            result = checkChapterName(chapterName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Course Name
+        if (courseName != null) {
+            result = checkCourseName(courseName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Description
+        if (description != null) {
+            result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    // Delete
+    public String delete(String id) {
+        // ChapterID
+        return checkID(id);
     }
 }

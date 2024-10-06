@@ -23,11 +23,11 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 public class CourseManageRes {
     private String courseName;
-    private String description;
     private String teacherName;
-    private String status;
+    private String description;
     private String rating;
     private String review;
+    private String status;
     private String createdDate;
     private String sort;
     private int page;

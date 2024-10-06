@@ -23,9 +23,9 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 public class LessonManageReq {
     private String lessonName;
-    private String description;
     private String chapterName;
     private String courseName;
+    private String description;
     private String type;
     private String status;
     private String createdDate;
