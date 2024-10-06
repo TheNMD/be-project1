@@ -6,14 +6,14 @@ public interface CourseService {
     // Create
     public Object create(CourseManageReq request);
 
-    // Delete
-    public Object delete(String courseID);
+    // Read
+    public Object read(String sort, int page, int size, CourseManageReq request);
 
      // Update
     public Object update(String courseID, CourseManageReq request);
 
-    // Search
-    public Object search(String sort, int page, int size, CourseManageReq request);
+    // Delete
+    public Object delete(String courseID);
 
     // View
     public Object view(String courseID);

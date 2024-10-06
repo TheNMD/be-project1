@@ -14,7 +14,6 @@ import be_project1.pet_project.dto.response.ChapterManageRes;
 
 @Service("chapterServiceImpl")
 public class ChapterServiceImpl implements ChapterService {
-
     // Init
     private final ChapterServiceVal chapterServiceVal;
 
@@ -29,10 +28,22 @@ public class ChapterServiceImpl implements ChapterService {
         return request;
     }
 
-    // Delete
+    // Read
     @Override
-    public Object delete(String userID) {
-        return userID;
+    public Object read(String sort, int page, int size, ChapterManageReq request) {
+        ChapterManageRes response = new ChapterManageRes();
+
+        // response.setChapterName(request.getChapterName());
+        // response.setDescription(request.getDescription());
+        // response.setTeacherName(request.getTeacherName());
+        // response.setStatus(request.getStatus());
+        // response.setRating(request.getRating());
+        // response.setCreatedDate(request.getCreatedDate());
+        // response.setSort(sort);
+        // response.setPage(page);
+        // response.setSize(size);
+        
+        return response;
     }
 
      // Update
@@ -41,20 +52,9 @@ public class ChapterServiceImpl implements ChapterService {
         return request;
     }
 
-    // Search
+    // Delete
     @Override
-    public Object search(String sort, int page, int size, ChapterManageReq request) {
-        ChapterManageRes response = new ChapterManageRes();
-
-        // response.setChapterName(request.getChapterName());
-        // response.setTeacherName(request.getTeacherName());
-        // response.setStatus(request.getStatus());
-        // response.setRating(request.getRating());
-        // response.setCreatedDate(request.getCreatedDate());
-        // response.setSort(sort);
-        // response.setPage(page);
-        // response.setSize(size);
-            
-        return response;
+    public Object delete(String userID) {
+        return userID;
     }
 }

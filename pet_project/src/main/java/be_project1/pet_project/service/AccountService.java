@@ -13,12 +13,12 @@ public interface AccountService {
     // Create
     public Object create(AccountManageReq request);
 
-    // Delete
-    public Object delete(String accountID);
-
      // Update
     public Object update(String accountID, AccountManageReq request);
 
     // Search
-    public Object search(String sort, int page, int size, AccountManageReq request);
+    public Object read(String sort, int page, int size, AccountManageReq request);
+
+    // Delete
+    public Object delete(String accountID);
 }

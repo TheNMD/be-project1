@@ -14,7 +14,6 @@ import be_project1.pet_project.dto.response.LessonManageRes;
 
 @Service("lessonServiceImpl")
 public class LessonServiceImpl implements LessonService {
-
     // Init
     private final LessonServiceVal lessonServiceVal;
 
@@ -29,21 +28,9 @@ public class LessonServiceImpl implements LessonService {
         return request;
     }
 
-    // Delete
+    // Read
     @Override
-    public Object delete(String userID) {
-        return userID;
-    }
-
-     // Update
-    @Override
-    public Object update(String lessonID, LessonManageReq request) {
-        return request;
-    }
-
-    // Search
-    @Override
-    public Object search(String sort, int page, int size, LessonManageReq request) {
+    public Object read(String sort, int page, int size, LessonManageReq request) {
         LessonManageRes response = new LessonManageRes();
 
         // response.setLessonName(request.getLessonName());
@@ -56,6 +43,18 @@ public class LessonServiceImpl implements LessonService {
         // response.setSize(size);
             
         return response;
+    }
+
+    // Update
+    @Override
+    public Object update(String lessonID, LessonManageReq request) {
+        return request;
+    }
+
+    // Delete
+    @Override
+    public Object delete(String userID) {
+        return userID;
     }
 
     // View

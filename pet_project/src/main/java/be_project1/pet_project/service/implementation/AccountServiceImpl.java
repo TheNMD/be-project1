@@ -15,7 +15,6 @@ import be_project1.pet_project.dto.response.AccountManageRes;
 
 @Service("accountServiceImpl")
 public class AccountServiceImpl implements AccountService {
-
     // Init
     private final AccountServiceVal accountServiceVal;
 
@@ -46,7 +45,7 @@ public class AccountServiceImpl implements AccountService {
         return accountID;
     }
 
-    // create
+    // Create
     @Override
     public Object create(AccountManageReq request) {
         request.setStatus("active");
@@ -62,32 +61,10 @@ public class AccountServiceImpl implements AccountService {
         return request;
     }
 
-    // delete
+    // Read
     @Override
-    public Object delete(String accountID) {
-        String error = accountServiceVal.delete(accountID);
-        if (error != null) {
-            return error;
-        }
-
-        return accountID;
-    }
-
-    // update
-    @Override
-    public Object update(String accountID, AccountManageReq request) {
-        String error = accountServiceVal.update(accountID, request);
-        if (error != null) {
-            return error;
-        }
-
-        return request;
-    }
-
-    // search
-    @Override
-    public Object search(String sort, int page, int size, AccountManageReq request) {
-        String error = accountServiceVal.search(request);
+    public Object read(String sort, int page, int size, AccountManageReq request) {
+        String error = accountServiceVal.read(request);
         if (error != null) {
             return error;
         }
@@ -102,5 +79,27 @@ public class AccountServiceImpl implements AccountService {
         response.setSize(size);
             
         return response;
+    }
+
+    // Update
+    @Override
+    public Object update(String accountID, AccountManageReq request) {
+        String error = accountServiceVal.update(accountID, request);
+        if (error != null) {
+            return error;
+        }
+
+        return request;
+    }
+
+    // Delete
+    @Override
+    public Object delete(String accountID) {
+        String error = accountServiceVal.delete(accountID);
+        if (error != null) {
+            return error;
+        }
+
+        return accountID;
     }
 }

@@ -1,11 +1,11 @@
 package be_project1.pet_project.constant;
 
 public class RegexConst {
-    public static final String ID = "\\d+";
+    public static final String ID       = "\\d+";
 
-    public static final String USERNAME     = "[a-zA-Z0-9.]+";
-    
-    public static final String NAME         = "[a-zA-Z0-9. ]+";
+    public static final String USERNAME = "[a-zA-Z0-9.]+";
+
+    public static final String NAME     = "[a-zA-Z0-9. ]+";
 
     public static final String PASSWORD = ".*\\s.*";
 

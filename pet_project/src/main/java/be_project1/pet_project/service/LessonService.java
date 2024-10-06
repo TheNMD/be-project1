@@ -6,21 +6,21 @@ public interface LessonService {
     // Create
     public Object create(LessonManageReq request);
 
-    // Delete
-    public Object delete(String lessonID);
+    // Read
+    public Object read(String sort, int page, int size, LessonManageReq request);
 
      // Update
     public Object update(String lessonID, LessonManageReq request);
 
-    // Search
-    public Object search(String sort, int page, int size, LessonManageReq request);
+    // Delete
+    public Object delete(String lessonID);
 
-    // Search
+    // Begin
     public Object begin(String lessonID);
 
-    // Search
+    // Stop
     public Object stop(String lessonID);
 
-    // Search
+    // Finish
     public Object finish(String lessonID);
 }

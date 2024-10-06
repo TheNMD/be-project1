@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 public class LessonManageRes {
     private String lessonName;
+    private String description;
     private String chapterName;
     private String courseName;
     private String type;

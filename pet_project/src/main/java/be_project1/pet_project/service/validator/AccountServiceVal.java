@@ -213,10 +213,47 @@ public class AccountServiceVal {
         return null;
     }
 
-    // Delete
-    public String delete(String id) {
-        // AccountID
-        return checkID(id);
+    // Read
+    public String read(AccountManageReq request) {
+        String username    = request.getUsername();
+        String name        = request.getName();
+        String status      = request.getStatus();
+        String createdDate = request.getCreatedDate();
+        String result;
+    
+        // Username
+        if (username != null) {
+            result = checkUsername(username);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Name
+        if (name != null) {
+            result = checkName(name);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
     }
 
     // Update
@@ -277,46 +314,9 @@ public class AccountServiceVal {
         return null;
     }
 
-    // Update
-    public String search(AccountManageReq request) {
-        String username    = request.getUsername();
-        String name        = request.getName();
-        String status      = request.getStatus();
-        String createdDate = request.getCreatedDate();
-        String result;
-    
-        // Username
-        if (username != null) {
-            result = checkUsername(username);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Name
-        if (name != null) {
-            result = checkName(name);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Status
-        if (status != null) {
-            result = checkStatus(status);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Created Date
-        if (createdDate != null) {
-            result = checkDate(createdDate);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        return null;
+    // Delete
+    public String delete(String id) {
+        // AccountID
+        return checkID(id);
     }
 }

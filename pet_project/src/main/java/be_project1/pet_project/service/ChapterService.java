@@ -6,12 +6,12 @@ public interface ChapterService {
     // Create
     public Object create(ChapterManageReq request);
 
-    // Delete
-    public Object delete(String chapterID);
+    // Read
+    public Object read(String sort, int page, int size, ChapterManageReq request);
 
      // Update
     public Object update(String chapterID, ChapterManageReq request);
 
-    // Search
-    public Object search(String sort, int page, int size, ChapterManageReq request);
+    // Delete
+    public Object delete(String chapterID);
 }

@@ -27,15 +27,25 @@ public class CourseServiceVal {
         if (courseName.length() > 100) {
             return "Course Name is too long (More than 100 characters)";
         }
-        // Contains special characters
-        if (!courseName.matches(RegexConst.NAME)) {
-            return "Course Name contains special characters";
+
+        return null;
+    }
+
+    // Check Description
+    public String checkDescription(String description) {
+        // Empty
+        if (description.isEmpty()) {
+            return "Description is empty!";
+        }
+        // Too long
+        if (description.length() > 1000) {
+            return "Description is too long (More than 1000 characters)";
         }
 
         return null;
     }
 
-    // Check name
+    // Check Teacher Name
     public String checkName(String name) {
         // Empty
         if (name.isEmpty()) {
@@ -116,6 +126,7 @@ public class CourseServiceVal {
     // Create
     public String create(CourseManageReq request) {
         String courseName  = request.getCourseName();
+        String description = request.getDescription();
         String teacherName = request.getTeacherName();
         String status      = request.getStatus();
         String rating      = request.getRating();
@@ -123,7 +134,7 @@ public class CourseServiceVal {
         String createdDate = request.getCreatedDate();
         String result;
 
-        // Course name
+        // Course Name
         if (courseName != null) {
             result = checkCourseName(courseName);
             if (result != null) {
@@ -132,6 +143,14 @@ public class CourseServiceVal {
         }
         else {
             return "Course Name not entered!";
+        }
+
+        // Description
+        if (description != null) {
+            result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
         }
 
         // Teacher Name
@@ -170,7 +189,6 @@ public class CourseServiceVal {
         }
 
         // Created Date
-        // Empty
         if (createdDate != null) {
             result = checkDate(createdDate);
             if (result != null) {
@@ -184,15 +202,80 @@ public class CourseServiceVal {
         return null;
     }
 
-    // Delete
-    public String delete(String id) {
-        // CourseID
-        return checkID(id);
+    // Read
+    public String read(CourseManageReq request) {
+        String courseName  = request.getCourseName();
+        String description = request.getDescription();
+        String teacherName = request.getTeacherName();
+        String status      = request.getStatus();
+        String rating      = request.getRating();
+        String review      = request.getReview();
+        String createdDate = request.getCreatedDate();
+        String result;
+
+        // Course Name
+        if (courseName != null) {
+            result = checkCourseName(courseName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Description
+        if (description != null) {
+            result = checkDescription(description);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Teacher Name
+        if (teacherName != null) {
+            result = checkName(teacherName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Status
+        if (status != null) {
+            result = checkStatus(status);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Rating
+        if (rating != null) {
+            result = checkRating(rating);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Review
+        if (review != null) {
+            result = checkReview(review);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Created Date
+        if (createdDate != null) {
+            result = checkDate(createdDate);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        return null;
     }
 
     // Update
     public String update(String id, CourseManageReq request) {
         String courseName  = request.getCourseName();
+        String description = request.getDescription();
         String teacherName = request.getTeacherName();
         String status      = request.getStatus();
         String rating      = request.getRating();
@@ -206,9 +289,17 @@ public class CourseServiceVal {
             return result;
         }
 
-        // Course name
+        // Course Name
         if (courseName != null) {
             result = checkCourseName(courseName);
+            if (result != null) {
+                return result;
+            }
+        }
+
+        // Description
+        if (description != null) {
+            result = checkDescription(description);
             if (result != null) {
                 return result;
             }
@@ -247,7 +338,6 @@ public class CourseServiceVal {
         }
 
         // Created Date
-        // Empty
         if (createdDate != null) {
             result = checkDate(createdDate);
             if (result != null) {
@@ -258,66 +348,10 @@ public class CourseServiceVal {
         return null;
     }
 
-    // Update
-    public String search(CourseManageReq request) {
-        String courseName  = request.getCourseName();
-        String teacherName = request.getTeacherName();
-        String status      = request.getStatus();
-        String rating      = request.getRating();
-        String review      = request.getReview();
-        String createdDate = request.getCreatedDate();
-        String result;
-
-        // Course name
-        if (courseName != null) {
-            result = checkCourseName(courseName);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Teacher Name
-        if (teacherName != null) {
-            result = checkName(teacherName);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Status
-        if (status != null) {
-            result = checkStatus(status);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Rating
-        if (rating != null) {
-            result = checkRating(rating);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Review
-        if (review != null) {
-            result = checkReview(review);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        // Created Date
-        // Empty
-        if (createdDate != null) {
-            result = checkDate(createdDate);
-            if (result != null) {
-                return result;
-            }
-        }
-
-        return null;
+    // Delete
+    public String delete(String id) {
+        // CourseID
+        return checkID(id);
     }
 
     public String view(String id) {

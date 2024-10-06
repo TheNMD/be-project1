@@ -1,11 +1,13 @@
-1. Login admin:
+#### ADMIN ####
+//// Account ////
+1. Login:
 POST: http://localhost:8080/api/v1/admin/login
     {
         "username": "admin",
         "password": "abcxyz123456"
     }
 
-2. Logout admin:
+2. Logout:
 POST: http://localhost:8080/api/v1/admin/account/logout/12
 
 3. Create account:
@@ -16,8 +18,14 @@ POST: http://localhost:8080/api/v1/admin/account/create
         "name": "RandomName"
     }
 
-4. Delete account:
-DELETE: http://localhost:8080/api/v1/admin/account/delete/12
+4. Read account:
+POST: http://localhost:8080/api/v1/admin/account/search?sort=created_date:desc&page=0&size=10
+    {
+        "username": "admin",
+        "name": "RandomName",
+        "status": "active",
+        "created_date": "2024-09-10 00:00:00"
+    }
 
 5. Update account:
 PUT: http://localhost:8080/api/v1/admin/account/update/12
@@ -29,59 +37,59 @@ PUT: http://localhost:8080/api/v1/admin/account/update/12
         "created_date": "2024-09-10 00:00:00"
     }
 
-6. Search account:
-POST: http://localhost:8080/api/v1/admin/account/search?sort=created_date:desc&page=0&size=10
-    {
-        "username": "admin",
-        "name": "RandomName",
-        "status": "active",
-        "created_date": "2024-09-10 00:00:00"
-    }
+6. Delete account:
+DELETE: http://localhost:8080/api/v1/admin/account/delete/12
+
+//// Course ////
 
 7. Create course:
 POST: http://localhost:8080/api/v1/admin/course/create
     {
         "course_name": "RandomCourse",
+        "description": "RandomDescription",
         "teacher_name": "RandomName",
         "status": "active"
     }
 
-6. Delete course:
-DELETE: http://localhost:8080/api/v1/admin/course/delete/12
-
-7. Update course:
-PUT: http://localhost:8080/api/v1/admin/course/update/12
-    {
-        "course_name": "RandomCourse1",
-        "teacher_name": "RandomNameI",
-        "status": "inactive",
-        "rating": "3.5",
-        "created_date": "2024-09-10 00:00:00"
-    }
-
-8. Search course:
+8. Read course:
 POST: http://localhost:8080/api/v1/admin/course/search?sort=created_date:desc&page=0&size=10
     {
         "course_name": "RandomCourse",
+        "description": "RandomDescription",
         "teacher_name": "RandomName",
         "status": "active",
         "rating": "5",
         "created_date": "2024-09-10 00:00:00"
     }
 
-9. View a course:
+9. Update course:
+PUT: http://localhost:8080/api/v1/admin/course/update/12
+    {
+        "course_name": "RandomCourse1",
+        "description": "RandomDescription1",
+        "teacher_name": "RandomNameI",
+        "status": "inactive",
+        "rating": "3.5",
+        "review": "RandomReview1",
+        "created_date": "2024-09-10 00:00:00"
+    }
+
+10. Delete course:
+DELETE: http://localhost:8080/api/v1/admin/course/delete/12
+
+11. View a course:
 GET: http://localhost:8080/api/v1/admin/course/view/12
 
-10. Join a course:
+12. Join a course:
 POST: http://localhost:8080/api/v1/admin/course/join/12
 
-11. Rate a course:
+13. Rate a course:
 POST: http://localhost:8080/api/v1/admin/course/rate/12
     {
         "rating": "5"
     }
 
-12. Review a course:
+14. Review a course:
 POST: http://localhost:8080/api/v1/admin/course/review/12
     {
         "review": "RandomReview"

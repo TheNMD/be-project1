@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 public class ChapterManageRes {
     private String chapterName;
+    private String description;
     private String courseName;
     private String status;
     private String createdDate;

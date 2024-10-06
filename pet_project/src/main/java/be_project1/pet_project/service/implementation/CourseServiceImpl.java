@@ -14,7 +14,6 @@ import be_project1.pet_project.dto.response.CourseManageRes;
 
 @Service("courseServiceImpl")
 public class CourseServiceImpl implements CourseService {
-
     // Init
     private final CourseServiceVal courseServiceVal;
 
@@ -39,38 +38,17 @@ public class CourseServiceImpl implements CourseService {
         return request;
     }
 
-    // Delete
+    // Read
     @Override
-    public Object delete(String courseID) {
-        String error = courseServiceVal.delete(courseID);
-        if (error != null) {
-            return error;
-        }
-
-        return courseID;
-    }
-
-     // Update
-    @Override
-    public Object update(String courseID, CourseManageReq request) {
-        String error = courseServiceVal.update(courseID, request);
-        if (error != null) {
-            return error;
-        }
-        
-        return request;
-    }
-
-    // Search
-    @Override
-    public Object search(String sort, int page, int size, CourseManageReq request) {
-        String error = courseServiceVal.search(request);
+    public Object read(String sort, int page, int size, CourseManageReq request) {
+        String error = courseServiceVal.read(request);
         if (error != null) {
             return error;
         }
         
         CourseManageRes response = new CourseManageRes();
         response.setCourseName(request.getCourseName());
+        response.setDescription(request.getDescription());
         response.setTeacherName(request.getTeacherName());
         response.setStatus(request.getStatus());
         response.setRating(request.getRating());
@@ -80,6 +58,28 @@ public class CourseServiceImpl implements CourseService {
         response.setSize(size);
             
         return response;
+    }
+
+     // Update
+     @Override
+     public Object update(String courseID, CourseManageReq request) {
+         String error = courseServiceVal.update(courseID, request);
+         if (error != null) {
+             return error;
+         }
+         
+         return request;
+     }
+
+    // Delete
+    @Override
+    public Object delete(String courseID) {
+        String error = courseServiceVal.delete(courseID);
+        if (error != null) {
+            return error;
+        }
+
+        return courseID;
     }
 
     // View

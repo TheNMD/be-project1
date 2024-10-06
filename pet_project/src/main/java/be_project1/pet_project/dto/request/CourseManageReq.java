@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 public class CourseManageReq {
     private String courseName;
+    private String description;
     private String teacherName;
     private String status;
     private String rating;

@@ -69,10 +69,13 @@ public class AdminController {
         return accountService.create(request);
     }
 
-    // Delete
-    @DeleteMapping(URLConst.DELETE_ACCOUNT)
-    public Object deleteAccount(@PathVariable("user_id") String accountID) {
-        return accountService.delete(accountID);
+    // Read
+    @PostMapping(URLConst.SEARCH_ACCOUNT)
+    public Object readAccount(@RequestParam("sort") String sort,
+                                @RequestParam("page") int page,
+                                @RequestParam("size") int size,
+                                @RequestBody AccountManageReq request) {
+        return accountService.read(sort, page, size, request);
     }
 
      // Update
@@ -82,140 +85,138 @@ public class AdminController {
         return accountService.update(accountID, request);
     }
 
-    // Search
-    @PostMapping(URLConst.SEARCH_ACCOUNT)
-    public Object searchAccount(@RequestParam("sort") String sort,
-                                @RequestParam("page") int page,
-                                @RequestParam("size") int size,
-                                @RequestBody AccountManageReq request) {
-        return accountService.search(sort, page, size, request);
+    // Delete
+    @DeleteMapping(URLConst.DELETE_ACCOUNT)
+    public Object deleteAccount(@PathVariable("user_id") String accountID) {
+        return accountService.delete(accountID);
     }
 
     // Courses
-    // Create course
+    // Create
     @PostMapping(URLConst.CREATE_COURSE)
     public Object createCourse(@RequestBody CourseManageReq request) {
         return courseService.create(request);
     }
 
-    // Delete course
+    // Read
+    @PostMapping(URLConst.SEARCH_COURSE)
+    public Object readCourse(@RequestParam("sort") String sort,
+                               @RequestParam("page") int page,
+                               @RequestParam("size") int size,
+                               @RequestBody CourseManageReq request) {
+        return courseService.read(sort, page, size, request);
+    }
+
+     // Update
+     @PutMapping(URLConst.UPDATE_COURSE)
+     public Object updateCourse(@PathVariable("course_id") String courseID,
+                                @RequestBody CourseManageReq request) {
+         return courseService.update(courseID, request);
+     }
+
+    // Delete
     @DeleteMapping(URLConst.DELETE_COURSE)
     public Object deleteCourse(@PathVariable("course_id") String courseID) {
         return courseService.delete(courseID);
     }
 
-     // Update course
-    @PutMapping(URLConst.UPDATE_COURSE)
-    public Object updateCourse(@PathVariable("course_id") String courseID,
-                               @RequestBody CourseManageReq request) {
-        return courseService.update(courseID, request);
-    }
-
-    // Search course
-    @PostMapping(URLConst.SEARCH_COURSE)
-    public Object searchCourse(@RequestParam("sort") String sort,
-                               @RequestParam("page") int page,
-                               @RequestParam("size") int size,
-                               @RequestBody CourseManageReq request) {
-        return courseService.search(sort, page, size, request);
-    }
-
-    // View a course
+    // View
     @GetMapping(URLConst.VIEW_COURSE)
     public Object viewCourse(@PathVariable("course_id") String courseID) {
         return courseService.view(courseID);
     }
 
-    // Join a course
+    // Join
     @PostMapping(URLConst.JOIN_COURSE)
     public Object joinCourse(@PathVariable("course_id") String courseID) {
         return courseService.join(courseID);
     }
 
-    // Rate a course
+    // Rate
     @PostMapping(URLConst.RATE_COURSE)
     public Object rateCourse(@PathVariable("course_id") String courseID,
                              @RequestBody CourseManageReq request) {
         return courseService.rate(courseID, request);
     }
 
+    // Review
     @PostMapping(URLConst.REVIEW_COURSE)
     public Object reviewCourse(@PathVariable("course_id") String courseID,
-                             @RequestBody CourseManageReq request) {
+                               @RequestBody CourseManageReq request) {
         return courseService.review(courseID, request);
     }
 
     // Chapter
-    // Create chapter
+    // Create
     @PostMapping(URLConst.CREATE_CHAPTER)
     public Object createChapter(@RequestBody ChapterManageReq request) {
         return chapterService.create(request);
     }
 
-    // Delete chapter
+    // Read
+    @PostMapping(URLConst.SEARCH_CHAPTER)
+    public Object readChapter(@RequestParam("sort") String sort,
+                                @RequestParam("page") int page,
+                                @RequestParam("size") int size,
+                                @RequestBody ChapterManageReq request) {
+        return chapterService.read(sort, page, size, request);
+    }
+
+     // Update
+     @PutMapping(URLConst.UPDATE_CHAPTER)
+     public Object updateChapter(@PathVariable("chapter_id") String chapterID,
+                                 @RequestBody ChapterManageReq request) {
+         return chapterService.update(chapterID, request);
+     }
+
+    // Delete
     @DeleteMapping(URLConst.DELETE_CHAPTER)
     public Object deleteChapter(@PathVariable("chapter_id") String chapterID) {
         return chapterService.delete(chapterID);
     }
 
-     // Update chapter
-    @PutMapping(URLConst.UPDATE_CHAPTER)
-    public Object updateChapter(@PathVariable("chapter_id") String chapterID,
-                                @RequestBody ChapterManageReq request) {
-        return chapterService.update(chapterID, request);
-    }
-
-    // Search chapter
-    @PostMapping(URLConst.SEARCH_CHAPTER)
-    public Object searchChapter(@RequestParam("sort") String sort,
-                                @RequestParam("page") int page,
-                                @RequestParam("size") int size,
-                                @RequestBody ChapterManageReq request) {
-        return chapterService.search(sort, page, size, request);
-    }
-
     // Lesson
-    // Create lesson
+    // Create
     @PostMapping(URLConst.CREATE_LESSON)
     public Object createLesson(@RequestBody LessonManageReq request) {
         return lessonService.create(request);
     }
 
-    // Delete lesson
-    @DeleteMapping(URLConst.DELETE_LESSON)
-    public Object deleteLesson(@PathVariable("lesson_id") String lessonID) {
-        return lessonService.delete(lessonID);
+    // Read
+    @PostMapping(URLConst.SEARCH_LESSON)
+    public Object readChapter(@RequestParam("sort") String sort,
+                                @RequestParam("page") int page,
+                                @RequestParam("size") int size,
+                                @RequestBody LessonManageReq request) {
+        return lessonService.read(sort, page, size, request);
     }
 
-     // Update lesson
+     // Update
     @PutMapping(URLConst.UPDATE_LESSON)
     public Object updateLesson(@PathVariable("lesson_id") String lessonID,
                                @RequestBody LessonManageReq request) {
         return lessonService.update(lessonID, request);
     }
 
-    // Search lesson
-    @PostMapping(URLConst.SEARCH_LESSON)
-    public Object searchChapter(@RequestParam("sort") String sort,
-                                @RequestParam("page") int page,
-                                @RequestParam("size") int size,
-                                @RequestBody LessonManageReq request) {
-        return lessonService.search(sort, page, size, request);
+    // Delete
+    @DeleteMapping(URLConst.DELETE_LESSON)
+    public Object deleteLesson(@PathVariable("lesson_id") String lessonID) {
+        return lessonService.delete(lessonID);
     }
 
-    // Begin lesson
+    // Begin
     @PostMapping(URLConst.BEGIN_LESSON)
     public Object beginLesson(@PathVariable("lesson_id") String lessonID) {
         return lessonService.begin(lessonID);
     }
 
-    // Resume lesson
+    // Stop
     @PostMapping(URLConst.STOP_LESSON)
     public Object stopLesson(@PathVariable("lesson_id") String lessonID) {
         return lessonService.stop(lessonID);
     }
 
-    // Stop lesson
+    // Finish
     @PostMapping(URLConst.FINISH_LESSON)
     public Object finishLesson(@PathVariable("lesson_id") String lessonID) {
         return lessonService.finish(lessonID);
