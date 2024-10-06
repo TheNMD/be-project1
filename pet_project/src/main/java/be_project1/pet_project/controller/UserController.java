@@ -137,13 +137,13 @@ public class UserController {
     // AccountCourse
 
     // Create
-    @PostMapping(URLConst.CREATE_COURSE)
+    @PostMapping(URLConst.CREATE_ACCOUNT_COURSE)
     public Object createAccountCourse(@RequestBody AccountCourseReq request) {
         return accountCourseService.create(request);
     }
 
     // Read
-    @GetMapping(URLConst.READ_COURSE)
+    @GetMapping(URLConst.READ_ACCOUNT_COURSE)
     public Object readAccountCourse(@RequestParam("sort") String sort,
                                     @RequestParam("page") int page,
                                     @RequestParam("size") int size,
@@ -152,14 +152,14 @@ public class UserController {
     }
 
      // Update
-     @PutMapping(URLConst.UPDATE_COURSE)
+     @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE)
      public Object updateAccountCourse(@PathVariable("course_id") String courseID,
                                        @RequestBody AccountCourseReq request) {
          return accountCourseService.update(courseID, request);
      }
 
     // Delete
-    @DeleteMapping(URLConst.DELETE_COURSE)
+    @DeleteMapping(URLConst.DELETE_ACCOUNT_COURSE)
     public Object deleteAccountCourse(@PathVariable("course_id") String courseID) {
         return accountCourseService.delete(courseID);
     }
@@ -193,13 +193,13 @@ public class UserController {
     // AccountCourseLesson
 
     // Create
-    @PostMapping(URLConst.CREATE_COURSE)
+    @PostMapping(URLConst.CREATE_ACCOUNT_COURSE_LESSON)
     public Object createAccountCourseLesson(@RequestBody AccountCourseLessonReq request) {
         return accountCourseLessonService.create(request);
     }
 
     // Read
-    @GetMapping(URLConst.READ_COURSE)
+    @GetMapping(URLConst.READ_ACCOUNT_COURSE_LESSON)
     public Object readAccountCourseLesson(@RequestParam("sort") String sort,
                                           @RequestParam("page") int page,
                                           @RequestParam("size") int size,
@@ -208,14 +208,14 @@ public class UserController {
     }
 
      // Update
-     @PutMapping(URLConst.UPDATE_COURSE)
+     @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE_LESSON)
      public Object updateAccountCourseLesson(@PathVariable("course_id") String courseID,
                                              @RequestBody AccountCourseLessonReq request) {
          return accountCourseLessonService.update(courseID, request);
      }
 
     // Delete
-    @DeleteMapping(URLConst.DELETE_COURSE)
+    @DeleteMapping(URLConst.DELETE_ACCOUNT_COURSE_LESSON)
     public Object deleteAccountCourseLesson(@PathVariable("course_id") String courseID) {
         return accountCourseLessonService.delete(courseID);
     }
