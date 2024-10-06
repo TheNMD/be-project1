@@ -27,7 +27,6 @@ import be_project1.pet_project.dto.request.LessonReq;
 import be_project1.pet_project.dto.request.AccountCourseReq;
 import be_project1.pet_project.dto.request.AccountCourseLessonReq;
 
-
 @RestController("adminController")
 @RequestMapping("/api/v1/admin")
 public class AdminController {

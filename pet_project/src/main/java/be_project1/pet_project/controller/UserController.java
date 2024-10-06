@@ -16,12 +16,16 @@ import be_project1.pet_project.service.AccountService;
 import be_project1.pet_project.service.CourseService;
 import be_project1.pet_project.service.ChapterService;
 import be_project1.pet_project.service.LessonService;
+import be_project1.pet_project.service.AccountCourseService;
+import be_project1.pet_project.service.AccountCourseLessonService;
 
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.dto.request.AccountReq;
 import be_project1.pet_project.dto.request.CourseReq;
 import be_project1.pet_project.dto.request.ChapterReq;
 import be_project1.pet_project.dto.request.LessonReq;
+import be_project1.pet_project.dto.request.AccountCourseReq;
+import be_project1.pet_project.dto.request.AccountCourseLessonReq;
 
 @RestController("userController")
 @RequestMapping("/api/v1/user")
@@ -31,16 +35,22 @@ public class UserController {
     private final CourseService courseService;
     private final ChapterService chapterService;
     private final LessonService lessonService;
+    private final AccountCourseService accountCourseService;
+    private final AccountCourseLessonService accountCourseLessonService;
 
     @Autowired
     public UserController(@Qualifier("accountServiceImpl") AccountService accountService,
                           @Qualifier("courseServiceImpl") CourseService courseService,
                           @Qualifier("chapterServiceImpl") ChapterService chapterService,
-                          @Qualifier("lessonServiceImpl") LessonService lessonService) {
+                          @Qualifier("lessonServiceImpl") LessonService lessonService,
+                          @Qualifier("lessonServiceImpl") AccountCourseService accountCourseService,
+                          @Qualifier("lessonServiceImpl") AccountCourseLessonService accountCourseLessonService) {
         this.accountService = accountService;
         this.courseService = courseService;
         this.chapterService = chapterService;
         this.lessonService = lessonService;
+        this.accountCourseService = accountCourseService;
+        this.accountCourseLessonService = accountCourseLessonService;
     }
 
     // Test
@@ -102,32 +112,6 @@ public class UserController {
         return courseService.read(sort, page, size, request);
     }
 
-    // View
-    @GetMapping(URLConst.VIEW_COURSE)
-    public Object viewCourse(@PathVariable("course_id") String courseID) {
-        return courseService.view(courseID);
-    }
-
-    // Join
-    @PostMapping(URLConst.JOIN_COURSE)
-    public Object joinCourse(@PathVariable("course_id") String courseID) {
-        return courseService.join(courseID);
-    }
-
-    // Rate
-    @PostMapping(URLConst.RATE_COURSE)
-    public Object rateCourse(@PathVariable("course_id") String courseID,
-                             @RequestBody CourseReq request) {
-        return courseService.rate(courseID, request);
-    }
-
-    // Review
-    @PostMapping(URLConst.REVIEW_COURSE)
-    public Object reviewCourse(@PathVariable("course_id") String courseID,
-                               @RequestBody CourseReq request) {
-        return courseService.review(courseID, request);
-    }
-
     // Chapter
 
     // Read
@@ -150,21 +134,107 @@ public class UserController {
         return lessonService.read(sort, page, size, request);
     }
 
+    // AccountCourse
+
+    // Create
+    @PostMapping(URLConst.CREATE_COURSE)
+    public Object createAccountCourse(@RequestBody AccountCourseReq request) {
+        return accountCourseService.create(request);
+    }
+
+    // Read
+    @GetMapping(URLConst.SEARCH_COURSE)
+    public Object readAccountCourse(@RequestParam("sort") String sort,
+                                    @RequestParam("page") int page,
+                                    @RequestParam("size") int size,
+                                    @RequestBody AccountCourseReq request) {
+        return accountCourseService.read(sort, page, size, request);
+    }
+
+     // Update
+     @PutMapping(URLConst.UPDATE_COURSE)
+     public Object updateAccountCourse(@PathVariable("course_id") String courseID,
+                                       @RequestBody AccountCourseReq request) {
+         return accountCourseService.update(courseID, request);
+     }
+
+    // Delete
+    @DeleteMapping(URLConst.DELETE_COURSE)
+    public Object deleteAccountCourse(@PathVariable("course_id") String courseID) {
+        return accountCourseService.delete(courseID);
+    }
+
+    // View
+    @GetMapping(URLConst.VIEW_COURSE)
+    public Object viewCourse(@PathVariable("course_id") String courseID) {
+        return accountCourseService.view(courseID);
+    }
+
+    // Join
+    @PostMapping(URLConst.JOIN_COURSE)
+    public Object joinCourse(@PathVariable("course_id") String courseID) {
+        return accountCourseService.join(courseID);
+    }
+
+    // Rate
+    @PostMapping(URLConst.RATE_COURSE)
+    public Object rateCourse(@PathVariable("course_id") String courseID,
+                             @RequestBody AccountCourseReq request) {
+        return accountCourseService.rate(courseID, request);
+    }
+
+    // Review
+    @PostMapping(URLConst.REVIEW_COURSE)
+    public Object reviewCourse(@PathVariable("course_id") String courseID,
+                               @RequestBody AccountCourseReq request) {
+        return accountCourseService.review(courseID, request);
+    }
+
+    // AccountCourseLesson
+
+    // Create
+    @PostMapping(URLConst.CREATE_COURSE)
+    public Object createAccountCourseLesson(@RequestBody AccountCourseLessonReq request) {
+        return accountCourseLessonService.create(request);
+    }
+
+    // Read
+    @GetMapping(URLConst.SEARCH_COURSE)
+    public Object readAccountCourseLesson(@RequestParam("sort") String sort,
+                                          @RequestParam("page") int page,
+                                          @RequestParam("size") int size,
+                                          @RequestBody AccountCourseLessonReq request) {
+        return accountCourseLessonService.read(sort, page, size, request);
+    }
+
+     // Update
+     @PutMapping(URLConst.UPDATE_COURSE)
+     public Object updateAccountCourseLesson(@PathVariable("course_id") String courseID,
+                                             @RequestBody AccountCourseLessonReq request) {
+         return accountCourseLessonService.update(courseID, request);
+     }
+
+    // Delete
+    @DeleteMapping(URLConst.DELETE_COURSE)
+    public Object deleteAccountCourseLesson(@PathVariable("course_id") String courseID) {
+        return accountCourseLessonService.delete(courseID);
+    }
+
     // Begin
     @PostMapping(URLConst.BEGIN_LESSON)
     public Object beginLesson(@PathVariable("lesson_id") String lessonID) {
-        return lessonService.begin(lessonID);
+        return accountCourseLessonService.begin(lessonID);
     }
 
     // Stop
     @PostMapping(URLConst.STOP_LESSON)
     public Object stopLesson(@PathVariable("lesson_id") String lessonID) {
-        return lessonService.stop(lessonID);
+        return accountCourseLessonService.stop(lessonID);
     }
 
     // Finish
     @PostMapping(URLConst.FINISH_LESSON)
     public Object finishLesson(@PathVariable("lesson_id") String lessonID) {
-        return lessonService.finish(lessonID);
+        return accountCourseLessonService.finish(lessonID);
     }
 }
