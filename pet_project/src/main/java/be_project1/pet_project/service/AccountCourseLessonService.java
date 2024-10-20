@@ -1,16 +1,18 @@
 package be_project1.pet_project.service;
 
-import be_project1.pet_project.dto.request.AccountCourseLessonReq;
+import be_project1.pet_project.dto.request.AccountCourseLessonCreateReq;
+import be_project1.pet_project.dto.request.AccountCourseLessonReadReq;
+import be_project1.pet_project.dto.request.AccountCourseLessonUpdateReq;
 
 public interface AccountCourseLessonService {
     // Create
-    public Object create(AccountCourseLessonReq request);
+    public Object create(AccountCourseLessonCreateReq request);
 
     // Read
-    public Object read(String sort, int page, int size, AccountCourseLessonReq request);
+    public Object read(String sort, int page, int size, AccountCourseLessonReadReq request);
 
      // Update
-    public Object update(String lessonID, AccountCourseLessonReq request);
+    public Object update(String lessonID, AccountCourseLessonUpdateReq request);
 
     // Delete
     public Object delete(String lessonID);

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.LessonReq;
+import be_project1.pet_project.dto.request.LessonCreateReq;
 import be_project1.pet_project.service.LessonService;
 
 @RestController("lessonController")
@@ -29,7 +29,7 @@ public class LessonController {
 
     // Create
     @PostMapping(URLConst.CREATE_LESSON)
-    public Object createLesson(@RequestBody LessonReq request) {
+    public Object createLesson(@RequestBody LessonCreateReq request) {
         return lessonService.create(request);
     }
 
@@ -38,14 +38,14 @@ public class LessonController {
     public Object readChapter(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
-                              @RequestBody LessonReq request) {
+                              @RequestBody LessonCreateReq request) {
         return lessonService.read(sort, page, size, request);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_LESSON)
     public Object updateLesson(@PathVariable("lesson_id") String lessonID,
-                               @RequestBody LessonReq request) {
+                               @RequestBody LessonCreateReq request) {
         return lessonService.update(lessonID, request);
     }
 

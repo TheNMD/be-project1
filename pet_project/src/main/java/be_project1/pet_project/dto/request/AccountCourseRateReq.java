@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AccountCourseReq {
+public class AccountCourseRateReq {
     private String rating;
     private String review;
     private String status;

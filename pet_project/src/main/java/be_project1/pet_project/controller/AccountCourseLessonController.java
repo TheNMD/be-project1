@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.AccountCourseLessonReq;
+import be_project1.pet_project.dto.request.AccountCourseLessonCreateReq;
 import be_project1.pet_project.service.AccountCourseLessonService;
 
 @RestController("accountCourseLessonController")
@@ -31,7 +31,7 @@ public class AccountCourseLessonController {
 
     // Create
     @PostMapping(URLConst.CREATE_ACCOUNT_COURSE_LESSON)
-    public Object createAccountCourseLesson(@RequestBody AccountCourseLessonReq request) {
+    public Object createAccountCourseLesson(@RequestBody AccountCourseLessonCreateReq request) {
         return accountCourseLessonService.create(request);
     }
 
@@ -40,14 +40,14 @@ public class AccountCourseLessonController {
     public Object readAccountCourseLesson(@RequestParam("sort") String sort,
                                           @RequestParam("page") int page,
                                           @RequestParam("size") int size,
-                                          @RequestBody AccountCourseLessonReq request) {
+                                          @RequestBody AccountCourseLessonCreateReq request) {
         return accountCourseLessonService.read(sort, page, size, request);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE_LESSON)
     public Object updateAccountCourseLesson(@PathVariable("lesson_id") String courseID,
-                                            @RequestBody AccountCourseLessonReq request) {
+                                            @RequestBody AccountCourseLessonCreateReq request) {
         return accountCourseLessonService.update(courseID, request);
     }
 
