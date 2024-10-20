@@ -25,7 +25,7 @@ public class ChapterRes {
     private String chapterName;
     private String courseName;
     private String description;
-    private String order;
+    private int order;
     private String status;
     private String createdDate;
     private String updatedDate;
