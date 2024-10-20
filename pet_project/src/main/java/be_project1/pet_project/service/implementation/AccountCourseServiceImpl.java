@@ -117,7 +117,7 @@ public class AccountCourseServiceImpl implements AccountCourseService {
         return request;
     }
 
-    // Rate
+    // Review
     @Override
     public Object review(String courseID, AccountCourseReq request) {
         String error = accountCourseServiceVal.review(courseID, request);

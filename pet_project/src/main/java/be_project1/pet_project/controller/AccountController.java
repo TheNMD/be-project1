@@ -36,6 +36,7 @@ public class AccountController {
     // Login
     @PostMapping(URLConst.LOGIN)
     public Object login(@RequestBody AccountReq request) {
+        // int c = 5 / 0;
         return accountService.login(request);
     }
 
