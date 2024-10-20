@@ -24,19 +24,19 @@ public class URLConst {
     public static final String UPDATE_LESSON = "/lesson/update/{lesson_id}";
     public static final String DELETE_LESSON = "/lesson/delete/{lesson_id}";
 
-    public static final String CREATE_ACCOUNT_COURSE = "/account/create_course";
-    public static final String READ_ACCOUNT_COURSE   = "/account/read_course";
-    public static final String UPDATE_ACCOUNT_COURSE = "/account/update_course/{course_id}";
-    public static final String DELETE_ACCOUNT_COURSE = "/account/delete_course/{course_id}";
+    public static final String CREATE_ACCOUNT_COURSE = "/account/create_account_course";
+    public static final String READ_ACCOUNT_COURSE   = "/account/read_account_course";
+    public static final String UPDATE_ACCOUNT_COURSE = "/account/update_account_course/{course_id}";
+    public static final String DELETE_ACCOUNT_COURSE = "/account/delete_account_course/{course_id}";
     public static final String VIEW_COURSE           = "/account/view/{course_id}";
     public static final String JOIN_COURSE           = "/account/join/{course_id}";
     public static final String RATE_COURSE           = "/account/rate/{course_id}";
     public static final String REVIEW_COURSE         = "/account/review/{course_id}";
 
-    public static final String CREATE_ACCOUNT_COURSE_LESSON = "/account/create_lesson";
-    public static final String READ_ACCOUNT_COURSE_LESSON   = "/account/read_lesson";
-    public static final String UPDATE_ACCOUNT_COURSE_LESSON = "/account/update_lesson/{lesson_id}";
-    public static final String DELETE_ACCOUNT_COURSE_LESSON = "/account/delete_lesson/{lesson_id}";
+    public static final String CREATE_ACCOUNT_COURSE_LESSON = "/account/create_account_course_lesson";
+    public static final String READ_ACCOUNT_COURSE_LESSON   = "/account/read_account_course_lesson";
+    public static final String UPDATE_ACCOUNT_COURSE_LESSON = "/account/update_account_course_lesson/{lesson_id}";
+    public static final String DELETE_ACCOUNT_COURSE_LESSON = "/account/delete_account_course_lesson/{lesson_id}";
     public static final String START_LESSON                 = "/account/start/{lesson_id}";
     public static final String STOP_LESSON                  = "/account/stop/{lesson_id}";
     public static final String FINISH_LESSON                = "/account/finish/{lesson_id}";
