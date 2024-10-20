@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.http.ResponseEntity;
 
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.service.CourseService;
@@ -31,29 +33,37 @@ public class CourseController {
 
     // Create
     @PostMapping(URLConst.CREATE_COURSE)
-    public Object createCourse(@RequestBody CourseCreateReq request) {
-        return courseService.create(request);
+    public ResponseEntity<?> createCourse(@Validated @RequestBody CourseCreateReq request) {
+        Object res = courseService.create(request);
+        return ResponseEntity.ok(res);
     }
 
     // Read
     @GetMapping(URLConst.READ_COURSE)
-    public Object readCourse(@RequestParam("sort") String sort,
-                             @RequestParam("page") int page,
-                             @RequestParam("size") int size,
-                             @RequestBody CourseReadReq request) {
-        return courseService.read(sort, page, size, request);
+    public ResponseEntity<?> readCourse(
+        @Validated
+        @RequestParam("sort") String sort,
+        @RequestParam("page") int page,
+        @RequestParam("size") int size,
+        @RequestBody CourseReadReq request) {
+        Object res = courseService.read(sort, page, size, request);
+        return ResponseEntity.ok(res);
     }
 
     // Update
     @PutMapping(URLConst.UPDATE_COURSE)
-    public Object updateCourse(@PathVariable("course_id") String courseID,
-                            @RequestBody CourseUpdateReq request) {
-        return courseService.update(courseID, request);
+    public ResponseEntity<?> updateCourse(
+        @Validated
+        @PathVariable("course_id") String courseID,
+        @RequestBody CourseUpdateReq request) {
+        Object res = courseService.update(courseID, request);
+        return ResponseEntity.ok(res);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_COURSE)
-    public Object deleteCourse(@PathVariable("course_id") String courseID) {
-        return courseService.delete(courseID);
+    public ResponseEntity<?> deleteCourse(@Validated @PathVariable("course_id") String courseID) {
+        Object res = courseService.delete(courseID);
+        return ResponseEntity.ok(res);
     }
 }

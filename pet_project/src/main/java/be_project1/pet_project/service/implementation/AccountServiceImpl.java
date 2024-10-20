@@ -23,7 +23,6 @@ public class AccountServiceImpl implements AccountService {
     // Logout
     @Override
     public Object logout(String accountID) {
-
         return accountID;
     }
 

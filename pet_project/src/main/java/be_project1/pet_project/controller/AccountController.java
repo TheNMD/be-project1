@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.http.ResponseEntity;
 
 import be_project1.pet_project.constant.URLConst;
 import be_project1.pet_project.service.AccountService;
@@ -30,49 +32,55 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    // Test
-    @GetMapping("/test")
-    public String test() {
-        return "Test endpoint is working!";
-    }
-
     // Login
     @PostMapping(URLConst.LOGIN)
-    public Object login(@RequestBody AccountLoginReq request) {
-        return accountService.login(request);
+    public ResponseEntity<?> login(@Validated @RequestBody AccountLoginReq request) {
+        Object res = accountService.login(request);
+        String message = "Login successful";
+        return ResponseEntity.ok(message);
     }
 
     // Logout
     @PostMapping(URLConst.LOGOUT)
-    public Object logout(@PathVariable("user_id") String accountID) {
-        return accountService.logout(accountID);
+    public ResponseEntity<?> logout(@Validated @PathVariable("user_id") String accountID) {
+        Object res = accountService.logout(accountID);
+        String message = "Logout successful";
+        return ResponseEntity.ok(message);
     }
 
     // Create
     @PostMapping(URLConst.CREATE_ACCOUNT)
-    public Object createAccount(@RequestBody AccountCreateReq request) {
-        return accountService.create(request);
+    public ResponseEntity<?> createAccount(@Validated @RequestBody AccountCreateReq request) {
+        Object res = accountService.create(request);
+        return ResponseEntity.ok(res);
     }
 
     // Read
     @GetMapping(URLConst.READ_ACCOUNT)
-    public Object readAccount(@RequestParam("sort") String sort,
-                              @RequestParam("page") int page,
-                              @RequestParam("size") int size,
-                              @RequestBody AccountReadReq request) {
-        return accountService.read(sort, page, size, request);
+    public ResponseEntity<?> readAccount(
+        @Validated
+        @RequestParam("sort") String sort,
+        @RequestParam("page") int page,
+        @RequestParam("size") int size,
+        @RequestBody AccountReadReq request) {
+        Object res = accountService.read(sort, page, size, request);
+        return ResponseEntity.ok(res);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_ACCOUNT)
-    public Object updateAccount(@PathVariable("user_id") String accountID,
-                                @RequestBody AccountUpdateReq request) {
-        return accountService.update(accountID, request);
+    public ResponseEntity<?> updateAccount(
+        @Validated
+        @PathVariable("user_id") String accountID,
+        @RequestBody AccountUpdateReq request) {
+        Object res = accountService.update(accountID, request);
+        return ResponseEntity.ok(res);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_ACCOUNT)
-    public Object deleteAccount(@PathVariable("user_id") String accountID) {
-        return accountService.delete(accountID);
+    public ResponseEntity<?> deleteAccount(@Validated @PathVariable("user_id") String accountID) {
+        Object res =  accountService.delete(accountID);
+        return ResponseEntity.ok(res);
     }
 }
