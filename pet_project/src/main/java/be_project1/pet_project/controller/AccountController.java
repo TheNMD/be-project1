@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.AccountReq;
 import be_project1.pet_project.service.AccountService;
+import be_project1.pet_project.dto.request.AccountLoginReq;
+import be_project1.pet_project.dto.request.AccountCreateReq;
+import be_project1.pet_project.dto.request.AccountReadReq;
+import be_project1.pet_project.dto.request.AccountUpdateReq;
 
 @RestController("accountController")
 @RequestMapping("/api/v1")
@@ -35,7 +38,7 @@ public class AccountController {
 
     // Login
     @PostMapping(URLConst.LOGIN)
-    public Object login(@RequestBody AccountReq request) {
+    public Object login(@RequestBody AccountLoginReq request) {
         return accountService.login(request);
     }
 
@@ -47,7 +50,7 @@ public class AccountController {
 
     // Create
     @PostMapping(URLConst.CREATE_ACCOUNT)
-    public Object createAccount(@RequestBody AccountReq request) {
+    public Object createAccount(@RequestBody AccountCreateReq request) {
         return accountService.create(request);
     }
 
@@ -56,14 +59,14 @@ public class AccountController {
     public Object readAccount(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
-                              @RequestBody AccountReq request) {
+                              @RequestBody AccountReadReq request) {
         return accountService.read(sort, page, size, request);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_ACCOUNT)
     public Object updateAccount(@PathVariable("user_id") String accountID,
-                                @RequestBody AccountReq request) {
+                                @RequestBody AccountUpdateReq request) {
         return accountService.update(accountID, request);
     }
 

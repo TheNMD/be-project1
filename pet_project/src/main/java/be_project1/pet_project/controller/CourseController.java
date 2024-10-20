@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.CourseReq;
 import be_project1.pet_project.service.CourseService;
+import be_project1.pet_project.dto.request.CourseCreateReq;
+import be_project1.pet_project.dto.request.CourseReadReq;
+import be_project1.pet_project.dto.request.CourseUpdateReq;
 
 @RestController("courseController")
 @RequestMapping("/api/v1")
@@ -29,7 +31,7 @@ public class CourseController {
 
     // Create
     @PostMapping(URLConst.CREATE_COURSE)
-    public Object createCourse(@RequestBody CourseReq request) {
+    public Object createCourse(@RequestBody CourseCreateReq request) {
         return courseService.create(request);
     }
 
@@ -38,14 +40,14 @@ public class CourseController {
     public Object readCourse(@RequestParam("sort") String sort,
                              @RequestParam("page") int page,
                              @RequestParam("size") int size,
-                             @RequestBody CourseReq request) {
+                             @RequestBody CourseReadReq request) {
         return courseService.read(sort, page, size, request);
     }
 
     // Update
     @PutMapping(URLConst.UPDATE_COURSE)
     public Object updateCourse(@PathVariable("course_id") String courseID,
-                            @RequestBody CourseReq request) {
+                            @RequestBody CourseUpdateReq request) {
         return courseService.update(courseID, request);
     }
 

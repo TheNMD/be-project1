@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.ChapterCreateReq;
 import be_project1.pet_project.service.ChapterService;
+import be_project1.pet_project.dto.request.ChapterCreateReq;
+import be_project1.pet_project.dto.request.ChapterReadReq;
+import be_project1.pet_project.dto.request.ChapterUpdateReq;
 
 @RestController("chapterController")
 @RequestMapping("/api/v1")
@@ -38,14 +40,14 @@ public class ChapterController {
     public Object readChapter(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
-                              @RequestBody ChapterCreateReq request) {
+                              @RequestBody ChapterReadReq request) {
         return chapterService.read(sort, page, size, request);
     }
 
     // Update
     @PutMapping(URLConst.UPDATE_CHAPTER)
     public Object updateChapter(@PathVariable("chapter_id") String chapterID,
-                                @RequestBody ChapterCreateReq request) {
+                                @RequestBody ChapterUpdateReq request) {
         return chapterService.update(chapterID, request);
     }
 

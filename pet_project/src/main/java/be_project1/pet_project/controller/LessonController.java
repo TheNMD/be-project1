@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.LessonCreateReq;
 import be_project1.pet_project.service.LessonService;
+import be_project1.pet_project.dto.request.LessonCreateReq;
+import be_project1.pet_project.dto.request.LessonReadReq;
+import be_project1.pet_project.dto.request.LessonUpdateReq;
 
 @RestController("lessonController")
 @RequestMapping("/api/v1")
@@ -38,14 +40,14 @@ public class LessonController {
     public Object readChapter(@RequestParam("sort") String sort,
                               @RequestParam("page") int page,
                               @RequestParam("size") int size,
-                              @RequestBody LessonCreateReq request) {
+                              @RequestBody LessonReadReq request) {
         return lessonService.read(sort, page, size, request);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_LESSON)
     public Object updateLesson(@PathVariable("lesson_id") String lessonID,
-                               @RequestBody LessonCreateReq request) {
+                               @RequestBody LessonUpdateReq request) {
         return lessonService.update(lessonID, request);
     }
 

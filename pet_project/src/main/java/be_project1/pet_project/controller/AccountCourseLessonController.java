@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.AccountCourseLessonCreateReq;
 import be_project1.pet_project.service.AccountCourseLessonService;
+import be_project1.pet_project.dto.request.AccountCourseLessonCreateReq;
+import be_project1.pet_project.dto.request.AccountCourseLessonReadReq;
+import be_project1.pet_project.dto.request.AccountCourseLessonUpdateReq;
 
 @RestController("accountCourseLessonController")
 @RequestMapping("/api/v1")
@@ -40,14 +42,14 @@ public class AccountCourseLessonController {
     public Object readAccountCourseLesson(@RequestParam("sort") String sort,
                                           @RequestParam("page") int page,
                                           @RequestParam("size") int size,
-                                          @RequestBody AccountCourseLessonCreateReq request) {
+                                          @RequestBody AccountCourseLessonReadReq request) {
         return accountCourseLessonService.read(sort, page, size, request);
     }
 
      // Update
     @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE_LESSON)
     public Object updateAccountCourseLesson(@PathVariable("lesson_id") String courseID,
-                                            @RequestBody AccountCourseLessonCreateReq request) {
+                                            @RequestBody AccountCourseLessonUpdateReq request) {
         return accountCourseLessonService.update(courseID, request);
     }
 

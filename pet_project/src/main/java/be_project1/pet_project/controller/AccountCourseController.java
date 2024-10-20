@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.dto.request.AccountCourseCreateReq;
 import be_project1.pet_project.service.AccountCourseService;
+import be_project1.pet_project.dto.request.AccountCourseCreateReq;
+import be_project1.pet_project.dto.request.AccountCourseReadReq;
+import be_project1.pet_project.dto.request.AccountCourseUpdateReq;
+import be_project1.pet_project.dto.request.AccountCourseRateReq;
+import be_project1.pet_project.dto.request.AccountCourseReviewReq;
 
 @RestController("accountCourseController")
 @RequestMapping("/api/v1")
@@ -40,14 +44,14 @@ public class AccountCourseController {
     public Object readAccountCourse(@RequestParam("sort") String sort,
                                     @RequestParam("page") int page,
                                     @RequestParam("size") int size,
-                                    @RequestBody AccountCourseCreateReq request) {
+                                    @RequestBody AccountCourseReadReq request) {
         return accountCourseService.read(sort, page, size, request);
     }
 
      // Update
      @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE)
      public Object updateAccountCourse(@PathVariable("course_id") String courseID,
-                                       @RequestBody AccountCourseCreateReq request) {
+                                       @RequestBody AccountCourseUpdateReq request) {
         return accountCourseService.update(courseID, request);
     }
 
@@ -72,14 +76,14 @@ public class AccountCourseController {
     // Rate
     @PostMapping(URLConst.RATE_COURSE)
     public Object rateCourse(@PathVariable("course_id") String courseID,
-                             @RequestBody AccountCourseCreateReq request) {
+                             @RequestBody AccountCourseRateReq request) {
         return accountCourseService.rate(courseID, request);
     }
 
     // Review
     @PostMapping(URLConst.REVIEW_COURSE)
     public Object reviewCourse(@PathVariable("course_id") String courseID,
-                               @RequestBody AccountCourseCreateReq request) {
+                               @RequestBody AccountCourseReviewReq request) {
         return accountCourseService.review(courseID, request);
     }
 }
