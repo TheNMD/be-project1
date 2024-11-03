@@ -5,19 +5,19 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Service;
 
-import be_project1.pet_project.service.AccountCourseService;
-import be_project1.pet_project.dto.request.AccountCourseCreateReq;
-import be_project1.pet_project.dto.request.AccountCourseReadReq;
-import be_project1.pet_project.dto.request.AccountCourseUpdateReq;
-import be_project1.pet_project.dto.request.AccountCourseRateReq;
-import be_project1.pet_project.dto.request.AccountCourseReviewReq;
-import be_project1.pet_project.dto.response.AccountCourseRes;
+import be_project1.pet_project.service.UserCourseService;
+import be_project1.pet_project.dto.request.UserCourseCreateReq;
+import be_project1.pet_project.dto.request.UserCourseReadReq;
+import be_project1.pet_project.dto.request.UserCourseUpdateReq;
+import be_project1.pet_project.dto.request.UserCourseRateReq;
+import be_project1.pet_project.dto.request.UserCourseReviewReq;
+import be_project1.pet_project.dto.response.UserCourseRes;
 
-@Service("accountCourseServiceImpl")
-public class AccountCourseServiceImpl implements AccountCourseService {
+@Service("userCourseServiceImpl")
+public class UserCourseServiceImpl implements UserCourseService {
     // Create
     @Override
-    public Object create(AccountCourseCreateReq request) {
+    public Object create(UserCourseCreateReq request) {
         request.setStatus("stopped");
         Instant currentTimestamp = Instant.now();
         String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
@@ -28,8 +28,8 @@ public class AccountCourseServiceImpl implements AccountCourseService {
 
     // Read
     @Override
-    public Object read(String sort, int page, int size, AccountCourseReadReq request) {
-        AccountCourseRes response = new AccountCourseRes();
+    public Object read(String sort, int page, int size, UserCourseReadReq request) {
+        UserCourseRes response = new UserCourseRes();
         response.setRating(request.getRating());
         response.setReview(request.getReview());
         response.setStatus(request.getStatus());
@@ -43,7 +43,7 @@ public class AccountCourseServiceImpl implements AccountCourseService {
 
     // Update
     @Override
-    public Object update(String courseID, AccountCourseUpdateReq request) {
+    public Object update(String courseID, UserCourseUpdateReq request) {
         Instant currentTimestamp = Instant.now();
         String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
         request.setUpdatedDate(updatedDate);
@@ -71,13 +71,13 @@ public class AccountCourseServiceImpl implements AccountCourseService {
 
     // Rate
     @Override
-    public Object rate(String courseID, AccountCourseRateReq request) {
+    public Object rate(String courseID, UserCourseRateReq request) {
         return request;
     }
 
     // Review
     @Override
-    public Object review(String courseID, AccountCourseReviewReq request) {
+    public Object review(String courseID, UserCourseReviewReq request) {
         return request;
     }
 }

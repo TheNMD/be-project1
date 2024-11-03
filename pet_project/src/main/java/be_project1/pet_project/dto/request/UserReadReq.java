@@ -2,9 +2,6 @@ package be_project1.pet_project.dto.request;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -13,32 +10,27 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 import be_project1.pet_project.constant.RegexConst;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@Accessors(chain=true)
 @Data
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public class UserReadReq {
+    @Size(min = 8, max = 50, message = "Username must be between 8 and 50 characters long")
+    @Pattern(regexp = RegexConst.USERNAME, message = "Username must not contain special characters")
+    private String username;
 
-public class ChapterReadReq {
-    @Size(min = 1, max = 20, message = "Chapter Name must be between 1 and 20 characters long")
-    private String chapterName;
+    @Size(min = 8, max = 64, message = "Password must be between 8 and 64 characters long")
+    @Pattern(regexp = RegexConst.PASSWORD, message = "Password must not contain spaces")
+    private String password;
 
-    @Size(min = 1, max = 20, message = "Course Name must be between 1 and 20 characters long")
-    private String courseName;
+    @Size(min = 1, max = 20, message = "Name must be between 1 and 20 characters long")
+    @Pattern(regexp = RegexConst.USERNAME, message = "Username must not contain special characters")
+    private String name;
 
-    @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
-    private String description;
-
-    @Positive(message = "Order must be greater than zero")
-    private int order;
-    
     @Pattern(regexp = RegexConst.STATUS, message = "Status must be either 'active' or 'inactive'")
     private String status;
 
@@ -46,5 +38,5 @@ public class ChapterReadReq {
     private String createdDate;
 
     @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
-    private String updatedDate;
+    private String updateddDate;
 }

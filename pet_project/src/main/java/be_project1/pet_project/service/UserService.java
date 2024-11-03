@@ -1,0 +1,26 @@
+package be_project1.pet_project.service;
+
+import be_project1.pet_project.dto.request.UserLoginReq;
+import be_project1.pet_project.dto.request.UserCreateReq;
+import be_project1.pet_project.dto.request.UserReadReq;
+import be_project1.pet_project.dto.request.UserUpdateReq;
+
+public interface UserService {
+    // Login
+    public Object login(UserLoginReq request);
+
+    // Logout
+    public Object logout(String accountID);
+
+    // Create
+    public Object create(UserCreateReq request);
+
+    // Read
+    public Object read(String sort, int page, int size, UserReadReq request);
+
+     // Update
+    public Object update(String accountID, UserUpdateReq request);
+
+    // Delete
+    public Object delete(String accountID);
+}

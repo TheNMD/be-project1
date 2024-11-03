@@ -5,17 +5,17 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Service;
 
-import be_project1.pet_project.service.AccountCourseLessonService;
-import be_project1.pet_project.dto.request.AccountCourseLessonCreateReq;
-import be_project1.pet_project.dto.request.AccountCourseLessonReadReq;
-import be_project1.pet_project.dto.request.AccountCourseLessonUpdateReq;
-import be_project1.pet_project.dto.response.AccountCourseLessonRes;
+import be_project1.pet_project.service.UserCourseLessonService;
+import be_project1.pet_project.dto.request.UserCourseLessonCreateReq;
+import be_project1.pet_project.dto.request.UserCourseLessonReadReq;
+import be_project1.pet_project.dto.request.UserCourseLessonUpdateReq;
+import be_project1.pet_project.dto.response.UserCourseLessonRes;
 
-@Service("accountCourseLessonServiceImpl")
-public class AccountCourseLessonServiceImpl implements AccountCourseLessonService {
+@Service("userCourseLessonServiceImpl")
+public class UserCourseLessonServiceImpl implements UserCourseLessonService {
     // Create
     @Override
-    public Object create(AccountCourseLessonCreateReq request) {
+    public Object create(UserCourseLessonCreateReq request) {
         request.setStatus("stopped");
         Instant currentTimestamp = Instant.now();
         String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
@@ -26,8 +26,8 @@ public class AccountCourseLessonServiceImpl implements AccountCourseLessonServic
 
     // Read
     @Override
-    public Object read(String sort, int page, int size, AccountCourseLessonReadReq request) {
-        AccountCourseLessonRes response = new AccountCourseLessonRes();
+    public Object read(String sort, int page, int size, UserCourseLessonReadReq request) {
+        UserCourseLessonRes response = new UserCourseLessonRes();
         response.setStatus(request.getStatus());
         response.setCreatedDate(request.getCreatedDate());
         response.setSort(sort);
@@ -39,7 +39,7 @@ public class AccountCourseLessonServiceImpl implements AccountCourseLessonServic
 
     // Update
     @Override
-    public Object update(String lessonID, AccountCourseLessonUpdateReq request) {
+    public Object update(String lessonID, UserCourseLessonUpdateReq request) {
         Instant currentTimestamp = Instant.now();
         String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
         request.setUpdatedDate(updatedDate);

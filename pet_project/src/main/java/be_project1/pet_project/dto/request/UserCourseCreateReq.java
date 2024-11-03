@@ -20,10 +20,12 @@ import jakarta.validation.constraints.Size;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AccountCourseReadReq {
+public class UserCourseCreateReq {
+    @NotNull(message = "Rating cannot be null")
     @PositiveOrZero(message = "Rating must be greater than zero")
     private double rating;
-    
+
+    @NotNull(message = "Review cannot be null")
     @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
     private String review;
 
@@ -32,7 +34,4 @@ public class AccountCourseReadReq {
 
     @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
     private String createdDate;
-
-    @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
-    private String updatedDate;
 }

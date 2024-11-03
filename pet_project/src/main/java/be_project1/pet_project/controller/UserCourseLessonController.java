@@ -15,76 +15,76 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.http.ResponseEntity;
 
 import be_project1.pet_project.constant.URLConst;
-import be_project1.pet_project.service.AccountCourseLessonService;
-import be_project1.pet_project.dto.request.AccountCourseLessonCreateReq;
-import be_project1.pet_project.dto.request.AccountCourseLessonReadReq;
-import be_project1.pet_project.dto.request.AccountCourseLessonUpdateReq;
+import be_project1.pet_project.service.UserCourseLessonService;
+import be_project1.pet_project.dto.request.UserCourseLessonCreateReq;
+import be_project1.pet_project.dto.request.UserCourseLessonReadReq;
+import be_project1.pet_project.dto.request.UserCourseLessonUpdateReq;
 
-@RestController("accountCourseLessonController")
+@RestController("userCourseLessonController")
 @RequestMapping("/api/v1")
-public class AccountCourseLessonController {
+public class UserCourseLessonController {
     // Init
-    private final AccountCourseLessonService accountCourseLessonService;
+    private final UserCourseLessonService userCourseLessonService;
 
     @Autowired
-    public AccountCourseLessonController(@Qualifier("accountCourseLessonServiceImpl") AccountCourseLessonService accountCourseLessonService) {
-        this.accountCourseLessonService = accountCourseLessonService;
+    public UserCourseLessonController(@Qualifier("userCourseLessonServiceImpl") UserCourseLessonService userCourseLessonService) {
+        this.userCourseLessonService = userCourseLessonService;
     }
 
     // Create
-    @PostMapping(URLConst.CREATE_ACCOUNT_COURSE_LESSON)
-    public ResponseEntity<?> createAccountCourseLesson(@Validated @RequestBody AccountCourseLessonCreateReq request) {
-        Object res = accountCourseLessonService.create(request);
+    @PostMapping(URLConst.CREATE_USER_COURSE_LESSON)
+    public ResponseEntity<?> createUserCourseLesson(@Validated @RequestBody UserCourseLessonCreateReq request) {
+        Object res = userCourseLessonService.create(request);
         return ResponseEntity.ok(res);
     }
 
     // Read
-    @GetMapping(URLConst.READ_ACCOUNT_COURSE_LESSON)
-    public ResponseEntity<?> readAccountCourseLesson(
+    @GetMapping(URLConst.READ_USER_COURSE_LESSON)
+    public ResponseEntity<?> readUserCourseLesson(
         @Validated
         @RequestParam("sort") String sort,
         @RequestParam("page") int page,
         @RequestParam("size") int size,
-        @RequestBody AccountCourseLessonReadReq request) {
-        Object res = accountCourseLessonService.read(sort, page, size, request);
+        @RequestBody UserCourseLessonReadReq request) {
+        Object res = userCourseLessonService.read(sort, page, size, request);
         return ResponseEntity.ok(res);
     }
 
      // Update
-    @PutMapping(URLConst.UPDATE_ACCOUNT_COURSE_LESSON)
-    public ResponseEntity<?> updateAccountCourseLesson(
+    @PutMapping(URLConst.UPDATE_USER_COURSE_LESSON)
+    public ResponseEntity<?> updateUserCourseLesson(
         @Validated
         @PathVariable("lesson_id") String courseID,
-        @RequestBody AccountCourseLessonUpdateReq request) {
-        Object res = accountCourseLessonService.update(courseID, request);
+        @RequestBody UserCourseLessonUpdateReq request) {
+        Object res = userCourseLessonService.update(courseID, request);
         return ResponseEntity.ok(res);
     }
 
     // Delete
-    @DeleteMapping(URLConst.DELETE_ACCOUNT_COURSE_LESSON)
-    public ResponseEntity<?> deleteAccountCourseLesson(@Validated @PathVariable("lesson_id") String courseID) {
-        Object res = accountCourseLessonService.delete(courseID);
+    @DeleteMapping(URLConst.DELETE_USER_COURSE_LESSON)
+    public ResponseEntity<?> deleteUserCourseLesson(@Validated @PathVariable("lesson_id") String courseID) {
+        Object res = userCourseLessonService.delete(courseID);
         return ResponseEntity.ok(res);
     }
 
     // Start
     @PostMapping(URLConst.START_LESSON)
     public ResponseEntity<?> startLesson(@Validated @PathVariable("lesson_id") String lessonID) {
-        Object res = accountCourseLessonService.start(lessonID);
+        Object res = userCourseLessonService.start(lessonID);
         return ResponseEntity.ok(res);
     }
 
     // Stop
     @PostMapping(URLConst.STOP_LESSON)
     public ResponseEntity<?> stopLesson(@Validated @PathVariable("lesson_id") String lessonID) {
-        Object res = accountCourseLessonService.stop(lessonID);
+        Object res = userCourseLessonService.stop(lessonID);
         return ResponseEntity.ok(res);
     }
 
     // Finish
     @PostMapping(URLConst.FINISH_LESSON)
     public ResponseEntity<?> finishLesson(@Validated @PathVariable("lesson_id") String lessonID) {
-        Object res = accountCourseLessonService.finish(lessonID);
+        Object res = userCourseLessonService.finish(lessonID);
         return ResponseEntity.ok(res);
     }
 }

@@ -5,30 +5,30 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import org.springframework.stereotype.Service;
 
-import be_project1.pet_project.service.AccountService;
-import be_project1.pet_project.dto.request.AccountLoginReq;
-import be_project1.pet_project.dto.request.AccountCreateReq;
-import be_project1.pet_project.dto.request.AccountReadReq;
-import be_project1.pet_project.dto.request.AccountUpdateReq;
-import be_project1.pet_project.dto.response.AccountRes;
+import be_project1.pet_project.service.UserService;
+import be_project1.pet_project.dto.request.UserLoginReq;
+import be_project1.pet_project.dto.request.UserCreateReq;
+import be_project1.pet_project.dto.request.UserReadReq;
+import be_project1.pet_project.dto.request.UserUpdateReq;
+import be_project1.pet_project.dto.response.UserRes;
 
-@Service("accountServiceImpl")
-public class AccountServiceImpl implements AccountService {
+@Service("userServiceImpl")
+public class UserServiceImpl implements UserService {
     // Login
     @Override
-    public Object login(AccountLoginReq request) {
+    public Object login(UserLoginReq request) {
         return request;
     }
 
     // Logout
     @Override
-    public Object logout(String accountID) {
-        return accountID;
+    public Object logout(String userID) {
+        return userID;
     }
 
     // Create
     @Override
-    public Object create(AccountCreateReq request) {
+    public Object create(UserCreateReq request) {
         request.setStatus("active");
         Instant currentTimestamp = Instant.now();
         String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
@@ -39,9 +39,9 @@ public class AccountServiceImpl implements AccountService {
 
     // Read
     @Override
-    public Object read(String sort, int page, int size, AccountReadReq request) {
+    public Object read(String sort, int page, int size, UserReadReq request) {
 
-        AccountRes response = new AccountRes();
+        UserRes response = new UserRes();
         response.setUsername(request.getUsername());
         response.setName(request.getName());
         response.setStatus(request.getStatus());
@@ -55,7 +55,7 @@ public class AccountServiceImpl implements AccountService {
 
     // Update
     @Override
-    public Object update(String accountID, AccountUpdateReq request) {
+    public Object update(String userID, UserUpdateReq request) {
         Instant currentTimestamp = Instant.now();
         String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
         request.setUpdatedDate(updatedDate);
@@ -65,7 +65,7 @@ public class AccountServiceImpl implements AccountService {
 
     // Delete
     @Override
-    public Object delete(String accountID) {
-        return accountID;
+    public Object delete(String userID) {
+        return userID;
     }
 }

@@ -9,13 +9,12 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 import be_project1.pet_project.constant.RegexConst;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 @NoArgsConstructor
 @AllArgsConstructor

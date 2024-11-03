@@ -19,7 +19,7 @@ import jakarta.validation.constraints.Size;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AccountCourseUpdateReq {
+public class UserCourseUpdateReq {
     @PositiveOrZero(message = "Rating must be greater than zero")
     private double rating;
     
