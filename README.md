@@ -23,4 +23,4 @@
 1. **Status**: sudo systemctl status mongod
 2. **Start**: sudo systemctl start mongod
 3. **Stop**: sudo systemctl stop mongod
-4. **Connect**: 
+4. **Connect**:
