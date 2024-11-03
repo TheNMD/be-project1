@@ -33,7 +33,7 @@ public class AdminController {
     }
 
     // Login
-    @PostMapping(URLConst.LOGIN)
+    @PostMapping(URLConst.LOGIN_ADMIN)
     public ResponseEntity<?> login(@Validated @RequestBody AdminLoginReq request) {
         Object res = adminService.login(request);
         String message = "Login successful";
@@ -41,9 +41,9 @@ public class AdminController {
     }
 
     // Logout
-    @PostMapping(URLConst.LOGOUT)
-    public ResponseEntity<?> logout(@Validated @PathVariable("user_id") String userID) {
-        Object res = adminService.logout(userID);
+    @PostMapping(URLConst.LOGOUT_ADMIN)
+    public ResponseEntity<?> logout(@Validated @PathVariable("admin_id") String adminID) {
+        Object res = adminService.logout(adminID);
         String message = "Logout successful";
         return ResponseEntity.ok(message);
     }
@@ -71,16 +71,16 @@ public class AdminController {
     @PutMapping(URLConst.UPDATE_ADMIN)
     public ResponseEntity<?> updateAdmin(
         @Validated
-        @PathVariable("user_id") String userID,
+        @PathVariable("admin_id") String adminID,
         @RequestBody AdminUpdateReq request) {
-        Object res = adminService.update(userID, request);
+        Object res = adminService.update(adminID, request);
         return ResponseEntity.ok(res);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_ADMIN)
-    public ResponseEntity<?> deleteAdmin(@Validated @PathVariable("user_id") String userID) {
-        Object res =  adminService.delete(userID);
+    public ResponseEntity<?> deleteAdmin(@Validated @PathVariable("admin_id") String adminID) {
+        Object res =  adminService.delete(adminID);
         return ResponseEntity.ok(res);
     }
 }

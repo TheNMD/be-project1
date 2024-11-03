@@ -33,7 +33,7 @@ public class UserController {
     }
 
     // Login
-    @PostMapping(URLConst.LOGIN)
+    @PostMapping(URLConst.LOGIN_USER)
     public ResponseEntity<?> login(@Validated @RequestBody UserLoginReq request) {
         Object res = userService.login(request);
         String message = "Login successful";
@@ -41,7 +41,7 @@ public class UserController {
     }
 
     // Logout
-    @PostMapping(URLConst.LOGOUT)
+    @PostMapping(URLConst.LOGOUT_USER)
     public ResponseEntity<?> logout(@Validated @PathVariable("user_id") String userID) {
         Object res = userService.logout(userID);
         String message = "Logout successful";

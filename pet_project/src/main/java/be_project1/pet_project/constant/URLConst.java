@@ -1,18 +1,19 @@
 package be_project1.pet_project.constant;
 
 public class URLConst {
-    public static final String LOGIN   = "/login";
-    public static final String LOGOUT  = "/logout/{user_id}";
-
+    public static final String LOGIN_ADMIN  = "/admin/login";
+    public static final String LOGOUT_ADMIN = "/admin/logout/{admin_id}";
     public static final String CREATE_ADMIN = "/admin/create";
-    public static final String READ_ADMIN  = "/admin/read";
-    public static final String UPDATE_ADMIN = "/admin/update/{user_id}";
-    public static final String DELETE_ADMIN = "/admin/delete/{user_id}";
+    public static final String READ_ADMIN   = "/admin/read";
+    public static final String UPDATE_ADMIN = "/admin/update/{admin_id}";
+    public static final String DELETE_ADMIN = "/admin/delete/{admin_id}";
 
-    public static final String CREATE_USER = "/user/create";
-    public static final String READ_USER   = "/user/read";
-    public static final String UPDATE_USER = "/user/update/{user_id}";
-    public static final String DELETE_USER = "/user/delete/{user_id}";
+    public static final String LOGIN_USER   = "/user/login";
+    public static final String LOGOUT_USER  = "/user/logout/{user_id}";
+    public static final String CREATE_USER  = "/user/create";
+    public static final String READ_USER    = "/user/read";
+    public static final String UPDATE_USER  = "/user/update/{user_id}";
+    public static final String DELETE_USER  = "/user/delete/{user_id}";
 
     public static final String CREATE_COURSE = "/course/create";
     public static final String READ_COURSE   = "/course/read";
