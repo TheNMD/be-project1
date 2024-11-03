@@ -4,6 +4,11 @@ public class URLConst {
     public static final String LOGIN   = "/login";
     public static final String LOGOUT  = "/logout/{user_id}";
 
+    public static final String CREATE_ADMIN = "/admin/create";
+    public static final String READ_ADMIN  = "/admin/read";
+    public static final String UPDATE_ADMIN = "/admin/update/{user_id}";
+    public static final String DELETE_ADMIN = "/admin/delete/{user_id}";
+
     public static final String CREATE_USER = "/user/create";
     public static final String READ_USER   = "/user/read";
     public static final String UPDATE_USER = "/user/update/{user_id}";
