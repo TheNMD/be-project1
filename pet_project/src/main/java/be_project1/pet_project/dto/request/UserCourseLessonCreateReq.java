@@ -28,12 +28,12 @@ public class UserCourseLessonCreateReq {
     @FutureOrPresent
     private Date createdDate;
 
-    @Positive(message = "ucUserID must be greater than zero")
-    private int ucUserID;
+    @Positive(message = "ucUserId must be greater than zero")
+    private int ucUserId;
 
-    @Positive(message = "ucCourseID must be greater than zero")
-    private int ucCourseID;
+    @Positive(message = "ucCourseId must be greater than zero")
+    private int ucCourseId;
 
-    @Positive(message = "LessonID must be greater than zero")
-    private int lessonID;
+    @Positive(message = "LessonId must be greater than zero")
+    private int lessonId;
 }

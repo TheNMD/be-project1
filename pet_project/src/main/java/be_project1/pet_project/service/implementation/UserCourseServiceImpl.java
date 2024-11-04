@@ -32,7 +32,7 @@ public class UserCourseServiceImpl implements UserCourseService {
     
     // Create
     @Override
-    public Object create(int userID, UserCourseCreateReq request) {
+    public Object create(int userId, UserCourseCreateReq request) {
         request.setStatus("stopped");
         request.setCreatedDate(Date.from(Instant.now()));
 
@@ -41,7 +41,7 @@ public class UserCourseServiceImpl implements UserCourseService {
 
     // Read
     @Override
-    public Object read(int userID, String sort, int page, int size, UserCourseReadReq request) {
+    public Object read(int userId, String sort, int page, int size, UserCourseReadReq request) {
         UserCourseRes response = new UserCourseRes();
         response.setRating(request.getRating());
         response.setReview(request.getReview());
@@ -56,7 +56,7 @@ public class UserCourseServiceImpl implements UserCourseService {
 
     // Update
     @Override
-    public Object update(int userID, int courseID, UserCourseUpdateReq request) {
+    public Object update(int userId, int courseId, UserCourseUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
 
         return request;
@@ -64,31 +64,31 @@ public class UserCourseServiceImpl implements UserCourseService {
 
     // Delete
     @Override
-    public Object delete(int userID, int courseID) {
-        return courseID;
+    public Object delete(int userId, int courseId) {
+        return courseId;
     }
 
     // // View
     // @Override
-    // public Object view(String courseID) {
-    //     return courseID;
+    // public Object view(String courseId) {
+    //     return courseId;
     // }
 
     // // Join
     // @Override
-    // public Object join(String courseID) {
-    //     return courseID;
+    // public Object join(String courseId) {
+    //     return courseId;
     // }
 
     // // Rate
     // @Override
-    // public Object rate(String courseID, UserCourseCreateReq request) {
+    // public Object rate(String courseId, UserCourseCreateReq request) {
     //     return request;
     // }
 
     // // Review
     // @Override
-    // public Object review(String courseID, UserCourseCreateReq request) {
+    // public Object review(String courseId, UserCourseCreateReq request) {
     //     return request;
     // }
 }

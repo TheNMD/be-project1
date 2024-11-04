@@ -34,8 +34,8 @@ public class LessonController {
     // Create
     @PostMapping(URLConst.CREATE_LESSON)
     public ResponseEntity<?> createLesson(@Validated @RequestBody LessonCreateReq request) {
-        Object res = lessonService.create(request);
-        return ResponseEntity.ok(res);
+        Object response = lessonService.create(request);
+        return ResponseEntity.ok(response);
     }
 
     // Read
@@ -46,8 +46,8 @@ public class LessonController {
         @RequestParam("page") int page,
         @RequestParam("size") int size,
         @RequestBody LessonReadReq request) {
-        Object res = lessonService.read(sort, page, size, request);
-        return ResponseEntity.ok(res);
+        Object response = lessonService.read(sort, page, size, request);
+        return ResponseEntity.ok(response);
     }
 
      // Update
@@ -56,14 +56,14 @@ public class LessonController {
         @Validated
         @PathVariable("id") int id,
         @RequestBody LessonUpdateReq request) {
-        Object res = lessonService.update(id, request);
-        return ResponseEntity.ok(res);
+        Object response = lessonService.update(id, request);
+        return ResponseEntity.ok(response);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_LESSON)
     public ResponseEntity<?> deleteLesson(@Validated @PathVariable("id") int id) {
-        Object res = lessonService.delete(id);
-        return ResponseEntity.ok(res);
+        Object response = lessonService.delete(id);
+        return ResponseEntity.ok(response);
     }
 }

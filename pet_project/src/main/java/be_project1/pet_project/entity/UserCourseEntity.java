@@ -30,10 +30,10 @@ import be_project1.pet_project.entity.key.UserCourseKey;
 @IdClass(UserCourseKey.class)
 public class UserCourseEntity implements Serializable {
     @Id
-    private int userID;
+    private int userId;
 
     @Id
-    private int courseID;
+    private int courseId;
 
     @Column(name="rating")
     private double rating;

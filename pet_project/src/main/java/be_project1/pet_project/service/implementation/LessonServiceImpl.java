@@ -43,7 +43,7 @@ public class LessonServiceImpl implements LessonService {
     @Override
     public Object read(String sort, int page, int size, LessonReadReq request) {
         LessonRes response = new LessonRes();
-        response.setLessonName(request.getLessonName());
+        response.setLessonName(request.getName());
         response.setType(request.getType());
         response.setUrl(request.getUrl());
         response.setLessonOrder(request.getLessonOrder());
@@ -58,7 +58,7 @@ public class LessonServiceImpl implements LessonService {
 
     // Update
     @Override
-    public Object update(int lessonID, LessonUpdateReq request) {
+    public Object update(int lessonId, LessonUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
         
         return request;
@@ -66,7 +66,7 @@ public class LessonServiceImpl implements LessonService {
 
     // Delete
     @Override
-    public Object delete(int lessonID) {
-        return lessonID;
+    public Object delete(int lessonId) {
+        return lessonId;
     }
 }

@@ -31,7 +31,7 @@ import jakarta.validation.constraints.FutureOrPresent;
 
 public class ChapterUpdateReq {
     @Size(min = 1, max = 20, message = "Chapter Name must be between 1 and 20 characters long")
-    private String chapterName;
+    private String name;
 
     @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
     private String description;
@@ -48,6 +48,6 @@ public class ChapterUpdateReq {
     @FutureOrPresent
     private Date updatedDate;
 
-    @Positive(message = "CourseID must be greater than zero")
-    private int courseID;
+    @Positive(message = "CourseId must be greater than zero")
+    private int courseId;
 }

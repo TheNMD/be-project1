@@ -6,26 +6,26 @@ import be_project1.pet_project.dto.request.UserCourseUpdateReq;
 
 public interface UserCourseService {
     // Create
-    public Object create(int userID, UserCourseCreateReq request);
+    public Object create(int userId, UserCourseCreateReq request);
 
     // Read
-    public Object read(int userID, String sort, int page, int size, UserCourseReadReq request);
+    public Object read(int userId, String sort, int page, int size, UserCourseReadReq request);
 
      // Update
-    public Object update(int userID, int courseID, UserCourseUpdateReq request);
+    public Object update(int userId, int courseId, UserCourseUpdateReq request);
 
     // Delete
-    public Object delete(int userID, int courseID);
+    public Object delete(int userId, int courseId);
 
     // // View
-    // public Object view(String courseID);
+    // public Object view(String courseId);
 
     // // Join
-    // public Object join(String courseID);
+    // public Object join(String courseId);
 
     // // Rate
-    // public Object rate(String courseID, UserCourseCreateReq request);
+    // public Object rate(String courseId, UserCourseCreateReq request);
 
     // // Review
-    // public Object review(String courseID, UserCourseCreateReq request);
+    // public Object review(String courseId, UserCourseCreateReq request);
 }

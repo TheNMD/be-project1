@@ -30,13 +30,13 @@ import be_project1.pet_project.entity.key.UserCourseLessonKey;
 @IdClass(UserCourseLessonKey.class)
 public class UserCourseLessonEntity implements Serializable {
     @Id
-    private int ucUserID;
+    private int ucUserId;
 
     @Id
-    private int ucCourseID;
+    private int ucCourseId;
 
     @Id
-    private int lessonID;
+    private int lessonId;
 
     @Column(name="status")
     private String status;

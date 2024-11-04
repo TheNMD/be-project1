@@ -29,8 +29,11 @@ import jakarta.persistence.Column;
 @Table(name="chapterEntity")
 public class ChapterEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IdENTITY)
     private int id;
+
+    @Column(name="name")
+    private String name;
 
     @Column(name="description")
     private String description;
@@ -49,6 +52,6 @@ public class ChapterEntity {
 
     // @ManyToOne
     // @JoinColumn(name = "user_id", nullable = false)
-    @Column(name="courseID")
-    private int courseID;
+    @Column(name="courseId")
+    private int courseId;
 }

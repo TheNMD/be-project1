@@ -1,10 +1,5 @@
 -- PostgreSQL
 
--- Create and select a schema
-DROP SCHEMA IF EXISTS pet_project;
-CREATE SCHEMA pet_project;
-SET search_path TO pet_project;
-
 -- Table for Admin Users
 CREATE TABLE admin
 (

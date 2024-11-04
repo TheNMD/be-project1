@@ -30,22 +30,22 @@ public class URLConst {
     public static final String UPDATE_LESSON = "/lesson/update/{id}";
     public static final String DELETE_LESSON = "/lesson/delete/{id}";
 
-    public static final String CREATE_USER_COURSE = "/user/{userID}/course/create";
-    public static final String READ_USER_COURSE   = "/user/{userID}/course/read";
-    public static final String UPDATE_USER_COURSE = "/user/{userID}/course/update/{courseID}";
-    public static final String DELETE_USER_COURSE = "/user/{userID}/course/delete/{courseID}";
-    public static final String VIEW_COURSE        = "/user/{userID}/course/view/{courseID}";
-    public static final String JOIN_COURSE        = "/user/{userID}/course/join/{courseID}";
-    public static final String RATE_COURSE        = "/user/{userID}/course/rate/{courseID}";
-    public static final String REVIEW_COURSE      = "/user/{userID}/course/review/{courseID}";
+    public static final String CREATE_USER_COURSE = "/user/{userId}/course/create";
+    public static final String READ_USER_COURSE   = "/user/{userId}/course/read";
+    public static final String UPDATE_USER_COURSE = "/user/{userId}/course/update/{courseId}";
+    public static final String DELETE_USER_COURSE = "/user/{userId}/course/delete/{courseId}";
+    public static final String VIEW_COURSE        = "/user/{userId}/course/view/{courseId}";
+    public static final String JOIN_COURSE        = "/user/{userId}/course/join/{courseId}";
+    public static final String RATE_COURSE        = "/user/{userId}/course/rate/{courseId}";
+    public static final String REVIEW_COURSE      = "/user/{userId}/course/review/{courseId}";
 
-    public static final String CREATE_USER_COURSE_LESSON = "/user/{userID}/course/{courseID}/lesson/create";
-    public static final String READ_USER_COURSE_LESSON   = "/user/{userID}/course/{courseID}/lesson/read";
-    public static final String UPDATE_USER_COURSE_LESSON = "/user/{userID}/course/{courseID}/lesson/update/{lessonID}";
-    public static final String DELETE_USER_COURSE_LESSON = "/user/{userID}/course/{courseID}/lesson/delete/{lessonID}";
-    public static final String START_LESSON              = "/user/{userID}/course/{courseID}/lesson/start/{lessonID}";
-    public static final String STOP_LESSON               = "/user/{userID}/course/{courseID}/lesson/stop/{lessonID}";
-    public static final String FINISH_LESSON             = "/user/{userID}/course/{courseID}/lesson/finish/{lessonID}";
+    public static final String CREATE_USER_COURSE_LESSON = "/user/{userId}/course/{courseId}/lesson/create";
+    public static final String READ_USER_COURSE_LESSON   = "/user/{userId}/course/{courseId}/lesson/read";
+    public static final String UPDATE_USER_COURSE_LESSON = "/user/{userId}/course/{courseId}/lesson/update/{lessonId}";
+    public static final String DELETE_USER_COURSE_LESSON = "/user/{userId}/course/{courseId}/lesson/delete/{lessonId}";
+    public static final String START_LESSON              = "/user/{userId}/course/{courseId}/lesson/start/{lessonId}";
+    public static final String STOP_LESSON               = "/user/{userId}/course/{courseId}/lesson/stop/{lessonId}";
+    public static final String FINISH_LESSON             = "/user/{userId}/course/{courseId}/lesson/finish/{lessonId}";
 
     private URLConst() {}
 }

@@ -27,14 +27,11 @@ import jakarta.persistence.Column;
 @Table(name="courseEntity")
 public class CourseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IdENTITY)
     private int id;
 
-    @Column(name="courseName")
-    private String courseName;
-
-    @Column(name="teacherName")
-    private String teacherName;
+    @Column(name="name")
+    private String name;
 
     @Column(name="description")
     private String description;
@@ -47,4 +44,7 @@ public class CourseEntity {
 
     @Column(name="updatedDate")
     private Date updatedDate;
+
+    @Column(name="teacherId")
+    private int teacherId;
 }

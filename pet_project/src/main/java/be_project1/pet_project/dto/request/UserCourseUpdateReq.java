@@ -39,9 +39,9 @@ public class UserCourseUpdateReq {
     @FutureOrPresent
     private Date updatedDate;
 
-    @Positive(message = "UserID must be greater than zero")
-    private int userID;
+    @Positive(message = "UserId must be greater than zero")
+    private int userId;
 
-    @Positive(message = "CourseID must be greater than zero")
-    private int courseID;
+    @Positive(message = "CourseId must be greater than zero")
+    private int courseId;
 }

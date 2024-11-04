@@ -43,7 +43,7 @@ public class ChapterServiceImpl implements ChapterService {
     @Override
     public Object read(String sort, int page, int size, ChapterReadReq request) {
         ChapterRes response = new ChapterRes();
-        response.setChapterName(request.getChapterName());
+        response.setChapterName(request.getName());
         response.setDescription(request.getDescription());
         response.setChapterOrder(request.getChapterOrder());
         response.setStatus(request.getStatus());
@@ -57,7 +57,7 @@ public class ChapterServiceImpl implements ChapterService {
 
      // Update
     @Override
-    public Object update(int chapterID, ChapterUpdateReq request) {
+    public Object update(int chapterId, ChapterUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
         
         return request;
@@ -65,7 +65,7 @@ public class ChapterServiceImpl implements ChapterService {
 
     // Delete
     @Override
-    public Object delete(int chapterID) {
-        return chapterID;
+    public Object delete(int chapterId) {
+        return chapterId;
     }
 }

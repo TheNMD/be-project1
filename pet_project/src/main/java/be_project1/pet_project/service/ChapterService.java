@@ -12,8 +12,8 @@ public interface ChapterService {
     public Object read(String sort, int page, int size, ChapterReadReq request);
 
      // Update
-    public Object update(int chapterID, ChapterUpdateReq request);
+    public Object update(int chapterId, ChapterUpdateReq request);
 
     // Delete
-    public Object delete(int chapterID);
+    public Object delete(int chapterId);
 }

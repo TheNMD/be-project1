@@ -18,20 +18,20 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserCourseKey implements Serializable {
-    private int userID;
+    private int userId;
 
-    private int courseID;
+    private int courseId;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof UserCourseKey)) return false;
         UserCourseKey that = (UserCourseKey) o;
-        return userID == that.userID && courseID == that.courseID;
+        return userId == that.userId && courseId == that.courseId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userID, courseID);
+        return Objects.hash(userId, courseId);
     }
 }

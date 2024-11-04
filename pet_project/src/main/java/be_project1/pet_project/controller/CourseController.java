@@ -34,8 +34,8 @@ public class CourseController {
     // Create
     @PostMapping(URLConst.CREATE_COURSE)
     public ResponseEntity<?> createCourse(@Validated @RequestBody CourseCreateReq request) {
-        Object res = courseService.create(request);
-        return ResponseEntity.ok(res);
+        Object response = courseService.create(request);
+        return ResponseEntity.ok(response);
     }
 
     // Read
@@ -46,8 +46,8 @@ public class CourseController {
         @RequestParam("page") int page,
         @RequestParam("size") int size,
         @RequestBody CourseReadReq request) {
-        Object res = courseService.read(sort, page, size, request);
-        return ResponseEntity.ok(res);
+        Object response = courseService.read(sort, page, size, request);
+        return ResponseEntity.ok(response);
     }
 
     // Update
@@ -56,14 +56,14 @@ public class CourseController {
         @Validated
         @PathVariable("id") int id,
         @RequestBody CourseUpdateReq request) {
-        Object res = courseService.update(id, request);
-        return ResponseEntity.ok(res);
+        Object response = courseService.update(id, request);
+        return ResponseEntity.ok(response);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_COURSE)
     public ResponseEntity<?> deleteCourse(@Validated @PathVariable("id") int id) {
-        Object res = courseService.delete(id);
-        return ResponseEntity.ok(res);
+        Object response = courseService.delete(id);
+        return ResponseEntity.ok(response);
     }
 }

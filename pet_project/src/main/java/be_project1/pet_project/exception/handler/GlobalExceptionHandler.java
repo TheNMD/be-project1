@@ -22,4 +22,13 @@ public class GlobalExceptionHandler {
         .forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
         return ResponseEntity.badRequest().body(errors);
     }
+
+    // Runtime Exception
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<?> handleRuntimeException(RuntimeException e) {
+        Map<String, String> error = new HashMap<>();
+        error.put("error", e.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
 }

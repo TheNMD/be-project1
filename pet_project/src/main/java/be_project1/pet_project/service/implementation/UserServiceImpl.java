@@ -34,21 +34,21 @@ public class UserServiceImpl implements UserService {
     // Login
     @Override
     public Object login(UserLoginReq request) {
-        UserEntity user = userRepos.findByUsername(request.getUsername()).orElseThrow(()
-            -> new RuntimeException("Wrong username"));
+        UserEntity user = userRepos.findByUsername(request.getUsername()).orElseThrow(() -> new RuntimeException("Wrong username"));
 
         // Check password (assuming you have a hashed password in the database)
         if (!user.getPassword().equals(request.getPassword())) {
             throw new RuntimeException("Wrong password");
         }
-
-        return request;
+        
+        return "Login successful";
     }
 
     // Logout
     @Override
     public Object logout(int id) {
-        return id;
+        String response = String.format("Logout successful [%d]", id);
+        return String.format("Logout successful [%d]", id);
     }
 
     // Create
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
         newUser.setCreatedDate(request.getCreatedDate());
         userRepos.save(newUser);
 
-        return request;
+        return newUser;
     }
 
     // Read
@@ -89,8 +89,7 @@ public class UserServiceImpl implements UserService {
     public Object update(int id, UserUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
 
-        UserEntity existingUser = userRepos.findById(id).orElseThrow(() ->
-            new RuntimeException("User not found with ID: " + id));
+        UserEntity existingUser = userRepos.findById(id).orElseThrow(() -> new RuntimeException(String.format("User not found [%d]", id)));
         existingUser.setUsername(request.getUsername() != null ? request.getUsername() : existingUser.getUsername());
         existingUser.setPassword(request.getPassword() != null ? request.getPassword() : existingUser.getPassword());
         existingUser.setName(request.getName() != null ? request.getName() : existingUser.getName());
@@ -99,17 +98,16 @@ public class UserServiceImpl implements UserService {
         existingUser.setUpdatedDate(request.getUpdatedDate() != null ? request.getUpdatedDate() : existingUser.getUpdatedDate());
         userRepos.save(existingUser);
 
-        return request;
+        return existingUser;
     }
 
     // Delete
     @Override
     public Object delete(int id) {
-        UserEntity existingUser = userRepos.findById(id).orElseThrow(() ->
-            new RuntimeException("User not found with ID: " + id));
+        UserEntity existingUser = userRepos.findById(id).orElseThrow(() -> new RuntimeException(String.format("User not found [%d]", id)));
         existingUser.setStatus("inactive");
         userRepos.save(existingUser);
 
-        return id;
+        return existingUser;
     }
 }

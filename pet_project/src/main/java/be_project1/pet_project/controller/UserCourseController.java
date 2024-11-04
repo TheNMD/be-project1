@@ -35,81 +35,81 @@ public class UserCourseController {
     @PostMapping(URLConst.CREATE_USER_COURSE)
     public ResponseEntity<?> createUserCourse(
         @Validated
-        @PathVariable("userID") int userID,
+        @PathVariable("userId") int userId,
         @RequestBody UserCourseCreateReq request
         ) {
-        Object res = userCourseService.create(userID, request);
-        return ResponseEntity.ok(res);
+        Object response = userCourseService.create(userId, request);
+        return ResponseEntity.ok(response);
     }
 
     // Read
     @PostMapping(URLConst.READ_USER_COURSE)
     public ResponseEntity<?> readUserCourse(
         @Validated
-        @PathVariable("userID") int userID,
+        @PathVariable("userId") int userId,
         @RequestParam("sort") String sort,
         @RequestParam("page") int page,
         @RequestParam("size") int size,
         @RequestBody UserCourseReadReq request
         ) {
-        Object res = userCourseService.read(userID, sort, page, size, request);
-        return ResponseEntity.ok(res);
+        Object response = userCourseService.read(userId, sort, page, size, request);
+        return ResponseEntity.ok(response);
     }
 
     // Update
     @PutMapping(URLConst.UPDATE_USER_COURSE)
     public ResponseEntity<?> updateUserCourse(
         @Validated
-        @PathVariable("userID") int userID,
-        @PathVariable("courseID") int courseID,
+        @PathVariable("userId") int userId,
+        @PathVariable("courseId") int courseId,
         @RequestBody UserCourseUpdateReq request
         ) {
-        Object res = userCourseService.update(userID, courseID, request);
-        return ResponseEntity.ok(res);
+        Object response = userCourseService.update(userId, courseId, request);
+        return ResponseEntity.ok(response);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_USER_COURSE)
     public ResponseEntity<?> deleteUserCourse(
         @Validated
-        @PathVariable("userID") int userID,
-        @PathVariable("courseID") int courseID
+        @PathVariable("userId") int userId,
+        @PathVariable("courseId") int courseId
         ) {
-        Object res = userCourseService.delete(userID, courseID);
-        return ResponseEntity.ok(res);
+        Object response = userCourseService.delete(userId, courseId);
+        return ResponseEntity.ok(response);
     }
 
     // // View
     // @PostMapping(URLConst.VIEW_COURSE)
-    // public ResponseEntity<?> viewCourse(@Validated @PathVariable("courseID") int courseID) {
-    //     Object res = userCourseService.view(courseID);
-    //     return ResponseEntity.ok(res);
+    // public ResponseEntity<?> viewCourse(@Validated @PathVariable("courseId") int courseId) {
+    //     Object response = userCourseService.view(courseId);
+    //     return ResponseEntity.ok(response);
     // }
 
     // // Join
     // @PostMapping(URLConst.JOIN_COURSE)
-    // public ResponseEntity<?> joinCourse(@Validated @PathVariable("courseID") int courseID) {
-    //     Object res = userCourseService.join(courseID);
-    //     return ResponseEntity.ok(res);
+    // public ResponseEntity<?> joinCourse(@Validated @PathVariable("courseId") int courseId) {
+    //     Object response = userCourseService.join(courseId);
+    //     return ResponseEntity.ok(response);
     // }
 
     // // Rate
     // @PostMapping(URLConst.RATE_COURSE)
     // public ResponseEntity<?> rateCourse(
     //     @Validated
-    //     @PathVariable("courseID") int courseID,
+    //     @PathVariable("courseId") int courseId,
     //     @RequestBody UserCourseCreateReq request) {
-    //     Object res = userCourseService.rate(courseID, request);
-    //     return ResponseEntity.ok(res);
+    //     Object response = userCourseService.rate(courseId, request);
+    //     return ResponseEntity.ok(response);
     // }
 
     // // Review
     // @PostMapping(URLConst.REVIEW_COURSE)
     // public ResponseEntity<?> reviewCourse(
     //     @Validated
-    //     @PathVariable("courseID") int courseID,
+    //     @PathVariable("courseId") int courseId,
     //     @RequestBody UserCourseCreateReq request) {
-    //     Object res = userCourseService.review(courseID, request);
-    //     return ResponseEntity.ok(res);
+    //     Object response = userCourseService.review(courseId, request);
+    //     return ResponseEntity.ok(response);
     // }
 }

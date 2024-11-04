@@ -27,7 +27,7 @@ import jakarta.persistence.Column;
 @Table(name="adminEntity")
 public class AdminEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IdENTITY)
     private int id;
 
     @Column(name="username")

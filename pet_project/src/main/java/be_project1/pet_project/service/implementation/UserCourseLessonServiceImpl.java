@@ -32,7 +32,7 @@ public class UserCourseLessonServiceImpl implements UserCourseLessonService {
     
     // Create
     @Override
-    public Object create(int userID, int courseID, UserCourseLessonCreateReq request) {
+    public Object create(int userId, int courseId, UserCourseLessonCreateReq request) {
         request.setStatus("stopped");
         request.setCreatedDate(Date.from(Instant.now()));
 
@@ -41,7 +41,7 @@ public class UserCourseLessonServiceImpl implements UserCourseLessonService {
 
     // Read
     @Override
-    public Object read(int userID, int courseID, String sort, int page, int size, UserCourseLessonReadReq request) {
+    public Object read(int userId, int courseId, String sort, int page, int size, UserCourseLessonReadReq request) {
         UserCourseLessonRes response = new UserCourseLessonRes();
         response.setStatus(request.getStatus());
         response.setCreatedDate(request.getCreatedDate());
@@ -54,7 +54,7 @@ public class UserCourseLessonServiceImpl implements UserCourseLessonService {
 
     // Update
     @Override
-    public Object update(int userID, int courseID, int lessonID, UserCourseLessonUpdateReq request) {
+    public Object update(int userId, int courseId, int lessonId, UserCourseLessonUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
 
         return request;
@@ -62,25 +62,25 @@ public class UserCourseLessonServiceImpl implements UserCourseLessonService {
 
     // Delete
     @Override
-    public Object delete(int userID, int courseID, int lessonID) {
-        return lessonID;
+    public Object delete(int userId, int courseId, int lessonId) {
+        return lessonId;
     }
 
     // // Start
     // @Override
-    // public Object start(String lessonID) {
-    //     return lessonID;
+    // public Object start(String lessonId) {
+    //     return lessonId;
     // }
 
     // // Stop
     // @Override
-    // public Object stop(String lessonID) {
-    //     return lessonID;
+    // public Object stop(String lessonId) {
+    //     return lessonId;
     // }
 
     // // Finish
     // @Override
-    // public Object finish(String lessonID) {
-    //     return lessonID;
+    // public Object finish(String lessonId) {
+    //     return lessonId;
     // }
 }

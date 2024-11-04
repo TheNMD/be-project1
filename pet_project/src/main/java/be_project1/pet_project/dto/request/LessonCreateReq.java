@@ -33,7 +33,7 @@ import jakarta.validation.constraints.FutureOrPresent;
 public class LessonCreateReq {
     @NotNull(message = "Lesson Name cannot be null")
     @Size(min = 1, max = 20, message = "Lesson Name must be between 1 and 20 characters long")
-    private String lessonName;
+    private String name;
 
     @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
     private String description;
@@ -55,6 +55,6 @@ public class LessonCreateReq {
     @FutureOrPresent
     private Date createdDate;
 
-    @Positive(message = "ChapterID must be greater than zero")
-    private int chapterID;
+    @Positive(message = "ChapterId must be greater than zero")
+    private int chapterId;
 }

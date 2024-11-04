@@ -18,11 +18,11 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserCourseLessonKey implements Serializable {
-    private int ucUserID;
+    private int ucUserId;
 
-    private int ucCourseID;
+    private int ucCourseId;
 
-    private int lessonID;
+    private int lessonId;
 
     @Override
     public boolean equals(Object o) {
@@ -30,13 +30,13 @@ public class UserCourseLessonKey implements Serializable {
         if (!(o instanceof UserCourseLessonKey)) return false;
         UserCourseLessonKey that = (UserCourseLessonKey) o;
         // Compare the fields
-        return ucUserID == that.ucUserID &&
-               ucCourseID == that.ucCourseID &&
-               lessonID == that.lessonID;
+        return ucUserId == that.ucUserId &&
+               ucCourseId == that.ucCourseId &&
+               lessonId == that.lessonId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ucUserID, ucCourseID, lessonID);
+        return Objects.hash(ucUserId, ucCourseId, lessonId);
     }
 }
