@@ -10,7 +10,7 @@ public interface TeacherService {
     public Object login(TeacherLoginReq request);
 
     // Logout
-    public Object logout(int userId);
+    public Object logout(int id);
 
     // Create
     public Object create(TeacherCreateReq request);
@@ -19,8 +19,8 @@ public interface TeacherService {
     public Object read(String sort, int page, int size, TeacherReadReq request);
 
      // Update
-    public Object update(int userId, TeacherUpdateReq request);
+    public Object update(int id, TeacherUpdateReq request);
 
     // Delete
-    public Object delete(int userId);
+    public Object delete(int id);
 }

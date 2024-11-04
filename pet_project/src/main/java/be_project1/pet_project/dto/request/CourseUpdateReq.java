@@ -45,6 +45,6 @@ public class CourseUpdateReq {
     @FutureOrPresent
     private Date updatedDate;
 
-    @Positive(message = "courseId must be greater than zero")
-    private int courseId;
+    @Positive(message = "teacherId must be greater than zero")
+    private int teacherId;
 }
