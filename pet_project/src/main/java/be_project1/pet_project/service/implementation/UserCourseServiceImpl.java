@@ -47,18 +47,19 @@ public class UserCourseServiceImpl implements UserCourseService {
         request.setStatus("stopped");
         request.setCreatedDate(Date.from(Instant.now()));
 
-        int ucUserId = request.getUserId() != 0 ? request.getUserId() : -1;
-        UserEntity user = userRepos.findById(ucUserId).orElseThrow(() -> new RuntimeException(String.format("User not found [%d]", ucUserId)));
+        UserEntity user = userRepos.findById(userId).orElseThrow(() -> new RuntimeException(String.format("User not found [%d]", userId)));
         
-        int ucCourseId = request.getCourseId() != 0 ? request.getCourseId() : -1;
-        CourseEntity course = courseRepos.findById(ucCourseId).orElseThrow(() -> new RuntimeException(String.format("Course not found [%d]", ucCourseId)));
+        int courseId = request.getCourseId() != 0 ? request.getCourseId() : -1;
+        CourseEntity course = courseRepos.findById(courseId).orElseThrow(() -> new RuntimeException(String.format("Course not found [%d]", courseId)));
 
         UserCourseEntity newUserCourse = new UserCourseEntity();
         newUserCourse.setRating(request.getRating());
         newUserCourse.setReview(request.getReview());
         newUserCourse.setStatus(request.getStatus());
         newUserCourse.setCreatedDate(request.getCreatedDate());
+        newUserCourse.setUserId(userId);
         newUserCourse.setUserObj(user);
+        newUserCourse.setCourseId(courseId);
         newUserCourse.setCourseObj(course);
         userCourseRepos.save(newUserCourse);
 
@@ -85,12 +86,6 @@ public class UserCourseServiceImpl implements UserCourseService {
     public Object update(int userId, int courseId, UserCourseUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
 
-        int ucUserId = request.getUserId() != 0 ? request.getUserId() : -1;
-        UserEntity user = (ucUserId != -1) ? userRepos.findById(ucUserId).orElseThrow(() -> new RuntimeException(String.format("User not found [%d]", ucUserId))) : null;
-
-        int ucCourseId = request.getCourseId() != 0 ? request.getCourseId() : -1;
-        CourseEntity course = (ucCourseId != -1) ? courseRepos.findById(ucCourseId).orElseThrow(() -> new RuntimeException(String.format("Course not found [%d]", ucCourseId))) : null;
-
         UserCourseKey id = new UserCourseKey(userId, courseId);
         UserCourseEntity existingUserCourse = userCourseRepos.findById(id).orElseThrow(() -> new RuntimeException(String.format("UserCourse not found [%d, %d]", userId, courseId)));
         existingUserCourse.setRating(request.getRating() != null ? request.getRating() : existingUserCourse.getRating());
@@ -98,8 +93,6 @@ public class UserCourseServiceImpl implements UserCourseService {
         existingUserCourse.setStatus(request.getStatus() != null ? request.getStatus() : existingUserCourse.getStatus());
         existingUserCourse.setCreatedDate(request.getCreatedDate() != null ? request.getCreatedDate() : existingUserCourse.getCreatedDate());
         existingUserCourse.setUpdatedDate(request.getUpdatedDate() != null ? request.getUpdatedDate() : existingUserCourse.getUpdatedDate());
-        existingUserCourse.setUserObj(user != null ? user : existingUserCourse.getUserObj());
-        existingUserCourse.setCourseObj(course != null ? course : existingUserCourse.getCourseObj());
         userCourseRepos.save(existingUserCourse);
 
         return request;
