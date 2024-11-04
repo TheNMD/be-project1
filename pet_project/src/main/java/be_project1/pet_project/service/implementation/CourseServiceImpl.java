@@ -4,7 +4,13 @@ import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import be_project1.pet_project.service.CourseService;
+import be_project1.pet_project.entity.CourseEntity;
+import be_project1.pet_project.repository.CourseRepos;
+import be_project1.pet_project.service.validation.CourseServiceVal;
 import be_project1.pet_project.dto.request.CourseCreateReq;
 import be_project1.pet_project.dto.request.CourseReadReq;
 import be_project1.pet_project.dto.request.CourseUpdateReq;
@@ -12,6 +18,18 @@ import be_project1.pet_project.dto.response.CourseRes;
 
 @Service("courseServiceImpl")
 public class CourseServiceImpl implements CourseService {
+    // Init
+    private final CourseRepos courseRepos;
+    private final CourseServiceVal courseServiceVal;
+
+    @Autowired
+    public CourseServiceImpl(
+        @Qualifier("courseRepos") CourseRepos courseRepos,
+        @Qualifier("courseServiceVal") CourseServiceVal courseServiceVal) {
+        this.courseRepos = courseRepos;
+        this.courseServiceVal = courseServiceVal;
+    }
+    
     // Create
     @Override
     public Object create(CourseCreateReq request) {

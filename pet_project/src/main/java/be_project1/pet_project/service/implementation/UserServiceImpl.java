@@ -20,8 +20,8 @@ import be_project1.pet_project.dto.response.UserRes;
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
     // Init
-    private static UserRepos userRepos;
-    private static UserServiceVal userServiceVal;
+    private final UserRepos userRepos;
+    private final UserServiceVal userServiceVal;
 
     @Autowired
     public UserServiceImpl(

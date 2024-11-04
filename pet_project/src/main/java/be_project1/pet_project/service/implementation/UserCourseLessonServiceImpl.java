@@ -1,12 +1,16 @@
 package be_project1.pet_project.service.implementation;
 
 import java.time.Instant;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import be_project1.pet_project.service.UserCourseLessonService;
+import be_project1.pet_project.entity.UserCourseLessonEntity;
+import be_project1.pet_project.repository.UserCourseLessonRepos;
+import be_project1.pet_project.service.validation.UserCourseLessonServiceVal;
 import be_project1.pet_project.dto.request.UserCourseLessonCreateReq;
 import be_project1.pet_project.dto.request.UserCourseLessonReadReq;
 import be_project1.pet_project.dto.request.UserCourseLessonUpdateReq;
@@ -14,6 +18,18 @@ import be_project1.pet_project.dto.response.UserCourseLessonRes;
 
 @Service("userCourseLessonServiceImpl")
 public class UserCourseLessonServiceImpl implements UserCourseLessonService {
+    // Init
+    private final UserCourseLessonRepos userCourseLessonRepos;
+    private final UserCourseLessonServiceVal userCourseLessonServiceVal;
+
+    @Autowired
+    public UserCourseLessonServiceImpl(
+        @Qualifier("userCourseLessonRepos") UserCourseLessonRepos userCourseLessonRepos,
+        @Qualifier("userCourseServiceVal") UserCourseLessonServiceVal userCourseLessonServiceVal) {
+        this.userCourseLessonRepos = userCourseLessonRepos;
+        this.userCourseLessonServiceVal = userCourseLessonServiceVal;
+    }
+    
     // Create
     @Override
     public Object create(UserCourseLessonCreateReq request) {
@@ -50,21 +66,21 @@ public class UserCourseLessonServiceImpl implements UserCourseLessonService {
         return lessonID;
     }
 
-    // Start
-    @Override
-    public Object start(String lessonID) {
-        return lessonID;
-    }
+    // // Start
+    // @Override
+    // public Object start(String lessonID) {
+    //     return lessonID;
+    // }
 
-    // Stop
-    @Override
-    public Object stop(String lessonID) {
-        return lessonID;
-    }
+    // // Stop
+    // @Override
+    // public Object stop(String lessonID) {
+    //     return lessonID;
+    // }
 
-    // Finish
-    @Override
-    public Object finish(String lessonID) {
-        return lessonID;
-    }
+    // // Finish
+    // @Override
+    // public Object finish(String lessonID) {
+    //     return lessonID;
+    // }
 }

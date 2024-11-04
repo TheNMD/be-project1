@@ -1,12 +1,16 @@
 package be_project1.pet_project.service.implementation;
 
 import java.time.Instant;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import be_project1.pet_project.service.ChapterService;
+import be_project1.pet_project.entity.ChapterEntity;
+import be_project1.pet_project.repository.ChapterRepos;
+import be_project1.pet_project.service.validation.ChapterServiceVal;
 import be_project1.pet_project.dto.request.ChapterCreateReq;
 import be_project1.pet_project.dto.request.ChapterReadReq;
 import be_project1.pet_project.dto.request.ChapterUpdateReq;
@@ -14,6 +18,18 @@ import be_project1.pet_project.dto.response.ChapterRes;
 
 @Service("chapterServiceImpl")
 public class ChapterServiceImpl implements ChapterService {
+    // Init
+    private final ChapterRepos chapterRepos;
+    private final ChapterServiceVal chapterServiceVal;
+
+    @Autowired
+    public ChapterServiceImpl(
+        @Qualifier("chapterRepos") ChapterRepos chapterRepos,
+        @Qualifier("chapterServiceVal") ChapterServiceVal chapterServiceVal) {
+        this.chapterRepos = chapterRepos;
+        this.chapterServiceVal = chapterServiceVal;
+    }
+    
     // Create
     @Override
     public Object create(ChapterCreateReq request) {

@@ -67,24 +67,24 @@ public class UserCourseLessonController {
         return ResponseEntity.ok(res);
     }
 
-    // Start
-    @PostMapping(URLConst.START_LESSON)
-    public ResponseEntity<?> startLesson(@Validated @PathVariable("lesson_id") String lessonID) {
-        Object res = userCourseLessonService.start(lessonID);
-        return ResponseEntity.ok(res);
-    }
+    // // Start
+    // @PostMapping(URLConst.START_LESSON)
+    // public ResponseEntity<?> startLesson(@Validated @PathVariable("lesson_id") String lessonID) {
+    //     Object res = userCourseLessonService.start(lessonID);
+    //     return ResponseEntity.ok(res);
+    // }
 
-    // Stop
-    @PostMapping(URLConst.STOP_LESSON)
-    public ResponseEntity<?> stopLesson(@Validated @PathVariable("lesson_id") String lessonID) {
-        Object res = userCourseLessonService.stop(lessonID);
-        return ResponseEntity.ok(res);
-    }
+    // // Stop
+    // @PostMapping(URLConst.STOP_LESSON)
+    // public ResponseEntity<?> stopLesson(@Validated @PathVariable("lesson_id") String lessonID) {
+    //     Object res = userCourseLessonService.stop(lessonID);
+    //     return ResponseEntity.ok(res);
+    // }
 
-    // Finish
-    @PostMapping(URLConst.FINISH_LESSON)
-    public ResponseEntity<?> finishLesson(@Validated @PathVariable("lesson_id") String lessonID) {
-        Object res = userCourseLessonService.finish(lessonID);
-        return ResponseEntity.ok(res);
-    }
+    // // Finish
+    // @PostMapping(URLConst.FINISH_LESSON)
+    // public ResponseEntity<?> finishLesson(@Validated @PathVariable("lesson_id") String lessonID) {
+    //     Object res = userCourseLessonService.finish(lessonID);
+    //     return ResponseEntity.ok(res);
+    // }
 }

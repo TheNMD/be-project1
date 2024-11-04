@@ -3,8 +3,6 @@ package be_project1.pet_project.service;
 import be_project1.pet_project.dto.request.UserCourseCreateReq;
 import be_project1.pet_project.dto.request.UserCourseReadReq;
 import be_project1.pet_project.dto.request.UserCourseUpdateReq;
-import be_project1.pet_project.dto.request.UserCourseRateReq;
-import be_project1.pet_project.dto.request.UserCourseReviewReq;
 
 public interface UserCourseService {
     // Create
@@ -19,15 +17,15 @@ public interface UserCourseService {
     // Delete
     public Object delete(String courseID);
 
-    // View
-    public Object view(String courseID);
+    // // View
+    // public Object view(String courseID);
 
-    // Join
-    public Object join(String courseID);
+    // // Join
+    // public Object join(String courseID);
 
-    // Rate
-    public Object rate(String courseID, UserCourseCreateReq request);
+    // // Rate
+    // public Object rate(String courseID, UserCourseCreateReq request);
 
-    // Review
-    public Object review(String courseID, UserCourseCreateReq request);
+    // // Review
+    // public Object review(String courseID, UserCourseCreateReq request);
 }

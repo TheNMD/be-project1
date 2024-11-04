@@ -17,12 +17,12 @@ public interface UserCourseLessonService {
     // Delete
     public Object delete(String lessonID);
 
-    // Start
-    public Object start(String lessonID);
+    // // Start
+    // public Object start(String lessonID);
 
-    // Stop
-    public Object stop(String lessonID);
+    // // Stop
+    // public Object stop(String lessonID);
 
-    // Finish
-    public Object finish(String lessonID);
+    // // Finish
+    // public Object finish(String lessonID);
 }

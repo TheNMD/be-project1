@@ -67,12 +67,12 @@ public class UserCourseController {
         return ResponseEntity.ok(res);
     }
 
-    // View
-    @GetMapping(URLConst.VIEW_COURSE)
-    public ResponseEntity<?> viewCourse(@Validated @PathVariable("course_id") String courseID) {
-        Object res = userCourseService.view(courseID);
-        return ResponseEntity.ok(res);
-    }
+    // // View
+    // @GetMapping(URLConst.VIEW_COURSE)
+    // public ResponseEntity<?> viewCourse(@Validated @PathVariable("course_id") String courseID) {
+    //     Object res = userCourseService.view(courseID);
+    //     return ResponseEntity.ok(res);
+    // }
 
     // // Join
     // @PostMapping(URLConst.JOIN_COURSE)

@@ -3,7 +3,7 @@ package be_project1.pet_project.constant;
 public class RegexConst {
 
     // Login DTO
-    public static final String USERNAME = "^[a-zA-Z0-9]+$"; // No special characters
+    public static final String USERNAME = "^[a-zA-Z0-9_]+$"; // No special characters except for underscores
     public static final String PASSWORD = "^(?!.*\\s).+$"; // No spaces
 
     // CRUD DTO

@@ -4,7 +4,13 @@ import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import be_project1.pet_project.service.LessonService;
+import be_project1.pet_project.entity.LessonEntity;
+import be_project1.pet_project.repository.LessonRepos;
+import be_project1.pet_project.service.validation.LessonServiceVal;
 import be_project1.pet_project.dto.request.LessonCreateReq;
 import be_project1.pet_project.dto.request.LessonReadReq;
 import be_project1.pet_project.dto.request.LessonUpdateReq;
@@ -12,6 +18,18 @@ import be_project1.pet_project.dto.response.LessonRes;
 
 @Service("lessonServiceImpl")
 public class LessonServiceImpl implements LessonService {
+    // Init
+    private final LessonRepos lessonRepos;
+    private final LessonServiceVal lessonServiceVal;
+
+    @Autowired
+    public LessonServiceImpl(
+        @Qualifier("lessonRepos") LessonRepos lessonRepos,
+        @Qualifier("lessonServiceVal") LessonServiceVal lessonServiceVal) {
+        this.lessonRepos = lessonRepos;
+        this.lessonServiceVal = lessonServiceVal;
+    }
+
     // Create
     @Override
     public Object create(LessonCreateReq request) {
