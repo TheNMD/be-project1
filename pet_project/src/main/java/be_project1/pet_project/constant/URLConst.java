@@ -8,6 +8,13 @@ public class URLConst {
     public static final String UPDATE_ADMIN = "/admin/update/{id}";
     public static final String DELETE_ADMIN = "/admin/delete/{id}";
 
+    public static final String LOGIN_TEACHER  = "/teacher/login";
+    public static final String LOGOUT_TEACHER = "/teacher/logout/{id}";
+    public static final String CREATE_TEACHER = "/teacher/create";
+    public static final String READ_TEACHER   = "/teacher/read";
+    public static final String UPDATE_TEACHER = "/teacher/update/{id}";
+    public static final String DELETE_TEACHER = "/teacher/delete/{id}";
+
     public static final String LOGIN_USER  = "/user/login";
     public static final String LOGOUT_USER = "/user/logout/{id}";
     public static final String CREATE_USER = "/user/create";

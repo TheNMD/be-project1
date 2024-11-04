@@ -25,8 +25,8 @@ import be_project1.pet_project.entity.key.UserCourseKey;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="UserCourseEnity")
-@Table(name="UserCourseEnity")
+@Entity(name="userCourseEntity")
+@Table(name="userCourseEntity")
 @IdClass(UserCourseKey.class)
 public class UserCourseEntity implements Serializable {
     @Id

@@ -5,24 +5,24 @@ INSERT INTO admin_entity (status, username, password, created_date, updated_date
 	VALUES ('active', 'admin1', 'hashed_password_1', NOW(), NULL),
        	   ('active', 'admin2', 'hashed_password_2', NOW(), NULL);
 
--- Inserting sample data into the student table
-INSERT INTO student_entity (name, status, age, username, password, created_date, updated_date)
-	VALUES ('John Doe', 'active', 19, 'johndoe', 'hashed_password_3', NOW(), NULL),
-           ('Jane Smith', 'active', 20, 'janesmith', 'hashed_password_4', NOW(), NULL),
-           ('Alice Brown',  'inactive', 18, 'alicebrown', 'hashed_password_5', NOW(), NULL),
-           ('Alice X',  'inactive', 18, 'alicebrown', 'hashed_password_5', NOW(), NULL);
-
 -- Inserting sample data into the teacher table
 INSERT INTO teacher_entity (name, status, username, password, created_date, updated_date)
-	VALUES ('Mr. Anderson', 'active', 'mr_anderson', 'hashed_password_6', NOW(), NULL),
-           ('Ms. Johnson', 'active', 'ms_johnson', 'hashed_password_7', NOW(), NULL),
-           ('Mr. X', 'active', 'ms_x', 'hashed_password_7', NOW(), NULL);
+	VALUES ('Mr. Anderson', 'active', 'mr_anderson', 'hashed_password_1', NOW(), NULL),
+           ('Ms. Johnson', 'active', 'ms_johnson', 'hashed_password_2', NOW(), NULL),
+           ('Mr. X', 'active', 'ms_x', 'hashed_password_2', NOW(), NULL);
+
+-- Inserting sample data into the student table
+INSERT INTO user_entity (name, status, age, username, password, created_date, updated_date)
+	VALUES ('John Doe', 'active', 19, 'johndoe', 'hashed_password_1', NOW(), NULL),
+           ('Jane Smith', 'active', 20, 'janesmith', 'hashed_password_2', NOW(), NULL),
+           ('Alice Brown',  'inactive', 18, 'alicebrown', 'hashed_password_3', NOW(), NULL),
+           ('Alice X',  'inactive', 18, 'alicebrown', 'hashed_password_4', NOW(), NULL);
 
 -- Inserting sample data into the course table
 INSERT INTO course_entity (name, description, status, created_date, updated_date, teacher_id)
 	VALUES ('Introduction to Programming', 'Learn the basics of programming using Java.', 'active', NOW(), NULL, 1),
            ('Web Development Basics', 'An introduction to HTML, CSS, and JavaScript.', 'active', NOW(), NULL, 2),
-           ('Data Structures and Algorithms', 'Understand essential data structures and algorithms.', 'inactive', NOW(), null,1),
+           ('Data Structures and Algorithms', 'Understand essential data structures and algorithms.', 'inactive', NOW(), null, 3),
            ('Kafka', 'kafka', 'inactive', NOW(), NULL, null);
 
 -- Inserting sample data into the chapter table
@@ -47,6 +47,6 @@ INSERT INTO user_course_entity (student_id, course_id, rating, review, status, c
 -- Inserting sample data into the student_course_lesson table
 INSERT INTO user_course_lesson_entity (uc_user_id, uc_course_id, lesson_id, status, created_date, updated_date)
 	VALUES (1, 1, 1, 'completed', NOW(), NULL),
-       	   (1, 1, 2, 'in_progress', NOW(), NULL),
+       	   (1, 2, 2, 'in_progress', NOW(), NULL),
        	   (2, 1, 1, 'not_started', NOW(), NULL),
-       	   (1, 2, 3, 'completed', NOW(), NULL);
+       	   (1, 3, 3, 'completed', NOW(), NULL);

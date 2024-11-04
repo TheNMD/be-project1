@@ -34,21 +34,20 @@ public class UserServiceImpl implements UserService {
     // Login
     @Override
     public Object login(UserLoginReq request) {
-        UserEntity user = userRepos.findByUsername(request.getUsername()).orElseThrow(() -> new RuntimeException("Wrong username"));
+        UserEntity user = userRepos.findByUsername(request.getUsername()).orElseThrow(() -> new RuntimeException("<User> Wrong username"));
 
         // Check password (assuming you have a hashed password in the database)
         if (!user.getPassword().equals(request.getPassword())) {
-            throw new RuntimeException("Wrong password");
+            throw new RuntimeException("<User> Wrong password");
         }
         
-        return "Login successful";
+        return "<User> Login successful";
     }
 
     // Logout
     @Override
     public Object logout(int id) {
-        String response = String.format("Logout successful [%d]", id);
-        return String.format("Logout successful [%d]", id);
+        return String.format("<User> Logout successful [%d]", id);
     }
 
     // Create
