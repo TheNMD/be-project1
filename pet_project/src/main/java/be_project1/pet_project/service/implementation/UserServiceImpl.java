@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     // Logout
     @Override
-    public Object logout(String userID) {
+    public Object logout(int userID) {
         return userID;
     }
 
@@ -49,13 +49,12 @@ public class UserServiceImpl implements UserService {
         request.setStatus("active");
         request.setCreatedDate(Date.from(Instant.now()));
         
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(request.getUsername());
-        userEntity.setName(request.getName());
-        userEntity.setStatus(request.getStatus());
-        userEntity.setCreatedDate(request.getCreatedDate());
-
-        userRepos.save(userEntity);
+        UserEntity newUser = new UserEntity();
+        newUser.setUsername(request.getUsername());
+        newUser.setName(request.getName());
+        newUser.setStatus(request.getStatus());
+        newUser.setCreatedDate(request.getCreatedDate());
+        userRepos.save(newUser);
 
         return request;
     }
@@ -78,15 +77,23 @@ public class UserServiceImpl implements UserService {
 
     // Update
     @Override
-    public Object update(String userID, UserUpdateReq request) {
+    public Object update(int userID, UserUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
+
+        UserEntity existingUser = userRepos.findById(userID).orElseThrow(() ->
+            new RuntimeException("User not found with ID: " + userID));
+        existingUser.setUsername(request.getUsername() != null ? request.getUsername() : existingUser.getUsername());
+        existingUser.setName(request.getName() != null ? request.getName() : existingUser.getName());
+        existingUser.setStatus(request.getStatus() != null ? request.getStatus() : existingUser.getStatus());
+        existingUser.setUpdatedDate(Date.from(Instant.now()));
+        userRepos.save(existingUser);
 
         return request;
     }
 
     // Delete
     @Override
-    public Object delete(String userID) {
+    public Object delete(int userID) {
         return userID;
     }
 }

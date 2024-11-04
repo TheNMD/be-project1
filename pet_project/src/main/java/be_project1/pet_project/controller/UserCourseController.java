@@ -33,20 +33,26 @@ public class UserCourseController {
 
     // Create
     @PostMapping(URLConst.CREATE_USER_COURSE)
-    public ResponseEntity<?> createUserCourse(@Validated @RequestBody UserCourseCreateReq request) {
-        Object res = userCourseService.create(request);
+    public ResponseEntity<?> createUserCourse(
+        @Validated
+        @PathVariable("userID") int userID,
+        @RequestBody UserCourseCreateReq request
+        ) {
+        Object res = userCourseService.create(userID, request);
         return ResponseEntity.ok(res);
     }
 
     // Read
-    @GetMapping(URLConst.READ_USER_COURSE)
+    @PostMapping(URLConst.READ_USER_COURSE)
     public ResponseEntity<?> readUserCourse(
         @Validated
+        @PathVariable("userID") int userID,
         @RequestParam("sort") String sort,
         @RequestParam("page") int page,
         @RequestParam("size") int size,
-        @RequestBody UserCourseReadReq request) {
-        Object res = userCourseService.read(sort, page, size, request);
+        @RequestBody UserCourseReadReq request
+        ) {
+        Object res = userCourseService.read(userID, sort, page, size, request);
         return ResponseEntity.ok(res);
     }
 
@@ -54,29 +60,35 @@ public class UserCourseController {
     @PutMapping(URLConst.UPDATE_USER_COURSE)
     public ResponseEntity<?> updateUserCourse(
         @Validated
-        @PathVariable("course_id") String courseID,
-        @RequestBody UserCourseUpdateReq request) {
-        Object res = userCourseService.update(courseID, request);
+        @PathVariable("userID") int userID,
+        @PathVariable("courseID") int courseID,
+        @RequestBody UserCourseUpdateReq request
+        ) {
+        Object res = userCourseService.update(userID, courseID, request);
         return ResponseEntity.ok(res);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_USER_COURSE)
-    public ResponseEntity<?> deleteUserCourse(@Validated @PathVariable("course_id") String courseID) {
-        Object res = userCourseService.delete(courseID);
+    public ResponseEntity<?> deleteUserCourse(
+        @Validated
+        @PathVariable("userID") int userID,
+        @PathVariable("courseID") int courseID
+        ) {
+        Object res = userCourseService.delete(userID, courseID);
         return ResponseEntity.ok(res);
     }
 
     // // View
-    // @GetMapping(URLConst.VIEW_COURSE)
-    // public ResponseEntity<?> viewCourse(@Validated @PathVariable("course_id") String courseID) {
+    // @PostMapping(URLConst.VIEW_COURSE)
+    // public ResponseEntity<?> viewCourse(@Validated @PathVariable("courseID") int courseID) {
     //     Object res = userCourseService.view(courseID);
     //     return ResponseEntity.ok(res);
     // }
 
     // // Join
     // @PostMapping(URLConst.JOIN_COURSE)
-    // public ResponseEntity<?> joinCourse(@Validated @PathVariable("course_id") String courseID) {
+    // public ResponseEntity<?> joinCourse(@Validated @PathVariable("courseID") int courseID) {
     //     Object res = userCourseService.join(courseID);
     //     return ResponseEntity.ok(res);
     // }
@@ -85,7 +97,7 @@ public class UserCourseController {
     // @PostMapping(URLConst.RATE_COURSE)
     // public ResponseEntity<?> rateCourse(
     //     @Validated
-    //     @PathVariable("course_id") String courseID,
+    //     @PathVariable("courseID") int courseID,
     //     @RequestBody UserCourseCreateReq request) {
     //     Object res = userCourseService.rate(courseID, request);
     //     return ResponseEntity.ok(res);
@@ -95,7 +107,7 @@ public class UserCourseController {
     // @PostMapping(URLConst.REVIEW_COURSE)
     // public ResponseEntity<?> reviewCourse(
     //     @Validated
-    //     @PathVariable("course_id") String courseID,
+    //     @PathVariable("courseID") int courseID,
     //     @RequestBody UserCourseCreateReq request) {
     //     Object res = userCourseService.review(courseID, request);
     //     return ResponseEntity.ok(res);

@@ -12,8 +12,8 @@ public interface CourseService {
     public Object read(String sort, int page, int size, CourseReadReq request);
 
      // Update
-    public Object update(String courseID, CourseUpdateReq request);
+    public Object update(int courseID, CourseUpdateReq request);
 
     // Delete
-    public Object delete(String courseID);
+    public Object delete(int courseID);
 }

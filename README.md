@@ -27,3 +27,4 @@
 
 # TODO
 1. Make response DTOs for each requests
+2. Throw Errors when ID not found when Update or Delete

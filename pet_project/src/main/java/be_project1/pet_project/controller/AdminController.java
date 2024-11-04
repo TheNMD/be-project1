@@ -42,8 +42,8 @@ public class AdminController {
 
     // Logout
     @PostMapping(URLConst.LOGOUT_ADMIN)
-    public ResponseEntity<?> logout(@Validated @PathVariable("admin_id") String adminID) {
-        Object res = adminService.logout(adminID);
+    public ResponseEntity<?> logout(@Validated @PathVariable("id") int id) {
+        Object res = adminService.logout(id);
         String message = "Logout successful";
         return ResponseEntity.ok(message);
     }
@@ -56,13 +56,14 @@ public class AdminController {
     }
 
     // Read
-    @GetMapping(URLConst.READ_ADMIN)
+    @PostMapping(URLConst.READ_ADMIN)
     public ResponseEntity<?> readAdmin(
         @Validated
         @RequestParam("sort") String sort,
         @RequestParam("page") int page,
         @RequestParam("size") int size,
-        @RequestBody AdminReadReq request) {
+        @RequestBody AdminReadReq request
+        ) {
         Object res = adminService.read(sort, page, size, request);
         return ResponseEntity.ok(res);
     }
@@ -71,16 +72,17 @@ public class AdminController {
     @PutMapping(URLConst.UPDATE_ADMIN)
     public ResponseEntity<?> updateAdmin(
         @Validated
-        @PathVariable("admin_id") String adminID,
-        @RequestBody AdminUpdateReq request) {
-        Object res = adminService.update(adminID, request);
+        @PathVariable("id") int id,
+        @RequestBody AdminUpdateReq request
+        ) {
+        Object res = adminService.update(id, request);
         return ResponseEntity.ok(res);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_ADMIN)
-    public ResponseEntity<?> deleteAdmin(@Validated @PathVariable("admin_id") String adminID) {
-        Object res =  adminService.delete(adminID);
+    public ResponseEntity<?> deleteAdmin(@Validated @PathVariable("id") int id) {
+        Object res =  adminService.delete(id);
         return ResponseEntity.ok(res);
     }
 }

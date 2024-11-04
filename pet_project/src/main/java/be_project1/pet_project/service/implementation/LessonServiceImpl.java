@@ -58,7 +58,7 @@ public class LessonServiceImpl implements LessonService {
 
     // Update
     @Override
-    public Object update(String lessonID, LessonUpdateReq request) {
+    public Object update(int lessonID, LessonUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
         
         return request;
@@ -66,7 +66,7 @@ public class LessonServiceImpl implements LessonService {
 
     // Delete
     @Override
-    public Object delete(String lessonID) {
+    public Object delete(int lessonID) {
         return lessonID;
     }
 }

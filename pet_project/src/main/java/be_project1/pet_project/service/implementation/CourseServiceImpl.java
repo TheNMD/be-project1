@@ -57,7 +57,7 @@ public class CourseServiceImpl implements CourseService {
 
     // Update
     @Override
-    public Object update(String courseID, CourseUpdateReq request) {
+    public Object update(int courseID, CourseUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
         
         return request;
@@ -65,7 +65,7 @@ public class CourseServiceImpl implements CourseService {
 
     // Delete
     @Override
-    public Object delete(String courseID) {
+    public Object delete(int courseID) {
         return courseID;
     }
 }

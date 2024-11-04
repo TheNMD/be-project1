@@ -10,7 +10,7 @@ public interface AdminService {
     public Object login(AdminLoginReq request);
 
     // Logout
-    public Object logout(String accountID);
+    public Object logout(int id);
 
     // Create
     public Object create(AdminCreateReq request);
@@ -19,8 +19,8 @@ public interface AdminService {
     public Object read(String sort, int page, int size, AdminReadReq request);
 
      // Update
-    public Object update(String accountID, AdminUpdateReq request);
+    public Object update(int id, AdminUpdateReq request);
 
     // Delete
-    public Object delete(String accountID);
+    public Object delete(int id);
 }

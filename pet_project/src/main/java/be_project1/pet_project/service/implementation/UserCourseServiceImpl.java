@@ -32,7 +32,7 @@ public class UserCourseServiceImpl implements UserCourseService {
     
     // Create
     @Override
-    public Object create(UserCourseCreateReq request) {
+    public Object create(int userID, UserCourseCreateReq request) {
         request.setStatus("stopped");
         request.setCreatedDate(Date.from(Instant.now()));
 
@@ -41,7 +41,7 @@ public class UserCourseServiceImpl implements UserCourseService {
 
     // Read
     @Override
-    public Object read(String sort, int page, int size, UserCourseReadReq request) {
+    public Object read(int userID, String sort, int page, int size, UserCourseReadReq request) {
         UserCourseRes response = new UserCourseRes();
         response.setRating(request.getRating());
         response.setReview(request.getReview());
@@ -56,7 +56,7 @@ public class UserCourseServiceImpl implements UserCourseService {
 
     // Update
     @Override
-    public Object update(String courseID, UserCourseUpdateReq request) {
+    public Object update(int userID, int courseID, UserCourseUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
 
         return request;
@@ -64,7 +64,7 @@ public class UserCourseServiceImpl implements UserCourseService {
 
     // Delete
     @Override
-    public Object delete(String courseID) {
+    public Object delete(int userID, int courseID) {
         return courseID;
     }
 

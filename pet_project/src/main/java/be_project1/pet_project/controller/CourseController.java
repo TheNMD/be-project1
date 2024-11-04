@@ -39,7 +39,7 @@ public class CourseController {
     }
 
     // Read
-    @GetMapping(URLConst.READ_COURSE)
+    @PostMapping(URLConst.READ_COURSE)
     public ResponseEntity<?> readCourse(
         @Validated
         @RequestParam("sort") String sort,
@@ -54,16 +54,16 @@ public class CourseController {
     @PutMapping(URLConst.UPDATE_COURSE)
     public ResponseEntity<?> updateCourse(
         @Validated
-        @PathVariable("course_id") String courseID,
+        @PathVariable("id") int id,
         @RequestBody CourseUpdateReq request) {
-        Object res = courseService.update(courseID, request);
+        Object res = courseService.update(id, request);
         return ResponseEntity.ok(res);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_COURSE)
-    public ResponseEntity<?> deleteCourse(@Validated @PathVariable("course_id") String courseID) {
-        Object res = courseService.delete(courseID);
+    public ResponseEntity<?> deleteCourse(@Validated @PathVariable("id") int id) {
+        Object res = courseService.delete(id);
         return ResponseEntity.ok(res);
     }
 }

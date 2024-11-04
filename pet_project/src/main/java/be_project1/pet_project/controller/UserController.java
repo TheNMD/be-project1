@@ -42,8 +42,8 @@ public class UserController {
 
     // Logout
     @PostMapping(URLConst.LOGOUT_USER)
-    public ResponseEntity<?> logout(@Validated @PathVariable("user_id") String userID) {
-        Object res = userService.logout(userID);
+    public ResponseEntity<?> logout(@Validated @PathVariable("id") int id) {
+        Object res = userService.logout(id);
         String message = "Logout successful";
         return ResponseEntity.ok(message);
     }
@@ -56,7 +56,7 @@ public class UserController {
     }
 
     // Read
-    @GetMapping(URLConst.READ_USER)
+    @PostMapping(URLConst.READ_USER)
     public ResponseEntity<?> readUser(
         @Validated
         @RequestParam("sort") String sort,
@@ -71,16 +71,16 @@ public class UserController {
     @PutMapping(URLConst.UPDATE_USER)
     public ResponseEntity<?> updateUser(
         @Validated
-        @PathVariable("user_id") String userID,
+        @PathVariable("id") int id,
         @RequestBody UserUpdateReq request) {
-        Object res = userService.update(userID, request);
+        Object res = userService.update(id, request);
         return ResponseEntity.ok(res);
     }
 
     // Delete
     @DeleteMapping(URLConst.DELETE_USER)
-    public ResponseEntity<?> deleteUser(@Validated @PathVariable("user_id") String userID) {
-        Object res =  userService.delete(userID);
+    public ResponseEntity<?> deleteUser(@Validated @PathVariable("id") int id) {
+        Object res =  userService.delete(id);
         return ResponseEntity.ok(res);
     }
 }

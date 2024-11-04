@@ -12,8 +12,8 @@ public interface LessonService {
     public Object read(String sort, int page, int size, LessonReadReq request);
 
      // Update
-    public Object update(String lessonID, LessonUpdateReq request);
+    public Object update(int lessonID, LessonUpdateReq request);
 
     // Delete
-    public Object delete(String lessonID);
+    public Object delete(int lessonID);
 }

@@ -21,8 +21,8 @@ public class AdminServiceImpl implements AdminService {
 
     // Logout
     @Override
-    public Object logout(String adminID) {
-        return adminID;
+    public Object logout(int id) {
+        return id;
     }
 
     // Create
@@ -51,7 +51,7 @@ public class AdminServiceImpl implements AdminService {
 
     // Update
     @Override
-    public Object update(String adminID, AdminUpdateReq request) {
+    public Object update(int id, AdminUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
 
         return request;
@@ -59,7 +59,7 @@ public class AdminServiceImpl implements AdminService {
 
     // Delete
     @Override
-    public Object delete(String adminID) {
-        return adminID;
+    public Object delete(int id) {
+        return id;
     }
 }

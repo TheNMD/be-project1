@@ -10,7 +10,7 @@ public interface UserService {
     public Object login(UserLoginReq request);
 
     // Logout
-    public Object logout(String accountID);
+    public Object logout(int userID);
 
     // Create
     public Object create(UserCreateReq request);
@@ -19,8 +19,8 @@ public interface UserService {
     public Object read(String sort, int page, int size, UserReadReq request);
 
      // Update
-    public Object update(String accountID, UserUpdateReq request);
+    public Object update(int userID, UserUpdateReq request);
 
     // Delete
-    public Object delete(String accountID);
+    public Object delete(int userID);
 }
