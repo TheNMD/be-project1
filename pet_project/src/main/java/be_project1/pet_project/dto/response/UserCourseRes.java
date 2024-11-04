@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserCourseRes {
-    private double rating;
+    private Double rating;
     private String review;
     private String status;
     private Date createdDate;

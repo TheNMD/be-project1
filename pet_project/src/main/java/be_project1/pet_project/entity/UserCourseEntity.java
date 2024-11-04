@@ -60,7 +60,7 @@ public class UserCourseEntity implements Serializable {
     private List<UserCourseLessonEntity> uclList;
 
     @Column(name = "rating")
-    private double rating;
+    private Double rating;
 
     @Column(name = "review")
     private String review;

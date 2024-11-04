@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.UserCourseLessonService;
-import be_project1.pet_project.entity.UserCourseLessonEntity;
 import be_project1.pet_project.repository.UserCourseLessonRepos;
 import be_project1.pet_project.service.validation.UserCourseLessonServiceVal;
 import be_project1.pet_project.dto.request.UserCourseLessonCreateReq;

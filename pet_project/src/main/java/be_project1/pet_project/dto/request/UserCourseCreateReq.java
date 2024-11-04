@@ -27,7 +27,7 @@ import jakarta.validation.constraints.FutureOrPresent;
 public class UserCourseCreateReq {
     @NotNull(message = "Rating cannot be null")
     @PositiveOrZero(message = "Rating must be greater than zero")
-    private double rating;
+    private Double rating;
 
     @NotNull(message = "Review cannot be null")
     @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")

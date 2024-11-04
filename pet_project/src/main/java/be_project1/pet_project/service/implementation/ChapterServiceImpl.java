@@ -42,7 +42,7 @@ public class ChapterServiceImpl implements ChapterService {
         request.setCreatedDate(Date.from(Instant.now()));
 
         int courseId = request.getCourseId() != 0 ? request.getCourseId() : -1;
-        CourseEntity course = courseRepos.findById(courseId).orElseThrow(() -> new RuntimeException(String.format("Course not found [%d]",courseId)));
+        CourseEntity course = courseRepos.findById(courseId).orElseThrow(() -> new RuntimeException(String.format("Course not found [%d]", courseId)));
 
         ChapterEntity newChapter = new ChapterEntity();
         newChapter.setName(request.getName());

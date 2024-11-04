@@ -42,7 +42,7 @@ public class LessonServiceImpl implements LessonService {
         request.setCreatedDate(Date.from(Instant.now()));
 
         int chapterId = request.getChapterId() != 0 ? request.getChapterId() : -1;
-        ChapterEntity chapter = chapterRepos.findById(chapterId).orElseThrow(() -> new RuntimeException(String.format("Chapter not found [%d]",chapterId)));
+        ChapterEntity chapter = chapterRepos.findById(chapterId).orElseThrow(() -> new RuntimeException(String.format("Chapter not found [%d]", chapterId)));
 
         LessonEntity newLesson = new LessonEntity();
         newLesson.setName(request.getName());

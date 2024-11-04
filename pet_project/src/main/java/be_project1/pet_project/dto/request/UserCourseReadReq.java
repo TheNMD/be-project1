@@ -25,7 +25,7 @@ import jakarta.validation.constraints.FutureOrPresent;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserCourseReadReq {
     @PositiveOrZero(message = "Rating must be greater than zero")
-    private double rating;
+    private Double rating;
     
     @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
     private String review;
