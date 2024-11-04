@@ -74,11 +74,11 @@ public class LessonServiceImpl implements LessonService {
 
     // Update
     @Override
-    public Object update(int lessonId, LessonUpdateReq request) {
+    public Object update(int id, LessonUpdateReq request) {
         request.setUpdatedDate(Date.from(Instant.now()));
         
         int chapterId = request.getChapterId() != 0 ? request.getChapterId() : -1;
-        ChapterEntity chapter = (chapterId != -1) ? chapterRepos.findById(chapterId).orElseThrow(() -> new RuntimeException(String.format("Chapter not found [%d]",chapterId))) : null;
+        ChapterEntity chapter = (id != -1) ? chapterRepos.findById(chapterId).orElseThrow(() -> new RuntimeException(String.format("Chapter not found [%d]", chapterId))) : null;
 
         LessonEntity existingLesson = lessonRepos.findById(id).orElseThrow(() -> new RuntimeException(String.format("Lesson not found [%d]", id)));
         existingLesson.setName(request.getName() != null ? request.getName() : existingLesson.getName());
