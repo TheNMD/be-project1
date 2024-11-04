@@ -43,7 +43,7 @@ public class LessonEntity {
 
     // FK from ChapterEntity
     @ManyToOne
-    @JoinColumn(name = "chapterId", nullable = false)
+    @JoinColumn(name = "chapterId")
     private ChapterEntity chapterObj;
 
     @Column(name = "name")

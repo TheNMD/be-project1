@@ -47,7 +47,7 @@ public class CourseEntity {
 
     // FK from TeacherEntity
     @ManyToOne
-    @JoinColumn(name = "teacherId", nullable = false)
+    @JoinColumn(name = "teacherId")
     private TeacherEntity teacherObj;
 
     @Column(name = "name")

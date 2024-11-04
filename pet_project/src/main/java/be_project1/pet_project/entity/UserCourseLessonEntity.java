@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Column;
 
@@ -36,26 +37,25 @@ public class UserCourseLessonEntity implements Serializable {
     @Column(name = "ucUserId")
     private int ucUserId;
 
-    // FK from UserCourseEntity
-    @ManyToOne
-    @JoinColumn(name = "ucUserId", nullable = false,  insertable = false, updatable = false)
-    private UserCourseEntity ucUserObj;
-
     // PK
     @Id
     @Column(name = "ucCourseId")
     private int ucCourseId;
 
-    // FK from UserCourseEntity
+    // Compsite FKs from UserCourseEntity
     @ManyToOne
-    @JoinColumn(name = "ucCourseId", nullable = false,  insertable = false, updatable = false)
-    private UserCourseEntity ucCourseObj;
-    
-    // FK from LessonEntity
+    @JoinColumns({
+        @JoinColumn(name = "ucUserId", referencedColumnName = "userId", insertable = false, updatable = false),
+        @JoinColumn(name = "ucCourseId", referencedColumnName = "courseId", insertable = false, updatable = false)
+    })
+    private UserCourseEntity ucObj;
+
+    // PK
     @Id
     @Column(name = "lessonId")
     private int lessonId;
 
+    // FK from LessonEntity
     @ManyToOne
     @JoinColumn(name = "lessonId", nullable = false,  insertable = false, updatable = false)
     private LessonEntity lessonObj;

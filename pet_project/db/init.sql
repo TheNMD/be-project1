@@ -11,7 +11,7 @@ INSERT INTO teacher_entity (name, status, username, password, created_date, upda
            ('Sarah Johnson', 'active', 's_jonhson', 'hashed_password_2', NOW(), NULL),
            ('Luke Williams', 'active', 'luke_w', 'hashed_password_2', NOW(), NULL);
 
--- Inserting sample data into the student table
+-- Inserting sample data into the user table
 INSERT INTO user_entity (name, status, username, password, created_date, updated_date)
 	VALUES ('John Doe', 'active', 'johndoe', 'hashed_password_1', NOW(), NULL),
            ('Jane Smith', 'active', 'janesmith', 'hashed_password_2', NOW(), NULL),
@@ -37,16 +37,16 @@ INSERT INTO lesson_entity (name, description, status, type, url, lesson_order, c
        	   ('Creating Your First HTML Page', 'Step by step guide to create an HTML page.', 'active', 'video', 'http://example.com/html-first-page', 1, NOW(), NULL, 2),
        	   ('Bubble Sort', 'Explaining bubble sort algorithm with examples.', 'inactive', 'video', 'http://example.com/bubble-sort', 1, NOW(), NULL, 3);
 
--- Inserting sample data into the student_course table
-INSERT INTO user_course_entity (student_id, course_id, rating, review, status, created_date, updated_date)
+-- Inserting sample data into the user_course table
+INSERT INTO user_course_entity (user_id, course_id, rating, review, status, created_date, updated_date)
 	VALUES (1, 1, 5, 'Great course! Very informative.', 'active', NOW(), NULL),
            (1, 2, 4, 'Good introduction, but could use more examples.', 'active', NOW(), NULL),
            (2, 1, 3, 'Decent course, but not engaging.', 'active', NOW(), NULL),
            (3, 3, NULL, NULL, 'inactive', NOW(), NULL);
 
--- Inserting sample data into the student_course_lesson table
+-- Inserting sample data into the user_course_lesson table
 INSERT INTO user_course_lesson_entity (uc_user_id, uc_course_id, lesson_id, status, created_date, updated_date)
 	VALUES (1, 1, 1, 'completed', NOW(), NULL),
        	   (1, 2, 2, 'in_progress', NOW(), NULL),
        	   (2, 1, 1, 'not_started', NOW(), NULL),
-       	   (1, 3, 3, 'completed', NOW(), NULL);
+       	   (3, 3, 3, 'completed', NOW(), NULL);

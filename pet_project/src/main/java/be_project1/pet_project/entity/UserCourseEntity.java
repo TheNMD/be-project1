@@ -40,10 +40,6 @@ public class UserCourseEntity implements Serializable {
     @Column(name = "userId")
     private int userId;
 
-    // PK to UserCourseLessonEntity
-    @OneToMany(mappedBy = "ucUserObj", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UserCourseLessonEntity> ucUserList;
-
     // FK from UserEntity
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false,  insertable = false, updatable = false)
@@ -54,14 +50,14 @@ public class UserCourseEntity implements Serializable {
     @Column(name = "courseId")
     private int courseId;
 
-    // PK to UserCourseLessonEntity
-    @OneToMany(mappedBy = "ucCourseObj", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UserCourseLessonEntity> ucCourseList;
-
     // FK from CourseEntity
     @ManyToOne
     @JoinColumn(name = "courseId", nullable = false,  insertable = false, updatable = false)
     private CourseEntity courseObj;
+
+    // Composite PKs to UserCourseLessonEntity
+    @OneToMany(mappedBy = "ucObj", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserCourseLessonEntity> uclList;
 
     @Column(name = "rating")
     private double rating;
