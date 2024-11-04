@@ -3,9 +3,9 @@ package be_project1.pet_project.repository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import be_project1.pet_project.entity.User;
+import be_project1.pet_project.entity.UserEntity;
 
 @Repository("userRepos")
-public interface UserRepos extends JpaRepository<User, Integer> {
+public interface UserRepos extends JpaRepository<UserEntity, Integer> {
 
 }

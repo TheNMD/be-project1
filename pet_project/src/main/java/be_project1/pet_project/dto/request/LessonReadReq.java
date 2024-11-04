@@ -39,8 +39,8 @@ public class LessonReadReq {
     @Pattern(regexp = RegexConst.URL, message = "Status must be either 'active' or 'inactive'")
     private String url;
 
-    @Positive(message = "Order must be greater than zero")
-    private int order;
+    @Positive(message = "Lesson Order must be greater than zero")
+    private int lessonOrder;
 
     @Pattern(regexp = RegexConst.STATUS, message = "Status must be either 'active' or 'inactive'")
     private String status;

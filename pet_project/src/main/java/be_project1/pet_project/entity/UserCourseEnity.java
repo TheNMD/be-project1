@@ -1,5 +1,6 @@
 package be_project1.pet_project.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.NoArgsConstructor;
@@ -13,9 +14,10 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.Column;
+
+import be_project1.pet_project.entity.key.UserCourseKey;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,27 +25,21 @@ import jakarta.persistence.Column;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="lesson")
-@Table(name="lesson")
-public class Lesson {
+@Entity(name="UserCourseEnity")
+@Table(name="UserCourseEnity")
+@IdClass(UserCourseKey.class)
+public class UserCourseEnity implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int userID;
 
-    @Column(name="lessonName")
-    private String lessonName;
+    @Id
+    private int courseID;
 
-    @Column(name="description")
-    private String description;
+    @Column(name="rating")
+    private double rating;
 
-    @Column(name="type")
-    private String type;
-
-    @Column(name="url")
-    private String url;
-
-    @Column(name="order")
-    private int order;
+    @Column(name="review")
+    private String review;
 
     @Column(name="status")
     private String status;
@@ -53,7 +49,4 @@ public class Lesson {
 
     @Column(name="updatedDate")
     private Date updatedDate;
-
-    @Column(name="chapterID")
-    private int chapterID;
 }

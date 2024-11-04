@@ -28,7 +28,7 @@ public class LessonRes {
     private String description;
     private String type;
     private String url;
-    private int order;
+    private int lessonOrder;
     private String status;
     private String createdDate;
     private String updatedDate;

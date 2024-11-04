@@ -42,9 +42,9 @@ public class LessonCreateReq {
     @Pattern(regexp = RegexConst.URL, message = "Status must be either 'active' or 'inactive'")
     private String url;
 
-    @NotNull(message = "Order cannot be null")
-    @Positive(message = "Order must be greater than zero")
-    private int order;
+    @NotNull(message = "Lesson Order cannot be null")
+    @Positive(message = "Lesson Order must be greater than zero")
+    private int lessonOrder;
 
     @Pattern(regexp = RegexConst.STATUS, message = "Status must be either 'active' or 'inactive'")
     private String status;
