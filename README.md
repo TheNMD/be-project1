@@ -24,3 +24,7 @@
 2. **Start**: sudo systemctl start mongod
 3. **Stop**: sudo systemctl stop mongod
 4. **Connect**:
+
+# TODO
+1. Make response DTOs for each requests
+2. Make Update and Delete API for rate and review

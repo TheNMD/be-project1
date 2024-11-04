@@ -1,5 +1,7 @@
 package be_project1.pet_project.dto.request;
 
+import java.util.Date;
+
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +9,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -15,6 +18,7 @@ import be_project1.pet_project.constant.RegexConst;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.FutureOrPresent;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,11 +43,11 @@ public class ChapterReadReq {
     @Pattern(regexp = RegexConst.STATUS, message = "Status must be either 'active' or 'inactive'")
     private String status;
 
-    @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
-    private String createdDate;
+    @FutureOrPresent
+    private Date createdDate;
 
-    @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
-    private String updatedDate;
+    @FutureOrPresent
+    private Date updatedDate;
 
     @Positive(message = "CourseID must be greater than zero")
     private int courseID;

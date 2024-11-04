@@ -1,14 +1,14 @@
 package be_project1.pet_project.service.implementation;
 
 import java.time.Instant;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.UserService;
+import be_project1.pet_project.entity.UserEntity;
 import be_project1.pet_project.repository.UserRepos;
 import be_project1.pet_project.service.validation.UserServiceVal;
 import be_project1.pet_project.dto.request.UserLoginReq;
@@ -47,9 +47,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public Object create(UserCreateReq request) {
         request.setStatus("active");
-        Instant currentTimestamp = Instant.now();
-        String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
-        request.setCreatedDate(createdDate);
+        request.setCreatedDate(Date.from(Instant.now()));
+        
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(request.getUsername());
+        userEntity.setName(request.getName());
+        userEntity.setStatus(request.getStatus());
+        userEntity.setCreatedDate(request.getCreatedDate());
+
+        userRepos.save(userEntity);
 
         return request;
     }
@@ -73,9 +79,7 @@ public class UserServiceImpl implements UserService {
     // Update
     @Override
     public Object update(String userID, UserUpdateReq request) {
-        Instant currentTimestamp = Instant.now();
-        String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
-        request.setUpdatedDate(updatedDate);
+        request.setUpdatedDate(Date.from(Instant.now()));
 
         return request;
     }

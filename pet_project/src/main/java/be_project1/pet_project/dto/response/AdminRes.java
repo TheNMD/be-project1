@@ -1,5 +1,7 @@
 package be_project1.pet_project.dto.response;
 
+import java.util.Date;
+
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +19,8 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 public class AdminRes {
     private String username;
     private String status;
-    private String createdDate;
-    private String updatedDate;
+    private Date createdDate;
+    private Date updatedDate;
     private String sort;
     private int page;
     private int size;

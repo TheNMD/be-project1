@@ -1,8 +1,7 @@
 package be_project1.pet_project.service.implementation;
 
 import java.time.Instant;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,6 @@ import be_project1.pet_project.service.UserCourseService;
 import be_project1.pet_project.dto.request.UserCourseCreateReq;
 import be_project1.pet_project.dto.request.UserCourseReadReq;
 import be_project1.pet_project.dto.request.UserCourseUpdateReq;
-import be_project1.pet_project.dto.request.UserCourseRateReq;
-import be_project1.pet_project.dto.request.UserCourseReviewReq;
 import be_project1.pet_project.dto.response.UserCourseRes;
 
 @Service("userCourseServiceImpl")
@@ -22,9 +19,7 @@ public class UserCourseServiceImpl implements UserCourseService {
     @Override
     public Object create(UserCourseCreateReq request) {
         request.setStatus("stopped");
-        Instant currentTimestamp = Instant.now();
-        String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
-        request.setCreatedDate(createdDate);
+        request.setCreatedDate(Date.from(Instant.now()));
 
         return request;
     }
@@ -47,9 +42,7 @@ public class UserCourseServiceImpl implements UserCourseService {
     // Update
     @Override
     public Object update(String courseID, UserCourseUpdateReq request) {
-        Instant currentTimestamp = Instant.now();
-        String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
-        request.setUpdatedDate(updatedDate);
+        request.setUpdatedDate(Date.from(Instant.now()));
 
         return request;
     }
@@ -74,13 +67,13 @@ public class UserCourseServiceImpl implements UserCourseService {
 
     // Rate
     @Override
-    public Object rate(String courseID, UserCourseRateReq request) {
+    public Object rate(String courseID, UserCourseCreateReq request) {
         return request;
     }
 
     // Review
     @Override
-    public Object review(String courseID, UserCourseReviewReq request) {
+    public Object review(String courseID, UserCourseCreateReq request) {
         return request;
     }
 }

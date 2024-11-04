@@ -19,8 +19,6 @@ import be_project1.pet_project.service.UserCourseService;
 import be_project1.pet_project.dto.request.UserCourseCreateReq;
 import be_project1.pet_project.dto.request.UserCourseReadReq;
 import be_project1.pet_project.dto.request.UserCourseUpdateReq;
-import be_project1.pet_project.dto.request.UserCourseRateReq;
-import be_project1.pet_project.dto.request.UserCourseReviewReq;
 
 @RestController("userCourseController")
 @RequestMapping("/api/v1")
@@ -76,30 +74,30 @@ public class UserCourseController {
         return ResponseEntity.ok(res);
     }
 
-    // Join
-    @PostMapping(URLConst.JOIN_COURSE)
-    public ResponseEntity<?> joinCourse(@Validated @PathVariable("course_id") String courseID) {
-        Object res = userCourseService.join(courseID);
-        return ResponseEntity.ok(res);
-    }
+    // // Join
+    // @PostMapping(URLConst.JOIN_COURSE)
+    // public ResponseEntity<?> joinCourse(@Validated @PathVariable("course_id") String courseID) {
+    //     Object res = userCourseService.join(courseID);
+    //     return ResponseEntity.ok(res);
+    // }
 
-    // Rate
-    @PostMapping(URLConst.RATE_COURSE)
-    public ResponseEntity<?> rateCourse(
-        @Validated
-        @PathVariable("course_id") String courseID,
-        @RequestBody UserCourseRateReq request) {
-        Object res = userCourseService.rate(courseID, request);
-        return ResponseEntity.ok(res);
-    }
+    // // Rate
+    // @PostMapping(URLConst.RATE_COURSE)
+    // public ResponseEntity<?> rateCourse(
+    //     @Validated
+    //     @PathVariable("course_id") String courseID,
+    //     @RequestBody UserCourseCreateReq request) {
+    //     Object res = userCourseService.rate(courseID, request);
+    //     return ResponseEntity.ok(res);
+    // }
 
-    // Review
-    @PostMapping(URLConst.REVIEW_COURSE)
-    public ResponseEntity<?> reviewCourse(
-        @Validated
-        @PathVariable("course_id") String courseID,
-        @RequestBody UserCourseReviewReq request) {
-        Object res = userCourseService.review(courseID, request);
-        return ResponseEntity.ok(res);
-    }
+    // // Review
+    // @PostMapping(URLConst.REVIEW_COURSE)
+    // public ResponseEntity<?> reviewCourse(
+    //     @Validated
+    //     @PathVariable("course_id") String courseID,
+    //     @RequestBody UserCourseCreateReq request) {
+    //     Object res = userCourseService.review(courseID, request);
+    //     return ResponseEntity.ok(res);
+    // }
 }

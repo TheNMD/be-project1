@@ -26,8 +26,8 @@ public interface UserCourseService {
     public Object join(String courseID);
 
     // Rate
-    public Object rate(String courseID, UserCourseRateReq request);
+    public Object rate(String courseID, UserCourseCreateReq request);
 
     // Review
-    public Object review(String courseID, UserCourseReviewReq request);
+    public Object review(String courseID, UserCourseCreateReq request);
 }

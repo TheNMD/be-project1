@@ -1,5 +1,7 @@
 package be_project1.pet_project.dto.request;
 
+import java.util.Date;
+
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +15,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.FutureOrPresent;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,11 +33,11 @@ public class UserCourseUpdateReq {
     @Pattern(regexp = RegexConst.STATUS, message = "Status must be either 'active' or 'inactive'")
     private String status;
 
-    @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
-    private String createdDate;
+    @FutureOrPresent
+    private Date createdDate;
 
-    @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
-    private String updatedDate;
+    @FutureOrPresent
+    private Date updatedDate;
 
     @Positive(message = "UserID must be greater than zero")
     private int userID;

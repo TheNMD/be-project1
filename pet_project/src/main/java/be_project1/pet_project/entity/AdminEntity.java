@@ -13,8 +13,6 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
@@ -25,18 +23,18 @@ import jakarta.persistence.Column;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="chapterEntity")
-@Table(name="chapterEntity")
-public class ChapterEntity {
+@Entity(name="adminEntity")
+@Table(name="adminEntity")
+public class AdminEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="description")
-    private String description;
+    @Column(name="username")
+    private String username;
 
-    @Column(name="chapterOrder")
-    private int chapterOrder;
+    @Column(name="password")
+    private String password;
 
     @Column(name="status")
     private String status;
@@ -46,9 +44,4 @@ public class ChapterEntity {
 
     @Column(name="updatedDate")
     private Date updatedDate;
-
-    // @ManyToOne
-    // @JoinColumn(name = "user_id", nullable = false)
-    @Column(name="courseID")
-    private int courseID;
 }

@@ -1,5 +1,7 @@
 package be_project1.pet_project.dto.response;
 
+import java.util.Date;
+
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,8 +28,8 @@ public class CourseRes {
     private String teacherName;
     private String description;
     private String status;
-    private String createdDate;
-    private String updatedDate;
+    private Date createdDate;
+    private Date updatedDate;
     private String sort;
     private int page;
     private int size;

@@ -3,8 +3,9 @@ package be_project1.pet_project.service.implementation;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import org.springframework.stereotype.Service;
+import java.util.Date;
 
+import org.springframework.stereotype.Service;
 import be_project1.pet_project.service.ChapterService;
 import be_project1.pet_project.dto.request.ChapterCreateReq;
 import be_project1.pet_project.dto.request.ChapterReadReq;
@@ -17,9 +18,7 @@ public class ChapterServiceImpl implements ChapterService {
     @Override
     public Object create(ChapterCreateReq request) {
         request.setStatus("active");
-        Instant currentTimestamp = Instant.now();
-        String createdDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
-        request.setCreatedDate(createdDate);
+        request.setCreatedDate(Date.from(Instant.now()));
 
         return request;
     }
@@ -43,9 +42,7 @@ public class ChapterServiceImpl implements ChapterService {
      // Update
     @Override
     public Object update(String chapterID, ChapterUpdateReq request) {
-        Instant currentTimestamp = Instant.now();
-        String updatedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC).format(currentTimestamp);
-        request.setUpdatedDate(updatedDate);
+        request.setUpdatedDate(Date.from(Instant.now()));
         
         return request;
     }
