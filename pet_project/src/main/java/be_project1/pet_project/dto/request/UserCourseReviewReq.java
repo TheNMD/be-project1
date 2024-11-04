@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import be_project1.pet_project.constant.RegexConst;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 @NoArgsConstructor
@@ -29,4 +30,10 @@ public class UserCourseReviewReq {
     
     @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
     private String updatedDate;
+
+    @Positive(message = "UserID must be greater than zero")
+    private int userID;
+
+    @Positive(message = "CourseID must be greater than zero")
+    private int courseID;
 }

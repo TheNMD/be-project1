@@ -38,5 +38,5 @@ public class UserReadReq {
     private String createdDate;
 
     @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
-    private String updateddDate;
+    private String updatedDate;
 }

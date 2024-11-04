@@ -29,7 +29,6 @@ public class ChapterServiceImpl implements ChapterService {
     public Object read(String sort, int page, int size, ChapterReadReq request) {
         ChapterRes response = new ChapterRes();
         response.setChapterName(request.getChapterName());
-        response.setCourseName(request.getCourseName());
         response.setDescription(request.getDescription());
         response.setOrder(request.getOrder());
         response.setStatus(request.getStatus());

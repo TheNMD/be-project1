@@ -3,9 +3,14 @@ package be_project1.pet_project.service.implementation;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.UserService;
+import be_project1.pet_project.repository.UserRepos;
+import be_project1.pet_project.service.validation.UserServiceVal;
 import be_project1.pet_project.dto.request.UserLoginReq;
 import be_project1.pet_project.dto.request.UserCreateReq;
 import be_project1.pet_project.dto.request.UserReadReq;
@@ -14,6 +19,18 @@ import be_project1.pet_project.dto.response.UserRes;
 
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
+    // Init
+    private static UserRepos userRepos;
+    private static UserServiceVal userServiceVal;
+
+    @Autowired
+    public UserServiceImpl(
+        @Qualifier("userRepos") UserRepos userRepos,
+        @Qualifier("userServiceVal") UserServiceVal userServiceVal) {
+        this.userRepos = userRepos;
+        this.userServiceVal = userServiceVal;
+    }
+    
     // Login
     @Override
     public Object login(UserLoginReq request) {

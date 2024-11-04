@@ -3,7 +3,10 @@ package be_project1.pet_project.service.implementation;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import be_project1.pet_project.service.UserCourseService;
 import be_project1.pet_project.dto.request.UserCourseCreateReq;

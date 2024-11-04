@@ -32,13 +32,6 @@ public class ChapterCreateReq {
     @Size(min = 1, max = 20, message = "Chapter Name must be between 1 and 20 characters long")
     private String chapterName;
 
-    @NotNull(message = "Course Name cannot be null")
-    @Size(min = 1, max = 20, message = "Course Name must be between 1 and 20 characters long")
-    private String courseName;
-
-    @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
-    private String description;
-
     @NotNull(message = "Order cannot be null")
     @Positive(message = "Order must be greater than zero")
     private int order;
@@ -48,4 +41,8 @@ public class ChapterCreateReq {
 
     @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
     private String createdDate;
+
+    @Positive(message = "CourseID must be greater than zero")
+    private int courseID;
+
 }

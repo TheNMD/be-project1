@@ -23,21 +23,21 @@ import jakarta.persistence.Column;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="user")
-@Table(name="user")
-public class User {
+@Entity(name="course")
+@Table(name="course")
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="username")
-    private String username;
+    @Column(name="courseName")
+    private String courseName;
 
-    @Column(name="password")
-    private String password;
+    @Column(name="teacherName")
+    private String teacherName;
 
-    @Column(name="name")
-    private String name;
+    @Column(name="description")
+    private String description;
 
     @Column(name="status")
     private String status;

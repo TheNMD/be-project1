@@ -30,9 +30,6 @@ public class ChapterReadReq {
     @Size(min = 1, max = 20, message = "Chapter Name must be between 1 and 20 characters long")
     private String chapterName;
 
-    @Size(min = 1, max = 20, message = "Course Name must be between 1 and 20 characters long")
-    private String courseName;
-
     @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
     private String description;
 
@@ -47,4 +44,7 @@ public class ChapterReadReq {
 
     @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
     private String updatedDate;
+
+    @Positive(message = "CourseID must be greater than zero")
+    private int courseID;
 }

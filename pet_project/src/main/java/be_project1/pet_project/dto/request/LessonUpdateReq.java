@@ -30,12 +30,6 @@ public class LessonUpdateReq {
     @Size(min = 1, max = 20, message = "Lesson Name must be between 1 and 20 characters long")
     private String lessonName;
 
-    @Size(min = 1, max = 20, message = "Chapter Name must be between 1 and 20 characters long")
-    private String chapterName;
-
-    @Size(min = 1, max = 20, message = "Course Name must be between 1 and 20 characters long")
-    private String courseName;
-
     @Size(min = 0, max = 200, message = "Description must be less than 200 characters long")
     private String description;
 
@@ -56,4 +50,7 @@ public class LessonUpdateReq {
 
     @Pattern(regexp = RegexConst.DATETIME, message = "Timestamp must be yyyy-mm-dd hh:mm:ss")
     private String updatedDate;
+
+    @Positive(message = "ChapterID must be greater than zero")
+    private int chapterID;
 }

@@ -29,8 +29,6 @@ public class LessonServiceImpl implements LessonService {
     public Object read(String sort, int page, int size, LessonReadReq request) {
         LessonRes response = new LessonRes();
         response.setLessonName(request.getLessonName());
-        response.setChapterName(request.getChapterName());
-        response.setCourseName(request.getCourseName());
         response.setType(request.getType());
         response.setUrl(request.getUrl());
         response.setOrder(request.getOrder());
