@@ -23,25 +23,26 @@ import jakarta.persistence.Column;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="adminEntity")
-@Table(name="adminEntity")
+@Entity(name = "adminEntity")
+@Table(name = "adminEntity")
 public class AdminEntity {
+    // PK
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="username")
+    @Column(name = "username")
     private String username;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name="createdDate")
+    @Column(name = "createdDate")
     private Date createdDate;
 
-    @Column(name="updatedDate")
+    @Column(name = "updatedDate")
     private Date updatedDate;
 }

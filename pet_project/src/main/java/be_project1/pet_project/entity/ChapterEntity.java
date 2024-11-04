@@ -1,5 +1,6 @@
 package be_project1.pet_project.entity;
 
+import java.util.List;
 import java.util.Date;
 
 import lombok.NoArgsConstructor;
@@ -13,10 +14,13 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Column;
 
 @NoArgsConstructor
@@ -25,33 +29,38 @@ import jakarta.persistence.Column;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="chapterEntity")
-@Table(name="chapterEntity")
+@Entity(name = "chapterEntity")
+@Table(name = "chapterEntity")
 public class ChapterEntity {
+    // PK
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="name")
+    // PK to LessonEntity
+    @OneToMany(mappedBy = "chapterObj", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<LessonEntity> lessonList;
+
+    // FK from CourseEntity
+    @ManyToOne
+    @JoinColumn(name = "courseId", nullable = false)
+    private CourseEntity courseObj;
+
+    @Column(name = "name")
     private String name;
 
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name="chapterOrder")
+    @Column(name = "chapterOrder")
     private int chapterOrder;
 
-    @Column(name="status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name="createdDate")
+    @Column(name = "createdDate")
     private Date createdDate;
 
-    @Column(name="updatedDate")
+    @Column(name = "updatedDate")
     private Date updatedDate;
-
-    // @ManyToOne
-    // @JoinColumn(name = "user_id", nullable = false)
-    @Column(name="courseId")
-    private int courseId;
 }

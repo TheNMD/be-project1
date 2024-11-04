@@ -1,5 +1,6 @@
 package be_project1.pet_project.entity;
 
+import java.util.List;
 import java.util.Date;
 
 import lombok.NoArgsConstructor;
@@ -15,6 +16,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Column;
 
 @NoArgsConstructor
@@ -23,28 +29,39 @@ import jakarta.persistence.Column;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="courseEntity")
-@Table(name="courseEntity")
+@Entity(name = "courseEntity")
+@Table(name = "courseEntity")
 public class CourseEntity {
+    // PK
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="name")
+    // PK to ChapterEntity
+    @OneToMany(mappedBy = "courseObj", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<ChapterEntity> chapterList;
+
+    // PK to UserCourseEntity
+    @OneToMany(mappedBy = "courseObj", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<UserCourseEntity> ucList;
+
+    // FK from TeacherEntity
+    @ManyToOne
+    @JoinColumn(name = "teacherId", nullable = false)
+    private TeacherEntity teacherObj;
+
+    @Column(name = "name")
     private String name;
 
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name="status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name="createdDate")
+    @Column(name = "createdDate")
     private Date createdDate;
 
-    @Column(name="updatedDate")
+    @Column(name = "updatedDate")
     private Date updatedDate;
-
-    @Column(name="teacherId")
-    private int teacherId;
 }

@@ -7,16 +7,16 @@ INSERT INTO admin_entity (status, username, password, created_date, updated_date
 
 -- Inserting sample data into the teacher table
 INSERT INTO teacher_entity (name, status, username, password, created_date, updated_date)
-	VALUES ('Mr. Anderson', 'active', 'mr_anderson', 'hashed_password_1', NOW(), NULL),
-           ('Ms. Johnson', 'active', 'ms_johnson', 'hashed_password_2', NOW(), NULL),
-           ('Mr. X', 'active', 'ms_x', 'hashed_password_2', NOW(), NULL);
+	VALUES ('John Anderson', 'active', 'j_anderson', 'hashed_password_1', NOW(), NULL),
+           ('Sarah Johnson', 'active', 's_jonhson', 'hashed_password_2', NOW(), NULL),
+           ('Luke Williams', 'active', 'luke_w', 'hashed_password_2', NOW(), NULL);
 
 -- Inserting sample data into the student table
-INSERT INTO user_entity (name, status, age, username, password, created_date, updated_date)
-	VALUES ('John Doe', 'active', 19, 'johndoe', 'hashed_password_1', NOW(), NULL),
-           ('Jane Smith', 'active', 20, 'janesmith', 'hashed_password_2', NOW(), NULL),
-           ('Alice Brown',  'inactive', 18, 'alicebrown', 'hashed_password_3', NOW(), NULL),
-           ('Alice X',  'inactive', 18, 'alicebrown', 'hashed_password_4', NOW(), NULL);
+INSERT INTO user_entity (name, status, username, password, created_date, updated_date)
+	VALUES ('John Doe', 'active', 'johndoe', 'hashed_password_1', NOW(), NULL),
+           ('Jane Smith', 'active', 'janesmith', 'hashed_password_2', NOW(), NULL),
+           ('Alice Brown',  'inactive', 'alicebrown', 'hashed_password_3', NOW(), NULL),
+           ('Lindsey Xanders',  'inactive', 'lindesey_X', 'hashed_password_4', NOW(), NULL);
 
 -- Inserting sample data into the course table
 INSERT INTO course_entity (name, description, status, created_date, updated_date, teacher_id)

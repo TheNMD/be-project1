@@ -2,6 +2,7 @@ package be_project1.pet_project.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -12,9 +13,14 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 
 import be_project1.pet_project.entity.key.UserCourseKey;
@@ -25,28 +31,50 @@ import be_project1.pet_project.entity.key.UserCourseKey;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="userCourseEntity")
-@Table(name="userCourseEntity")
+@Entity(name = "userCourseEntity")
+@Table(name = "userCourseEntity")
 @IdClass(UserCourseKey.class)
 public class UserCourseEntity implements Serializable {
+    // PK
     @Id
+    @Column(name = "userId")
     private int userId;
 
+    // PK to UserCourseLessonEntity
+    @OneToMany(mappedBy = "ucUserObj", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserCourseLessonEntity> ucUserList;
+
+    // FK from UserEntity
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false,  insertable = false, updatable = false)
+    private UserEntity userObj;
+    
+    // PK
     @Id
+    @Column(name = "courseId")
     private int courseId;
 
-    @Column(name="rating")
+    // PK to UserCourseLessonEntity
+    @OneToMany(mappedBy = "ucCourseObj", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserCourseLessonEntity> ucCourseList;
+
+    // FK from CourseEntity
+    @ManyToOne
+    @JoinColumn(name = "courseId", nullable = false,  insertable = false, updatable = false)
+    private CourseEntity courseObj;
+
+    @Column(name = "rating")
     private double rating;
 
-    @Column(name="review")
+    @Column(name = "review")
     private String review;
 
-    @Column(name="status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name="createdDate")
+    @Column(name = "createdDate")
     private Date createdDate;
 
-    @Column(name="updatedDate")
+    @Column(name = "updatedDate")
     private Date updatedDate;
 }

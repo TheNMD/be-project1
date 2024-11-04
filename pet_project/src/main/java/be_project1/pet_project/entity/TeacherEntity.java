@@ -1,11 +1,13 @@
 package be_project1.pet_project.entity;
 
+import java.util.List;
 import java.util.Date;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -15,6 +17,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Column;
 
 @NoArgsConstructor
@@ -23,28 +28,33 @@ import jakarta.persistence.Column;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@Entity(name="teacherEntity")
-@Table(name="teacherEntity")
+@Entity(name = "teacherEntity")
+@Table(name = "teacherEntity")
 public class TeacherEntity {
+    // PK
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="username")
+    // PK To CourseEntity
+    @OneToMany(mappedBy = "teacherObj", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<CourseEntity> courseList;
+
+    @Column(name = "username")
     private String username;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name="createdDate")
+    @Column(name = "createdDate")
     private Date createdDate;
 
-    @Column(name="updatedDate")
+    @Column(name = "updatedDate")
     private Date updatedDate;
 }
